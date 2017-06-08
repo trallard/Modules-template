@@ -1,0 +1,34 @@
+# Site settings
+title:
+description:
+baseurl: ""
+url: "http://trallard.github.io" # the base hostname & protocol for your site
+
+
+# About
+author:
+  name: Tania Allard
+
+
+# Build settings
+markdown: kramdown
+include: ['_pages']
+exclude:
+  - .gitignore
+  - README.md
+  - jekyll.py
+  - jekyll.tpl
+  - replace.py
+
+# to ensure the links work properly
+permalink: pretty
+
+# Additional gems
+gems:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# SASS directory
+sass:
+  style: compressed
+  sass_dir: _sass

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<!--custom header -->
+{% include head.html %}
+
+
+<!-- sidebar-->
+  {%include sidebar.html%}
+
+<!--main content needs to be in a wrap for
+when the sidebar is displayed-->
+  <div class='wrap'>
+
+<!-- navbar -->
+  {% include nav.html %}
+</div>
+
+
+<div class='wrap'>
+  <div class="edge-header orange lighten-2">
+    <div class='container'>
+    <h1 class='display-1'> {{site.description}}</h1>
+    <p class='display-3'> Add description here </p>
+  </div>
+  </div>
+  <div class="container">
+    <div class="row">
+
+<!--- Main content--->
+      <div class="col-sm-8">
+        <main>
+          <br>
+          <div class="alert alert-danger" role="alert">
+            <h3><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+               Important </h3>
+            Make sure to visit the
+            <a href= '{{site.url}}{{site.baseurl}}/about/'> Getting started </a> section of this
+            page before proceeding to any of the course modules.
+          </div>
+          {{content}}
+        </main>
+      </div>
+
+      <div class="col-sm-1">
+      </div>
+
+    </div>
+  </div>
+
+  {%include modules.html %}
+</div>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+
+</body>
+
+
+</html>

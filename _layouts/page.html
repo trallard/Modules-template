@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<!--custom header -->
+{% include head.html %}
+
+<!-- Scroller for TOC-->
+<body data-spy="scroll" data-target="#toc">
+
+  <!-- sidebar-->
+    {%include sidebar.html%}
+<!-- Main content needs to be in a wrap for
+when the sidebar is displayed-->
+
+  <div class='wrap'>
+
+<!-- nav bar-->
+{% include nav.html %}
+</div>
+<div class='wrap'>
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-sm-8">
+        <div class = 'page-header'>
+          <h1> {{page.title}} </h1>
+        </div>
+        <main>
+          {{content}}
+        </main>
+      </div>
+
+      <div class="col-sm-1">
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+
+</body>
+
+
+</html>
