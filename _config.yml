@@ -9,9 +9,15 @@ url: "http://trallard.github.io" # the base hostname & protocol for your site
 author:
   name: Tania Allard
 
+#Extra parameters
+github_username:
+project_repository:
+disqus_shortname:
+g-analytics:
 
 # Build settings
 markdown: kramdown
+highlighter: rouge
 include: ['_pages']
 exclude:
   - .gitignore
