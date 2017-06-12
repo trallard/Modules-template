@@ -15,7 +15,7 @@ This tutorial session will provide a brief introduction to Data Science and data
 
 The hands-on components of this module are contained in the following tutorials:
 
-<ul >
+<div class='list-group'>
 {% assign pages_list = site.pages %}
 {% for node in pages_list %}
 {% if node.title != null %}
@@ -25,8 +25,7 @@ The hands-on components of this module are contained in the following tutorials:
 {% for tag in node.tags %}
 {% if tag == 'Day1' %}
 <!-- Note you need to prepend the site.baseurl always-->
-<li><a href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
-</li>
+<a class='list-group-item' href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
 {% endif %}
 {% endfor %}
 
@@ -34,4 +33,4 @@ The hands-on components of this module are contained in the following tutorials:
 {%endif%}
 {% endif %}
 {% endfor %}
-</ul>
+</div>
