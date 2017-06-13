@@ -1,0 +1,27 @@
+---
+layout: page
+---
+
+{{content}}
+
+
+
+<div class='list-group'>
+{% assign pages_list = {{site.Day1}} %}
+{% for node in pages_list %}
+{% if node.title != null %}
+{% if node.layout == "default" %}
+{%if node.tags %}
+
+{% for tag in node.tags %}
+{% if tag == 'Day1' %}
+<!-- Note you need to prepend the site.baseurl always-->
+<a class='list-group-item' href="{{site.baseurl}}{{ node.url }}">{{node.title}}</a>
+{% endif %}
+{% endfor %}
+
+{% endif %}
+{%endif%}
+{% endif %}
+{% endfor %}
+</div>

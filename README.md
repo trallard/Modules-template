@@ -18,6 +18,12 @@ Below you will find a description of the various files and directories within th
 - images/*: images used for the landing page module presentation
 - notebooks/*: this contains both the original Jupyter notebooks and the converted versions for the website
 
+# Casual layouts
+This template includes basic layouts for posts, pages, and presentations intended for the casual user.
+
+# Advanced layouts
+Advanced layouts are included for the coding scientist providing a robust publication framework.
+
 # How to use Jekyll to test/build this site
 
 ### Editing pages online with GitHub
@@ -113,4 +119,4 @@ The color scheme follows [Google's material design](https://material.io/guidelin
 
  Alternatively, a guide for the MDB colour aliases can be found [here](https://mdbootstrap.com/css/colors/).
 
- Note that depending on color scheme you use for your website you might need to change the color of some components to ensure appropriate contrast and readability. 
+ Note that depending on color scheme you use for your website you might need to change the color of some components to ensure appropriate contrast and readability.

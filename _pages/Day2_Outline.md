@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: module
 permalink: /2-outline/
 title: Day 2 outline
 category: module
