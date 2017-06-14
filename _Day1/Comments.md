@@ -3,8 +3,6 @@ layout: default
 title: "Comments"
 tags:
     - Day1
-
-category: Day1
 ---
 # BAD Day 1: Additional comments
 

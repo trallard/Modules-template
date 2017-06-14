@@ -1,8 +1,8 @@
 ---
 layout: module
-permalink: /1-outline/
-title: Day 1 outline
-
+permalink: /2-outline/
+title: Day 2 outline
+category: module
 ---
 
 

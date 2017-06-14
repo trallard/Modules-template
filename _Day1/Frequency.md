@@ -4,7 +4,6 @@ title: "Frequency"
 tags:
     - Day1
 
-permalink: "Frequency.html"
 ---
 #  BAD Day 1: Frequency
 

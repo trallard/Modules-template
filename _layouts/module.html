@@ -5,23 +5,16 @@ layout: page
 {{content}}
 
 
-
+<!--automatically finds and list the files in the collection-->
 <div class='list-group'>
-{% assign pages_list = {{site.Day1}} %}
-{% for node in pages_list %}
-{% if node.title != null %}
-{% if node.layout == "default" %}
-{%if node.tags %}
-
-{% for tag in node.tags %}
-{% if tag == 'Day1' %}
+{% for node in site.collections%}
+{% for file in node.docs %}
+{% if file.collection == page.collection %}
+{% if file.layout != 'module' %}
 <!-- Note you need to prepend the site.baseurl always-->
-<a class='list-group-item' href="{{site.baseurl}}{{ node.url }}">{{node.title}}</a>
+<a class='list-group-item' href="{{site.baseurl}}{{file.url}}">{{file.title}}</a>
+{% endif %}
 {% endif %}
 {% endfor %}
-
-{% endif %}
-{%endif%}
-{% endif %}
 {% endfor %}
 </div>

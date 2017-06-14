@@ -39,3 +39,5 @@ sass:
 collections:
   Day1:
     output: true
+  Day2:
+    output: true
