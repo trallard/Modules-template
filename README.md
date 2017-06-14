@@ -7,19 +7,46 @@ This website is hosted as a github page. In short, is built statically from Mark
 This site uses the [Bootstrap framework](http://getbootstrap.com) along with [Material Design for Boostrap](https://mdbootstrap.com/material-design-for-bootstrap/).
 
 Below you will find a description of the various files and directories within this repository:
--  config.yml: main configuration page
-- Gemfile: list of the various gems used in the website
-- index.md: landing page content
-- _includes/*: diverse components of the website, reusable html components
-- _layouts/*: local style files
-- _sass/*: css/sass style sheets
-- js/*: various JavaScript scripts used in this website
-- pages/*: main pages
-- images/*: images used for the landing page module presentation
-- notebooks/*: this contains both the original Jupyter notebooks and the converted versions for the website
+- `_config.yml`: main configuration page
+- `Gemfile`: list of the various gems used in the website
+- `index.md`: landing page content
+- `_includes/*`: diverse components of the website, reusable html components
+- `_layouts/*`: local style files
+- `_sass/*`: css/sass style sheets
+- `js/*:` various JavaScript scripts used in this website
+- `pages/*`: main pages
+- `images/*`: images used for the landing page module presentation
+- `notebooks/*`: this contains both the original Jupyter notebooks and the converted versions for the website
+
+# Configuration and setup
+The main configuration for the jekyll website is contained in the `config.yml` file.
+
+### Site settings
+
+```yaml
+# Site settings
+title: Module template
+description: Lorem ipsum dolor sit amet understanding yourself in the universe tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+baseurl: "/Module_template"
+url: "http://trallard.github.io" # the base hostname & protocol for your site
+```
+
+This are the basic configuration setups for the site, this **must** be set accordingly.
+
+The title and description are used in the landing page as well as to generate canonical urls for the website.
+
+The variable
+`baseurl` is the name of your repository which is /Module_template by default. If you setup your instance using another method than forking like duplication/mirroring, or you changed the name of your repository, change this accordingly.
+
+
+If you have trouble understanding what the `baseurl` and `url` variables are visit <https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/>.
+
+
 
 # Casual layouts
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
+
+- landing: layout for the landing page displaying the modules as cards (it auto generates a card for eah module)
 
 # Advanced layouts
 Advanced layouts are included for the coding scientist providing a robust publication framework.
