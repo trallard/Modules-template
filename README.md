@@ -41,12 +41,20 @@ The variable
 
 If you have trouble understanding what the `baseurl` and `url` variables are visit <https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/>.
 
+Each of your modules should be declared as a collection in the `_config.yml` file so that jekyll knows where to read:
+~~~ yaml
+collections:
+  - module1
+    output: true
+  - module2
+    output: true
+~~~
+set the output to `true`
 
+You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
 
 # Casual layouts
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
-
-- landing: layout for the landing page displaying the modules as cards (it auto generates a card for eah module)
 
 # Advanced layouts
 Advanced layouts are included for the coding scientist providing a robust publication framework.
