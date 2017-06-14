@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: notebook
 title: "Comments"
 tags:
     - Day1
+nb: 'Comments.ipynb'
 ---
 # BAD Day 1: Additional comments
 

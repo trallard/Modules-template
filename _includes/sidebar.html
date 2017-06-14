@@ -29,6 +29,21 @@
         {% endif %}
       {% endif %}
     {% endfor %}
+
+    {% comment %}
+      The code below dynamically generates a sidebar nav of pages with
+      `layout: module` in the front-matter.
+    {% endcomment %}
+
+    {% for module in site.collections %}
+      {% for file in module.docs %}
+        {% if file.layout == 'module' %}
+        <!-- Note you need to prepend the site.baseurl always-->
+          <a class="sidebar-nav-item{% if page.url == file.url %} active{% endif %}"
+          href="{{site.baseurl}}{{ file.url }}">{{ file.title }}</a>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
 </nav>
 
   <div class="sidebar-item">
