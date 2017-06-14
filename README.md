@@ -53,10 +53,8 @@ set the output to `true`
 
 You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
 
-# Casual layouts
+# Layouts
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
-
-# Advanced layouts
 Advanced layouts are included for the coding scientist providing a robust publication framework.
 
 # How to use Jekyll to test/build this site

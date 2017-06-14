@@ -29,57 +29,14 @@
       <!--/.Card-->
 
     </div>
-    <div class="col-sm-6">
 
-      <!--Card-->
-      <div class="card">
-
-        <!--Card image-->
-        <div class="view overlay hm-white-slight">
-          <a href="{{site.url}}{{site.baseurl}}/1-outline">
-          <img src="./images/dna.jpg" class="img-fluid" alt=""></a>
-
-        </div>
-
-        <!--Card content-->
-        <div class="card-block">
-          <!--Title-->
-          <a href="{{site.url}}{{site.baseurl}}/1-outline"><h4>Day 1</h4></a>
-          <!--Text-->
-          <p >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <br>
-        </div>
-
-      </div>
-      <!--/.Card-->
-
-    </div>
-
-
-    <div class="col-sm-6">
-
-      <div class="card">
-
-        <!--Card image-->
-        <div class="view overlay hm-white-slight">
-          <a href="{{site.url}}{{site.baseurl}}/about">
-          <img src="./images/dna.jpg" class="img-fluid" alt=""></a>
-
-        </div>
-
-        <!--Card content-->
-        <div class="card-block">
-          <!--Title-->
-          <a href="{{site.url}}{{site.baseurl}}/about"><h4> Title </h4></a>
-          <!--Text-->
-          <p > Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-          <br>
-        </div>
-
-      </div>
-
-   </div>
-
+{% for module in site.collections %}
+{% for file in module.docs %}
+{% if file.layout == 'module' %}
+{% include card.html %}
+{% endif %}
+{% endfor %}
+{% endfor %}
 
     </div>
 
