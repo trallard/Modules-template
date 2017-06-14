@@ -130,3 +130,62 @@ ul {
 .card{
   margin-top: 15px;
 }
+
+
+
+/*** Floating button ***/
+.float{
+	position:fixed;
+	width:50px;
+	height:50px;
+	bottom:20px;
+	right:40px;
+	background-color: $primary;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  font-size: 1.25em;
+  &:hover{
+    background-color: lighten($primary, 5%);
+  }
+}
+
+a.float:hover,
+a.float:focus {
+  text-decoration: underline;
+  color: $white;
+}
+
+.my-float{
+	margin-top:16px;
+}
+
+
+.label-container{
+	position:fixed;
+	bottom:22px;
+	right:100px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-text{
+	color:#FFF;
+	background:rgba(51,51,51,0.5);
+	display:table-cell;
+	vertical-align:middle;
+	padding:10px;
+	border-radius:3px;
+}
+
+a.float + div.label-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.float:hover + div.label-container{
+  visibility: visible;
+  opacity: 1;
+}
