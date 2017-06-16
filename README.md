@@ -1,25 +1,28 @@
 # Modules template
+This Jekyll template is intended to be used to by academics and researchers. This can be used as a scientific blog template or as a webpage to host/display projects information, scientific outputs or as a site for academic modules.
 
+It provides automatic rendering of  Jupyter notebooks, support for Latex via MathJax, code highlighting, and  support for Reveal.js slides. On top of the various Jekyll capabilities.
 
 # About the website
-This website is hosted as a github page. In short, is built statically from Markdown source files using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push.
+This website is hosted as a GitHub page (github-pages). In short, is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push.
 
 This site uses the [Bootstrap framework](http://getbootstrap.com) along with [Material Design for Boostrap](https://mdbootstrap.com/material-design-for-bootstrap/).
 
 Below you will find a description of the various files and directories within this repository:
-- `_config.yml`: main configuration page
+- `_config.yml`: main configuration file, this **must** set accordingly for your own website/blog
 - `Gemfile`: list of the various gems used in the website
 - `index.md`: landing page content
 - `_includes/*`: diverse components of the website, reusable html components
 - `_layouts/*`: local style files
 - `_sass/*`: css/sass style sheets
 - `js/*:` various JavaScript scripts used in this website
-- `pages/*`: main pages
-- `images/*`: images used for the landing page module presentation
+- `pages/*`: pages markdown files
+- `posts/*`: containing folder for posts
+- `images/*`: images used across the website
 - `notebooks/*`: this contains both the original Jupyter notebooks and the converted versions for the website
 
 # Configuration and setup
-The main configuration for the jekyll website is contained in the `config.yml` file.
+The main configuration for the Jekyll website is declared in the `config.yml` file. Such a file contains the site specific variables, which are accessed at various points within the website.
 
 ### Site settings
 
@@ -31,7 +34,7 @@ baseurl: "/Module_template"
 url: "http://trallard.github.io" # the base hostname & protocol for your site
 ```
 
-This are the basic configuration setups for the site, this **must** be set accordingly.
+These are the basic configuration setups for the site, this **must** be set accordingly.
 
 The title and description are used in the landing page as well as to generate canonical urls for the website.
 
@@ -41,7 +44,7 @@ The variable
 
 If you have trouble understanding what the `baseurl` and `url` variables are visit <https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/>.
 
-Each of your modules should be declared as a collection in the `_config.yml` file so that jekyll knows where to read:
+Each of your modules/projects should be declared as a collection in the `_config.yml` file so that Jekyll knows where to read:
 ~~~ yaml
 collections:
   - module1
@@ -49,13 +52,21 @@ collections:
   - module2
     output: true
 ~~~
-set the output to `true`
+(leaving the output as `true` ensures the generation of an html page for each of the files contained in the directory)
 
 You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
+
+These are automatically added to the landing page in the form of a card as well as to the main navigation menu on the website. The urls and redirects to the files within the collections folders are generated automatically and added to the front page of each module/project.
 
 # Layouts
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
 Advanced layouts are included for the coding scientist providing a robust publication framework.
+
+Basic templates including the required `.yml` front matter can be located in the `yml_tmpl` directory.
+
+All of your content **must** have a Title and a layout. The rest of the variables are optional.
+In the case of files with the module template, the subtitle variable will be displayed along with the title in the landing page as a short description of the module/project.
+
 
 # How to use Jekyll to test/build this site
 
@@ -136,16 +147,15 @@ jupyter nbconvert --config jekyll.py <notebook>
 jupyter nbconvert --config jekyll.py
 ~~~
 
-The custom converter creates a *.md file by extending the default `markdown.tpl` template from nbconvert. This adds the required jekyll front matter and creates a permalink.
+The custom converter creates a `*.md` file by extending the default `markdown.tpl` template from nbconvert. This adds the required jekyll front matter and ensures consistency between the static version of the notebook and the website.
 
-In order for the generated *.md files to be correctly render in Jekyll, some scoped text needs to be parsed this is done using the `replace.py` script.
+In order for the generated `*.md` files to be correctly rendered in Jekyll, some scoped text needs to be parsed this is done using the `replace.py` script.
 
 ~~~
 python replace.py
 ~~~
 
 If the notebooks have images (e.g. plots) these are saved as `.png` files within the notebook directory. The path can be modified directly within the script.
-
 
 # Theme colors
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `variables.scss` file.
