@@ -3,7 +3,6 @@ layout: default
 title: "One way ANOVA "
 tags:
     - Day1
-permalink: "One way ANOVA .html"
 ---
 #  BAD Day 1: One way ANOVA
 

@@ -4,7 +4,7 @@ title: "Tutorial"
 tags:
     - Day1
 
-permalink: "Tutorial.html"
+
 ---
 # BAD Day 1: Tutorial
 

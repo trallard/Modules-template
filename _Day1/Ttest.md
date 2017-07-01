@@ -4,7 +4,7 @@ title: "Ttest"
 tags:
     - Day1
 
-permalink: "Ttest.html"
+
 ---
 # BAD Day 1 : T-test
 

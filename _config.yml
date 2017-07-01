@@ -1,6 +1,6 @@
 # Site settings
-title:
-description:
+title: Module template
+description: Lorem ipsum dolor sit amet understanding yourself in the universe tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 baseurl: ""
 url: "http://trallard.github.io" # the base hostname & protocol for your site
 
@@ -19,6 +19,7 @@ g-analytics:
 markdown: kramdown
 highlighter: rouge
 include: ['_pages']
+highlighter: rouge
 exclude:
   - .gitignore
   - README.md
@@ -38,3 +39,11 @@ gems:
 sass:
   style: compressed
   sass_dir: _sass
+
+
+# Collections: note each of this corresponds to a module
+collections:
+  Day1:
+    output: true
+  Day2:
+    output: true

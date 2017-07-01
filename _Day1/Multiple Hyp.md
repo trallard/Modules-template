@@ -4,7 +4,6 @@ title: "Multiple Hypothesis testing"
 tags:
     - Day1
 
-permalink: "Multiple Hyp.html"
 ---
 # BAD Day 1: Multiple hypothesis testing on Golub
 

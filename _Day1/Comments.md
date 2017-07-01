@@ -1,10 +1,9 @@
 ---
-layout: default
+layout: notebook
 title: "Comments"
 tags:
     - Day1
-
-permalink: "Comments.html"
+nb: 'Comments.ipynb'
 ---
 # BAD Day 1: Additional comments
 

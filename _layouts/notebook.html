@@ -3,7 +3,9 @@
 <!--custom header -->
 {% include head.html %}
 
-<body>
+<!-- scroller for TOC-->
+<body data-spy="scroll" data-target="#toc">
+
 <!-- sidebar-->
   {%include sidebar.html%}
 
@@ -14,39 +16,37 @@ when the sidebar is displayed-->
 <!-- navbar -->
   {% include nav.html %}
 </div>
-
-
 <div class='wrap'>
-  <div class="edge-header orange lighten-2">
-    <div class='container'>
-    <h1 class='display-1'> {{site.title}}</h1>
-    <p> {{site.description}}</p>
-
-  </div>
-  </div>
   <div class="container">
     <div class="row">
 
 <!--- Main content--->
       <div class="col-sm-8">
         <main>
-          <br>
-
           {{content}}
         </main>
       </div>
 
       <div class="col-sm-1">
       </div>
-
+      <!-- TOC sidebar, which will move to the top on a small screen -->
+      <div class="col-sm-3 container-toc">
+        <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
+      </div>
     </div>
   </div>
-
-  {%include modules.html %}
 </div>
 
 <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-8">
+    {%include action_buttons.html%}
+    <br>
+  </div>
+  </div>
+</div>
 
 </body>
 

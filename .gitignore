@@ -3,4 +3,6 @@
 \.sass-cache
 \_site
 
+\.ipynb_checkpoints
+
 \.idea/
