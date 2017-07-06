@@ -44,7 +44,7 @@ c.NbConvertApp.output_files_dir = '../images/notebook_images/{notebook_name}'
 # modify this function to point the  images to a custom path
 # the default for nbconvert is to create a directory {notebook_name}_files
 # where the notebook is located
-def path2support(path):
+def jekyllpath(path):
     """
 	Take the filepath of an image output by the ExportOutputProcessor
 	and convert it into a URL we can use with Jekyll
@@ -52,4 +52,4 @@ def path2support(path):
     base = os.path.split(path)[1]
     return path.replace("..", "{{site.url}}{{site.baseurl}}")
 
-c.MarkdownExporter.filters = {'path2support': path2support}
+c.MarkdownExporter.filters = {'jekyllpath': jekyllpath}

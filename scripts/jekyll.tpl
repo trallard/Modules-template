@@ -26,15 +26,15 @@ permalink: "{{resources['metadata']['name']}}.html"
 {% endblock input %}
 
 {% block data_svg %}
-![svg]({{ output.metadata.filenames['image/svg+xml'] | path2support }})
+![svg]({{ output.metadata.filenames['image/svg+xml'] | jekyllpath }})
 {% endblock data_svg %}
 
 {% block data_png %}
-![png]({{ output.metadata.filenames['image/png'] | path2support }})
+![png]({{ output.metadata.filenames['image/png'] | jekyllpath }})
 {% endblock data_png %}
 
 {% block data_jpg %}
-![jpeg]({{ output.metadata.filenames['image/jpeg'] | path2support }})
+![jpeg]({{ output.metadata.filenames['image/jpeg'] | jekyllpath }})
 {% endblock data_jpg %}
 
 {# cells containing markdown text only #}
