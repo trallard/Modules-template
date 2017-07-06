@@ -11,12 +11,13 @@ within a main Jekyll repository
 import os 
 from pathlib import Path
 import shutil
+import os, sys, glob
 
 try:
     from urllib.parse import quote  # Py 3
 except ImportError:
     from urllib2 import quote  # Py 2
-import os, sys, glob
+
 
 
 # Finding the directories that contain notebooks
