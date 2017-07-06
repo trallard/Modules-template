@@ -4,11 +4,11 @@
 Created on Fri Jun 30 13:57:33 2017
 
 @author: tania
-This code is used to generate Jekyll blogpost from Jupyter notebooks 
+This code is used to generate Jekyll blogpost from Jupyter notebooks
 within a main Jekyll repository
 """
 
-import os 
+import os
 from pathlib import Path
 import shutil
 import os, sys, glob
@@ -29,7 +29,7 @@ notebooks = [os.path.abspath(i) for i in PathList]
 # nbconvert
 c = get_config()
 c.NbConvertApp.export_format = 'markdown'
-c.MarkdownExporter.template_path = ['.'] # point this to the location of the jekyll template file
+c.MarkdownExporter.template_path = ['./scripts'] # point this to the location of the jekyll template file
 c.MarkdownExporter.template_file = 'jekyll'
 
 # convert all notebooks found
@@ -53,6 +53,3 @@ def path2support(path):
     return path.replace("..", "{{site.url}}{{site.baseurl}}")
 
 c.MarkdownExporter.filters = {'path2support': path2support}
-
-
-
