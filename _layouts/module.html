@@ -12,7 +12,7 @@ layout: page
 {% if file.collection == page.collection %}
 {% if file.layout != 'module' %}
 <!-- Note you need to prepend the site.baseurl always-->
-<a class='list-group-item' href="{{site.baseurl}}{{file.url}}">{{file.title}}</a>
+<a class='list-group-item' href="{{site.url}}{{site.baseurl}}{{file.url}}">{{file.title}}</a>
 {% endif %}
 {% endif %}
 {% endfor %}
@@ -20,8 +20,8 @@ layout: page
 </div>
 
 
-<!-- hume button -->
+<!-- home button -->
 
-<a href="{{site.url}}{{site.baseurl}}/index.html" class="float" download>
+<a href="{{site.url}}{{site.baseurl}}/index.html" class="float">
 <i class="fa fa-home my-float"></i>
 </a>

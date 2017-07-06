@@ -12,7 +12,8 @@
   </div>
 
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}"
+    href="{{site.url}}{{ site.baseurl }}/">Home</a>
 
     {% comment %}
       The code below dynamically generates a sidebar nav of pages with
@@ -25,7 +26,7 @@
         {% if node.layout == "page" %}
         <!-- Note you need to prepend the site.baseurl always-->
           <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}"
-          href="{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+          href="{{site.url}}{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
         {% endif %}
       {% endif %}
     {% endfor %}
@@ -40,7 +41,7 @@
         {% if file.layout == 'module' %}
         <!-- Note you need to prepend the site.baseurl always-->
           <a class="sidebar-nav-item{% if page.url == file.url %} active{% endif %}"
-          href="{{site.baseurl}}{{ file.url }}">{{ file.title }}</a>
+          href="{{site.url}}{{site.baseurl}}{{ file.url }}">{{ file.title }}</a>
         {% endif %}
       {% endfor %}
     {% endfor %}

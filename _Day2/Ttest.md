@@ -2,9 +2,9 @@
 layout: default
 title: "Ttest"
 tags:
-    - Day1
+    - Day
 
-
+permalink: "Ttest.html"
 ---
 # BAD Day 1 : T-test
 
@@ -41,7 +41,7 @@ head(golub.expr)
 {% endhighlight %}
 
 
-<table class="table-responsive table-striped">
+<table class="""table-responsive table-striped""">
 <tbody>
 	<tr><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
 	<tr><td>-0.75161</td><td>-1.26278</td><td>-0.09052</td><td>-0.99596</td><td>-1.24245</td><td>-0.69242</td><td>-1.37386</td><td>-0.50803</td><td>-1.04533</td><td>-0.81257</td><td>⋯       </td><td>-1.08902</td><td>-1.05094</td><td>-1.26183</td><td>-1.25918</td><td> 0.97813</td><td>-0.79357</td><td>-1.22961</td><td>-0.71792</td><td>0.45127 </td><td>-0.45804</td></tr>
@@ -105,7 +105,7 @@ head(golub.expr)
 {% endhighlight %}
 
 
-<table class="table-responsive table-striped">
+<table class="""table-responsive table-striped""">
 <thead><tr><th></th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">ALL</th><th scope="col">⋯</th><th scope="col">AML</th><th scope="col">AML</th><th scope="col">AML</th><th scope="col">AML</th><th scope="col">AML</th><th scope="col">AML</th><th scope="col">AML</th><th scope="col">AML</th><th scope="col">AML</th><th scope="col">AML</th></tr></thead>
 <tbody>
 	<tr><th scope="row">AFFX-HUMISGF3A/M97935_MA_at</th><td>-1.45769</td><td>-1.39420</td><td>-1.42779</td><td>-1.40715</td><td>-1.42668</td><td>-1.21719</td><td>-1.37386</td><td>-1.36832</td><td>-1.47649</td><td>-1.21583</td><td>⋯       </td><td>-1.08902</td><td>-1.29865</td><td>-1.26183</td><td>-1.44434</td><td> 1.10147</td><td>-1.34158</td><td>-1.22961</td><td>-0.75919</td><td>0.84905 </td><td>-0.66465</td></tr>
@@ -148,7 +148,7 @@ Draw a barplot with color-coded cancer type
 {% highlight R %}
 plot.col <- c('ALL'='midnightblue', 'AML'='mediumpurple')
 
-barplot(g.profile, main=paste("Golub (1999), gene", g),
+barplot(g.profile, main=paste("Golub (1999), gene", g), 
         col=plot.col[cancer.type])
 legend('topright', c("ALL","AML"),col=plot.col[c("ALL","AML")],
        pch=15, bty="o", bg='white')
@@ -156,7 +156,6 @@ box()
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/Ttest_files/Ttest_20_0.png)
 
 
 Separating the data in two vectors
@@ -292,17 +291,17 @@ t.test(golub[1042, ] ~ gol.fac, var.equal = FALSE)
 {% endhighlight %}
 
 
-
+    
     	Welch Two Sample t-test
-
+    
     data:  golub[1042, ] by gol.fac
     t = 6.3186, df = 16.118, p-value = 9.871e-06
     alternative hypothesis: true difference in means is not equal to 0
     95 percent confidence interval:
      0.8363826 1.6802008
     sample estimates:
-    mean in group AML mean in group ALL
-            1.8938826         0.6355909
+    mean in group AML mean in group ALL 
+            1.8938826         0.6355909 
 
 
 
@@ -342,17 +341,17 @@ t.test(golub[1042, ] ~ gol.fac, var.equal = TRUE)
 {% endhighlight %}
 
 
-
+    
     	Two Sample t-test
-
+    
     data:  golub[1042, ] by gol.fac
     t = 6.7983, df = 36, p-value = 6.046e-08
     alternative hypothesis: true difference in means is not equal to 0
     95 percent confidence interval:
      0.8829143 1.6336690
     sample estimates:
-    mean in group AML mean in group ALL
-            1.8938826         0.6355909
+    mean in group AML mean in group ALL 
+            1.8938826         0.6355909 
 
 
 

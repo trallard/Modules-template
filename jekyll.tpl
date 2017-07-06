@@ -4,11 +4,9 @@
 {# custom header for jekyll post #}
 {%- block header -%}
 ---
-layout: default
+layout: notebook
 title: "{{resources['metadata']['name']}}"
 tags:
-    - Day
-
 permalink: "{{resources['metadata']['name']}}.html"
 ---
 {%- endblock header -%}
