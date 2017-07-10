@@ -1,5 +1,15 @@
-#!/usr/bin/env bash
-set -e # halt script on error
+#!/bin/bash
+py.test --nbval -lax *.ipynb
+echo "Testing notebooks \n \n "
 
-bundle exec jekyll build
-bundle exec htmlproofer ./_site --disable-external --check-favicon --only_4xx
+
+echo ("+++++++++++++++ \n Parsing notebooks for publishing")
+
+jupyter nbconvert --config scripts/nb_jekyll.py
+
+python scripts/nb_replace.py
+
+clear
+echo "Notebooks ready"
+
+source deactivate
