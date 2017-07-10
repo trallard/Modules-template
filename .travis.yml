@@ -3,7 +3,7 @@ python:
   - "3.5"
 
 install:
-  - source get_miniconda.sh
+  - source scripts/get_miniconda.sh
   - conda env create -f scripts/conda_notebook.yml
   - source activate notebooks
   - pip install nbval
