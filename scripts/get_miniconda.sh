@@ -5,16 +5,16 @@ then
   export OS=Linux;
 elif [[ "$TRAVIS_OS_NAME" == "osx" ]];
 then
-  export OS=MacOSX; brew install pandoc; else echo "OS not supported yet";
+  export OS=MacOSX; brew install pandoc; else echo "Cannot support MacOSX";
   exit 1;
 fi;
 
-if [[ $PYTHON_VERSION == "2.7" ]];
+if [[ $TRAVIS_PYTHON_VERSION == "2.7" ]];
 then
   export MINICONDA=Miniconda2;
-elif [[ $PYTHON_VERSION == 3* ]];
+elif [[ $TRAVIS_PYTHON_VERSION == 3* ]];
 then
-  export MINICONDA=Miniconda3; else echo "Could not find python version";
+  export MINICONDA=Miniconda3; else echo "Could not find the specified Python version";
   exit 1;
 fi;
 

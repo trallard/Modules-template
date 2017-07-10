@@ -20,7 +20,7 @@ permalink: "{{resources['metadata']['name']}}.html"
 
 {# code highlight, needs to be changed accordingly #}
 {% block input %}
-{{ '{% highlight R %}' }}
+{{ '{% highlight Python %}' }}
 {{ cell.source }}
 {{ '{% endhighlight %}' }}
 {% endblock input %}
