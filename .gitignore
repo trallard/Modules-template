@@ -1,6 +1,5 @@
-
 \.DS_Store
 \.sass-cache
 \_site
-
 \.ipynb_checkpoints
+Gemfile.lock
