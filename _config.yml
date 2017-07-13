@@ -23,6 +23,7 @@ exclude:
   - vendor
   - .travis.yml
   - Gemfile*
+  - reveal.js
 
 # to ensure the links work properly
 permalink: pretty
