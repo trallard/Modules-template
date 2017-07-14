@@ -12,11 +12,11 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="{{"/css/reveal.min.css" | prepend: site.baseurl | prepend: site.url}}">
-		<link rel="stylesheet" href="{{"/css/theme/default.css" | prepend: site.baseurl | prepend: site.url| replace: 'default',page.theme}}" id="theme"> <!-- This is where THEME -->
+		<link rel="stylesheet" href="{{"/css/reveal.min.css" | absolute_url}}">
+		<link rel="stylesheet" href="{{"/css/theme/default.css" | absolute_url | replace: 'default',page.theme}}" id="theme"> <!-- This is where THEME -->
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="{{"/lib/css/zenburn.css" | prepend: site.baseurl | prepend: site.url}}">
+		<link rel="stylesheet" href="{{"/reveal.js/lib/css/zenburn.css" | absolute_url }}">
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
 		<script>
@@ -24,7 +24,7 @@
 				var link = document.createElement( 'link' );
 				link.rel = 'stylesheet';
 				link.type = 'text/css';
-				link.href = '{{"/css/print/pdf.css" | prepend: site.baseurl}}';
+				link.href = '{{"/reveal.js/css/print/pdf.css" | absolute_url}}';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 			}
 		</script>
@@ -34,9 +34,8 @@
 		<![endif]-->
 
 		<!-- Pygments Github CSS -->
-		<link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl | prepend: site.url }}">
+		<link rel="stylesheet" href="{{ "/reveal.js/css/syntax.css" | absolute_url }}">
 
-		{% include analytics.html %}
 
 	</head>
 
@@ -47,8 +46,8 @@
 			</div>
 		</div>
 
-		<script src="{{"/lib/js/head.min.js " | prepend: site.baseurl}}"> </script>
-		<script src="{{"/js/reveal.min.js " | prepend: site.baseurl}}"></script>
+		<script src="{{"/reveal.js/lib/js/head.min.js " | absolute_url }}"> </script>
+		<script src="{{"/reveal.js/js/reveal.min.js " | absoltue_url }}"></script>
 
 		<script>
 			// Full list of configuration options available here:
@@ -65,13 +64,13 @@
 				// parallaxBackgroundSize: '2100px 900px',
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
-					{ src: '{{"/lib/js/classList.js" | prepend: site.baseurl}}', condition: function() { return !document.body.classList; } },
-					{ src: '{{"/plugin/markdown/marked.js" | prepend: site.baseurl}}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '{{"/plugin/markdown/markdown.js" | prepend: site.baseurl}}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '{{"/plugin/highlight/highlight.js" | prepend: site.baseurl}}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '{{"/plugin/zoom-js/zoom.js" | prepend: site.baseurl}}', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: '{{"/plugin/notes/notes.js" | prepend: site.baseurl}}', async: true, condition: function() { return !!document.body.classList; } },
-        			{ src: '{{"/plugin/math/math.js" | prepend: site.baseurl}}', async: true }
+					{ src: '{{"/reveal.js/lib/js/classList.js" | absolute_url }}', condition: function() { return !document.body.classList; } },
+					{ src: '{{"/reveal.js/plugin/markdown/marked.js" | absolute_url }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '{{"/reveal.js/plugin/markdown/markdown.js" | absolute_url }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '{{"/reveal.js/plugin/highlight/highlight.js" | absolute_url }}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '{{"/reveal.js/plugin/zoom-js/zoom.js" | absolute_url }}', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: '{{"/reveal.js/plugin/notes/notes.js" | absolute_url }}', async: true, condition: function() { return !!document.body.classList; } },
+        	{ src: '{{"/reveal.js/plugin/math/math.js" | absolute_url }}', async: true }
 				]
 			});
 		</script>

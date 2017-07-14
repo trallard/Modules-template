@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Generalized linear models"
+title: "GLM_bad2"
 tags:
-    - Day2
+    - Day
 
 permalink: "GLM_bad2.html"
 ---
@@ -46,7 +46,7 @@ dat2 = subset(dat,dat$species=="Tsuga canadensis")
 {% endhighlight %}
 
 
-<table class="table-responsive table-striped">
+<table class="""table-responsive table-striped""">
 <thead><tr><th scope="col">plotID</th><th scope="col">date</th><th scope="col">plotsize</th><th scope="col">spcode</th><th scope="col">species</th><th scope="col">cover</th><th scope="col">utme</th><th scope="col">utmn</th><th scope="col">elev</th><th scope="col">tci</th><th scope="col">streamdist</th><th scope="col">disturb</th><th scope="col">beers</th></tr></thead>
 <tbody>
 	<tr><td>ATBN-01-0403 </td><td>08-28-2001   </td><td> 1000        </td><td>ABIEFRA      </td><td>Abies fraseri</td><td>1            </td><td>275736       </td><td>3942439      </td><td>1660         </td><td>5.701460     </td><td>490.9        </td><td>CORPLOG      </td><td>0.22442864   </td></tr>
@@ -61,7 +61,7 @@ dat2 = subset(dat,dat$species=="Tsuga canadensis")
 
 
 
-<ol class="list-inline">
+<ol class="""list-inline""">
 	<li>8971</li>
 	<li>13</li>
 </ol>
@@ -98,9 +98,9 @@ table(dat2$cover)
 {% endhighlight %}
 
 
-
-      1   2   3   4   5   6   7   8   9  10
-     39  71 166 110  92  80 108  60  19   1
+    
+      1   2   3   4   5   6   7   8   9  10 
+     39  71 166 110  92  80 108  60  19   1 
 
 
 If these counts were distributed exactly from a Poisson process, what would they
@@ -124,7 +124,6 @@ box()
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/GLM_bad2_files/GLM_bad2_9_0.png)
 
 
 <br>
@@ -148,30 +147,30 @@ Now let's fit a GLM to these data with just an intercept (overall mean):
 {% highlight R %}
 glm1 = glm(cover~1,data=dat2,family=poisson)
 
-summary(glm1)
+summary(glm1) 
 {% endhighlight %}
 
 
-
+    
     Call:
     glm(formula = cover ~ 1, family = poisson, data = dat2)
-
-    Deviance Residuals:
+    
+    Deviance Residuals: 
         Min       1Q   Median       3Q      Max  
     -2.0594  -0.8229  -0.3132   1.0085   2.1430  
-
+    
     Coefficients:
                 Estimate Std. Error z value Pr(>|z|)    
     (Intercept)  1.53891    0.01696   90.73   <2e-16 ***
     ---
     Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
+    
     (Dispersion parameter for poisson family taken to be 1)
-
+    
         Null deviance: 749.25  on 745  degrees of freedom
     Residual deviance: 749.25  on 745  degrees of freedom
     AIC: 3212.2
-
+    
     Number of Fisher Scoring iterations: 4
 
 
@@ -194,7 +193,6 @@ with(dat2,plot(elev,cover,main="Hemlock cover vs. elevation",
 {% endhighlight %}
 
 
-![png]({{ site.url}}{{ site.baseurl }}/notebooks/GLM_bad2_files/GLM_bad2_14_0.png)
 
 
 <br>
@@ -212,19 +210,19 @@ x = seq(0,1660)
 glm3 = glm(cover~disturb, data = dat2, family = poisson)
 
 summary(glm3)
-anova(glm1, glm3, test = "Chisq")
+anova(glm1, glm3, test = "Chisq") 
 
 {% endhighlight %}
 
 
-
+    
     Call:
     glm(formula = cover ~ disturb, family = poisson, data = dat2)
-
-    Deviance Residuals:
+    
+    Deviance Residuals: 
         Min       1Q   Median       3Q      Max  
     -2.1794  -0.7763  -0.1980   0.8523   2.2006  
-
+    
     Coefficients:
                   Estimate Std. Error z value Pr(>|z|)    
     (Intercept)    1.48367    0.03838  38.661   <2e-16 ***
@@ -233,19 +231,19 @@ anova(glm1, glm3, test = "Chisq")
     disturbVIRGIN  0.12184    0.05277   2.309    0.021 *  
     ---
     Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
+    
     (Dispersion parameter for poisson family taken to be 1)
-
+    
         Null deviance: 749.25  on 745  degrees of freedom
     Residual deviance: 742.32  on 742  degrees of freedom
     AIC: 3211.3
-
+    
     Number of Fisher Scoring iterations: 4
 
 
 
 
-<table class="table-responsive table-striped">
+<table class="""table-responsive table-striped""">
 <thead><tr><th scope="col">Resid. Df</th><th scope="col">Resid. Dev</th><th scope="col">Df</th><th scope="col">Deviance</th><th scope="col">Pr(&gt;Chi)</th></tr></thead>
 <tbody>
 	<tr><td>745       </td><td>749.2497  </td><td>NA        </td><td>      NA  </td><td>        NA</td></tr>
@@ -261,37 +259,37 @@ anova(glm1, glm3, test = "Chisq")
 {% highlight R %}
 glm2 = glm(cover~elev, data = dat2, family = poisson)
 summary(glm2)
-anova(glm1,glm2,test="Chisq")
+anova(glm1,glm2,test="Chisq") 
 {% endhighlight %}
 
 
-
+    
     Call:
     glm(formula = cover ~ elev, family = poisson, data = dat2)
-
-    Deviance Residuals:
+    
+    Deviance Residuals: 
         Min       1Q   Median       3Q      Max  
     -2.0673  -0.8250  -0.3048   0.9991   2.1347  
-
+    
     Coefficients:
                   Estimate Std. Error z value Pr(>|z|)    
     (Intercept)  1.546e+00  5.135e-02  30.115   <2e-16 ***
     elev        -8.448e-06  5.471e-05  -0.154    0.877    
     ---
     Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
+    
     (Dispersion parameter for poisson family taken to be 1)
-
+    
         Null deviance: 749.25  on 745  degrees of freedom
     Residual deviance: 749.23  on 744  degrees of freedom
     AIC: 3214.2
-
+    
     Number of Fisher Scoring iterations: 4
 
 
 
 
-<table class="table-responsive table-striped">
+<table class="""table-responsive table-striped""">
 <thead><tr><th scope="col">Resid. Df</th><th scope="col">Resid. Dev</th><th scope="col">Df</th><th scope="col">Deviance</th><th scope="col">Pr(&gt;Chi)</th></tr></thead>
 <tbody>
 	<tr><td>745       </td><td>749.2497  </td><td>NA        </td><td>        NA</td><td>       NA </td></tr>
@@ -307,18 +305,18 @@ anova(glm1,glm2,test="Chisq")
 {% highlight R %}
 glm4 = glm(cover~disturb*elev,data=dat2,family=poisson)
 
-summary(glm4)
+summary(glm4) 
 {% endhighlight %}
 
 
-
+    
     Call:
     glm(formula = cover ~ disturb * elev, family = poisson, data = dat2)
-
-    Deviance Residuals:
+    
+    Deviance Residuals: 
         Min       1Q   Median       3Q      Max  
     -2.4042  -0.7782  -0.2072   0.8090   2.0888  
-
+    
     Coefficients:
                          Estimate Std. Error z value Pr(>|z|)    
     (Intercept)         1.445e+00  1.396e-01  10.352   <2e-16 ***
@@ -331,13 +329,13 @@ summary(glm4)
     disturbVIRGIN:elev  2.278e-05  2.269e-04   0.100   0.9200    
     ---
     Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
+    
     (Dispersion parameter for poisson family taken to be 1)
-
+    
         Null deviance: 749.25  on 745  degrees of freedom
     Residual deviance: 729.06  on 738  degrees of freedom
     AIC: 3206
-
+    
     Number of Fisher Scoring iterations: 4
 
 
@@ -346,21 +344,21 @@ summary(glm4)
 <font color ='#00bcd4'> In [20]: </font>
 
 {% highlight R %}
-step(glm4)
+step(glm4) 
 {% endhighlight %}
 
 
-
+    
     Call:  glm(formula = cover ~ disturb * elev, family = poisson, data = dat2)
-
+    
     Coefficients:
            (Intercept)       disturbLT-SEL       disturbSETTLE       disturbVIRGIN  
              1.445e+00           2.546e-01          -3.702e-01           9.283e-02  
                   elev  disturbLT-SEL:elev  disturbSETTLE:elev  disturbVIRGIN:elev  
              3.540e-05          -2.788e-04           7.319e-04           2.278e-05  
-
+    
     Degrees of Freedom: 745 Total (i.e. Null);  738 Residual
-    Null Deviance:	    749.2
+    Null Deviance:	    749.2 
     Residual Deviance: 729.1 	AIC: 3206
 
 
@@ -383,7 +381,7 @@ when the interaction is removed).
 <font color ='#00bcd4'> In [2]: </font>
 
 {% highlight R %}
-#st=step(glm4)
+#st=step(glm4) 
 {% endhighlight %}
 
 <br>

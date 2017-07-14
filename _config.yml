@@ -23,9 +23,13 @@ highlighter: rouge
 exclude:
   - .gitignore
   - README.md
-  - jekyll.py
+  - nb_jekyll.py
   - jekyll.tpl
-  - replace.py
+  - nb_replace.py
+  - vendor
+  - .travis.yml
+  - Gemfile*
+  - reveal.js
 
 # to ensure the links work properly
 permalink: pretty
