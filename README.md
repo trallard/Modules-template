@@ -63,9 +63,17 @@ You will then need to generate a folder for each module (using the exact same na
 
 These are automatically added to the landing page in the form of a card as well as to the main navigation menu on the website. The urls and redirects to the files within the collections folders are generated automatically and added to the front page of each module/project.
 
-### Site colour scheme and fonts
-The global fonts and colour scheme are declared in the 'basic_style.scss' stylesheet located in the root directory.
+
+# Theme colors
+The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
+
 If you want to modify the colour scheme or the fonts used you only need to modify this file and they will be automatically updated as the site is built.
+
+ Alternatively, a guide for the MDB colour aliases can be found [here](https://mdbootstrap.com/css/colors/).
+
+ Note that depending on color scheme you use for your website you might need to change the color of some components to ensure appropriate contrast and readability.
+
+
 
 # Layouts
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
@@ -165,10 +173,3 @@ python replace.py
 ~~~
 
 If the notebooks have images (e.g. plots) these are saved as `.png` files within the notebook directory. The path can be modified directly within the script.
-
-# Theme colors
-The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `variables.scss` file.
-
- Alternatively, a guide for the MDB colour aliases can be found [here](https://mdbootstrap.com/css/colors/).
-
- Note that depending on color scheme you use for your website you might need to change the color of some components to ensure appropriate contrast and readability.
