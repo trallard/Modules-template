@@ -1,3 +1,6 @@
+/* Custom configuration  for multiple components used
+in the site */
+
 body{
   font-family: $base-font;
   overflow-x: hidden;
@@ -69,6 +72,11 @@ img{
   height: auto;
 }
 
+.img-logo{
+  border-radius: 50%;
+  float: right;
+  padding-right: 20px;
+}
 /*** Tables ***/
 table{
   width: 100%;
