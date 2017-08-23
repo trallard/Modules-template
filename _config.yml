@@ -32,7 +32,6 @@ permalink: pretty
 gems:
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-feed
   - jemoji
 
 # SASS directory
