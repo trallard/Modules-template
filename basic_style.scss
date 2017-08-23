@@ -1,0 +1,24 @@
+//## Custom color scheme inspired from Google material
+
+/* Used for display and accents */
+$primary: #ff9800;
+$primary-light: #ffc947;
+$primary-dark: #c66900;
+
+/* Used for titles, links and other text structures */
+$secondary: #2195f2;
+$secondary-light: #6ec5ff;
+$secondary-dark: #0068bf;
+$white: #fff;
+$black: #000;
+
+
+//## Custom fonts
+@import url('https://fonts.googleapis.com/css?family=Imprima|Meera+Inimai|Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Cantata+One|Muli');
+
+
+/* Custom fonts used */
+$base-font: 'Meera Inimai', sans-serif;
+/*$title-font: 'Cantata One', Georgia, serif;*/
+$title-font: 'Kaffeesatz', sans-serif;
