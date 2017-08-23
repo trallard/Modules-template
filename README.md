@@ -1,3 +1,7 @@
+
+[![Build Status](https://travis-ci.org/trallard/Modules-template.svg?branch=master)](https://travis-ci.org/trallard/Modules-template)
+
+
 # Modules template
 This Jekyll template is intended to be used to by academics and researchers. This can be used as a scientific blog template or as a webpage to host/display projects information, scientific outputs or as a site for academic modules.
 
