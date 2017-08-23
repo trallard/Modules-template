@@ -22,3 +22,7 @@ $black: #000;
 $base-font: 'Meera Inimai', sans-serif;
 /*$title-font: 'Cantata One', Georgia, serif;*/
 $title-font: 'Kaffeesatz', sans-serif;
+
+
+/* DO NOT change */
+.primary-lighten{ background-color: lighten($primary, 15%)}
