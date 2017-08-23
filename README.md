@@ -68,7 +68,7 @@ All of your content **must** have a Title and a layout. The rest of the variable
 In the case of files with the module template, the subtitle variable will be displayed along with the title in the landing page as a short description of the module/project.
 
 
-# How to use Jekyll to test/build this site
+# How to use Jekyll to build this site
 
 ### Editing pages online with GitHub
 
