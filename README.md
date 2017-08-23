@@ -20,6 +20,7 @@ Below you will find a description of the various files and directories within th
 - `posts/*`: containing folder for posts
 - `images/*`: images used across the website
 - `notebooks/*`: this contains both the original Jupyter notebooks and the converted versions for the website
+- `basic_style.scss`: this stylesheet contains the default colour scheme and fonts used in this site
 
 # Configuration and setup
 The main configuration for the Jekyll website is declared in the `config.yml` file. Such a file contains the site specific variables, which are accessed at various points within the website.
@@ -57,6 +58,10 @@ collections:
 You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
 
 These are automatically added to the landing page in the form of a card as well as to the main navigation menu on the website. The urls and redirects to the files within the collections folders are generated automatically and added to the front page of each module/project.
+
+### Site colour scheme and fonts
+The global fonts and colour scheme are declared in the 'basic_style.scss' stylesheet located in the root directory.
+If you want to modify the colour scheme or the fonts used you only need to modify this file and they will be automatically updated as the site is built.
 
 # Layouts
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
