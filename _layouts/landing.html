@@ -24,9 +24,9 @@
             <h1 class='display-1'> {{site.title}}</h1>
             <p> {{site.description}}</p>
           </div>
-          
+
           <div class='col-sm-3'>
-            <img class='img-logo' src='{{site.url}}{{site.baseurl}}{{site.logo}}'/>
+            <img class='img-logo' src="{{ "{{site.logo}}" | absolute_url }}"  alt="img{{file.title}}-img"></a>
           </div>
 
         </div>
