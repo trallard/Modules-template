@@ -10,6 +10,8 @@ logo: "./images/logo-sheffield.png"
 author:
   name: Tania Allard
 
+card_image: "./images/dna.jpg" #default card image to be shown
+
 
 # Build settings
 markdown: kramdown

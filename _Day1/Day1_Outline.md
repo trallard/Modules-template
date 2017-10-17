@@ -4,6 +4,7 @@ permalink: /1-outline/
 title: Day 1 outline
 category: module
 description: This is the description for the module
+featured: /images/dna2.jpg
 ---
 
 
