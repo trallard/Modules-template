@@ -93,8 +93,6 @@ If you want to modify the color scheme or the fonts used you only need to modify
 
  Note that depending on color scheme you use for your website you might need to change the color of some components to ensure appropriate contrast and readability.
 
-
-
 ### Layouts
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
 Advanced layouts are included for the coding scientist providing a robust publication framework.
@@ -105,6 +103,12 @@ All of your content **must** have a Title and a layout. The rest of the variable
 
 In the case of pages generated using the module template, the subtitle variable will be displayed along with the title in the landing page as a short description of the lecture module/project.
 
+
+### Adding a logo
+If you need to add a logo to your website you can do it by saving the image to the 'images' folder and modify the name of the image in the `config.yml` file:
+```yaml
+logo: "./images/logo-sheffield.png"
+```
 
 # How to use Jekyll to build this site
 
