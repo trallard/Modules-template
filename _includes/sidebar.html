@@ -8,7 +8,10 @@
     <p>{{ site.description }}</p>
 
     <p> Developed by the <a href='http://rse.shef.ac.uk'> RSE team
-    </a> at the University of Sheffield. Maintained by {{site.author.name}}</p>
+      </a> at the University of Sheffield.
+      <br /> <br />
+      Maintained by {{site.author.name}}
+    </p>
   </div>
 
   <nav class="sidebar-nav">
@@ -26,7 +29,9 @@
         {% if node.layout == "page" %}
         <!-- Note you need to prepend the site.baseurl always-->
           <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}"
-          href="{{site.url}}{{site.baseurl}}{{ node.url }}">{{ node.title }}</a>
+          href="{{site.url}}{{site.baseurl}}{{ node.url }}">
+            {{ node.title }}
+          </a>
         {% endif %}
       {% endif %}
     {% endfor %}
