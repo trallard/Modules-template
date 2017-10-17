@@ -10,7 +10,7 @@
 
         <!--Card image-->
         <div class="view overlay hm-white-slight">
-          <a href="{{site.url}}{{site.baseurl}}/about">
+          <a href="{{ "/about" | absolute_url }}" >
           <img src="{{"./images/dna.jpg"}}" class="img-fluid" alt="introimg"></a>
 
         </div>
@@ -18,12 +18,13 @@
         <!--Card content-->
         <div class="card-block">
           <!--Title-->
-          <a href="{{site.url}}{{site.baseurl}}/about"><h4>Getting started</h4></a>
+          <a href="{{ "/about" | absolute_url }}" >
+            <h4> Getting started </h4>
+          </a>
+
           <!--Text-->
-          <p > This section contains vital information about the course
-          content and the requirements.</p>
-          <br>
-        </div>
+          <p> content and the requirements.</p>
+          </div>
 
       </div>
       <!--/.Card-->
