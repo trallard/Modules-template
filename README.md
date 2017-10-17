@@ -1,14 +1,32 @@
 
 [![Build Status](https://travis-ci.org/trallard/Modules-template.svg?branch=master)](https://travis-ci.org/trallard/Modules-template)
 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Modules template](#modules-template)
+- [About the website](#about-the-website)
+	- [Configuration and setup](#configuration-and-setup)
+		- [Site settings](#site-settings)
+- [Site settings](#site-settings)
+		- [Generating the pages for the lecture modules or projects](#generating-the-pages-for-the-lecture-modules-or-projects)
+		- [Theme colors](#theme-colors)
+		- [Layouts](#layouts)
+- [How to use Jekyll to build this site](#how-to-use-jekyll-to-build-this-site)
+	- [Editing pages online with GitHub](#editing-pages-online-with-github)
+	- [Working locally](#working-locally)
+- [Generating posts/pages from Jupyter notebooks](#generating-postspages-from-jupyter-notebooks)
+
+<!-- /TOC -->
 
 # Modules template
-This Jekyll template is intended to be used to by academics and researchers. This can be used as a scientific blog template or as a webpage to host/display projects information, scientific outputs or as a site for academic modules.
+This Jekyll template is intended to be used to by academics and researchers wanting to generate a _literate programming_ and _hassle free_ static website.
+This can be used as a scientific blog template or as a webpage to host/display projects information, scientific outputs or as a site for academic modules.
 
-It provides automatic rendering of  Jupyter notebooks, support for Latex via MathJax, code highlighting, and  support for Reveal.js slides. On top of the various Jekyll capabilities.
+It provides validation of Jupyter notebooks as well as automatic rendering, support for Latex via MathJax, code highlighting, and  support for [reveal.js](https://github.com/hakimel/reveal.js/) slides.
+On top of the various Jekyll capabilities.
 
 # About the website
-This website is hosted as a GitHub page (github-pages). In short, is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push.
+This website is hosted as a GitHub page (github-pages). In short, it is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push. The website will then be built and deployed using gh-pages.
 
 This site uses the [Bootstrap framework](http://getbootstrap.com) along with [Material Design for Boostrap](https://mdbootstrap.com/material-design-for-bootstrap/).
 
@@ -26,7 +44,7 @@ Below you will find a description of the various files and directories within th
 - `notebooks/*`: this contains both the original Jupyter notebooks and the converted versions for the website
 - `basic_style.scss`: this stylesheet contains the default colour scheme and fonts used in this site
 
-# Configuration and setup
+## Configuration and setup
 The main configuration for the Jekyll website is declared in the `config.yml` file. Such a file contains the site specific variables, which are accessed at various points within the website.
 
 ### Site settings
@@ -36,7 +54,7 @@ The main configuration for the Jekyll website is declared in the `config.yml` fi
 title: Module template
 description: Lorem ipsum dolor sit amet understanding yourself in the universe tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 baseurl: "/Module_template"
-url: "http://trallard.github.io" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
 ```
 
 These are the basic configuration setups for the site, this **must** be set accordingly.
@@ -44,12 +62,14 @@ These are the basic configuration setups for the site, this **must** be set acco
 The title and description are used in the landing page as well as to generate canonical urls for the website.
 
 The variable
-`baseurl` is the name of your repository which is /Module_template by default. If you setup your instance using another method than forking like duplication/mirroring, or you changed the name of your repository, change this accordingly.
+`baseurl` is the name of your repository which is **/Module_template** by default. If you setup your instance using another method than forking like duplication/mirroring, or you changed the name of your repository, you will need to change this accordingly.
 
 
 If you have trouble understanding what the `baseurl` and `url` variables are visit <https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/>.
 
-Each of your modules/projects should be declared as a collection in the `_config.yml` file so that Jekyll knows where to read:
+### Generating the pages for the lecture modules or projects
+
+Each of your lecture modules/projects should be declared as a collection in the `_config.yml` file so that Jekyll knows where to read:
 ~~~ yaml
 collections:
   - module1
@@ -64,10 +84,10 @@ You will then need to generate a folder for each module (using the exact same na
 These are automatically added to the landing page in the form of a card as well as to the main navigation menu on the website. The urls and redirects to the files within the collections folders are generated automatically and added to the front page of each module/project.
 
 
-# Theme colors
+### Theme colors
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
 
-If you want to modify the colour scheme or the fonts used you only need to modify this file and they will be automatically updated as the site is built.
+If you want to modify the color scheme or the fonts used you only need to modify this file and they will be automatically updated as the site is built.
 
  Alternatively, a guide for the MDB colour aliases can be found [here](https://mdbootstrap.com/css/colors/).
 
@@ -75,23 +95,24 @@ If you want to modify the colour scheme or the fonts used you only need to modif
 
 
 
-# Layouts
+### Layouts
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
 Advanced layouts are included for the coding scientist providing a robust publication framework.
 
-Basic templates including the required `.yml` front matter can be located in the `yml_tmpl` directory.
+Basic templates containing the required `.yml` front matter can be located in the `templates` directory.
 
 All of your content **must** have a Title and a layout. The rest of the variables are optional.
-In the case of files with the module template, the subtitle variable will be displayed along with the title in the landing page as a short description of the module/project.
+
+In the case of pages generated using the module template, the subtitle variable will be displayed along with the title in the landing page as a short description of the lecture module/project.
 
 
 # How to use Jekyll to build this site
 
-### Editing pages online with GitHub
+## Editing pages online with GitHub
 
 You can edit any page by following the "Edit this page" link in the Quick links nav bar. Alternatively, you can directly navigate to the corresponding .md (Markdown) file in GitHub.
 
-This will drop you in GitHub's file editing interface, where you can modify the source code, preview it, and save your changes, by giving a short description of what you modified. If you have write access to the repository (hint: you do), your modifications will be published rightaway. If you do not have right access, you will be asked to fork the repository and make a pull request.
+This will drop you in GitHub's file editing interface, where you can modify the source code, preview it, and save your changes, by giving a short description of what you modified. If you have write access to the repository (hint: you do), your modifications will be published right-away. If you do not have right access, you will be asked to fork the repository and make a pull request.
 
 Most of the pages are written in Markdown, which is a textual format for generating formatted text. Markdown syntax is very intuitive, you can get a quick review here or here.
 
@@ -99,11 +120,11 @@ CAVEATS: The Markdown engine used by this site is Kramdown. Its syntax definitio
 
 Other reasons why GitHub's preview may not correspond to the final results are:
 
-Use of Liquid templates in the source. This is seldom used, but some pages use them to access site-wide configuration variables.
-Use of special purpose markup, HTML, and scripts, such as mathematical excerpts written in MathJax.
+- Use of Liquid templates in the source. This is seldom used, but some pages use them to access site-wide configuration variables.
+- Use of special purpose markup, HTML, and scripts, such as mathematical excerpts written in MathJax.
 
 
-### Working locally
+## Working locally
 
 If you want to do more than the occasional editing, you'll soon
 realise GitHub's editor and preview are too limited. It's better to
@@ -114,11 +135,12 @@ All you need to work locally is a [Git client](http://git-scm.com/).
 and start coding right away.
 
 At some point, you will need to preview your work, but pushing to
-GitHub each time you want to preview is clumsy. Your best option is to
+GitHub each time you want to preview is clumsy.  😕
+Your best option is to
 [install Jekyll and the required dependencies](https://help.github.com/articles/using-jekyll-with-pages/#installing-jekyll)
 on your machine. It is recommended to install the
 [GitHub pages gem](https://github.com/github/pages-gem) which provides
-you with the exact same versions used by GitHub to compile your site.
+you with the exact same versions used by GitHub to compile your site. By not doing so you might risk your website not building properly when being pushed to your GitHub repository.
 
 If you already have Ruby, the install part should be as easy as
 
@@ -135,7 +157,7 @@ Now you can `cd` into your local clone of the repository and launch
 the compilation by
 
 ~~~
-jekyll serve -w -b''
+jekyll serve -w -b
 ~~~
 
 Your site will be generated in a `_site` sub-directory, and served
