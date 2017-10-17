@@ -47,3 +47,8 @@ collections:
     output: true
   Day2:
     output: true
+
+
+# jekyll source/destination
+source: .
+destination: _site
