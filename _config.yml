@@ -26,7 +26,7 @@ exclude:
   - Gemfile*
   - reveal.js
 
-# to ensure the links work properly
+# To ensure the links work properly
 permalink: pretty
 
 # Additional gems
