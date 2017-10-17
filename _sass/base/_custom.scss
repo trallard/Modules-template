@@ -123,6 +123,8 @@ ul {
         font-weight: 400;
         text-align: center;
         font-family: $title-font;
+        padding: 10px;
+        border-bottom: 2px solid $gray-lighter;
     }
     h3 {
         margin-bottom: 1rem;
@@ -133,7 +135,7 @@ ul {
     p {
         margin-bottom: 1rem;
         text-align: center;
-        padding: 10px;
+        padding: 20px;
     }
     .btn{
       margin-bottom: 5px;
