@@ -101,7 +101,7 @@ Basic templates containing the required `.yml` front matter can be located in th
 
 All of your content **must** have a Title and a layout. The rest of the variables are optional.
 
-In the case of pages generated using the module template, the subtitle variable will be displayed along with the title in the landing page as a short description of the lecture module/project.
+In the case of pages generated using the module template, the title variable will be displayed the landing page as a short description of the lecture module/project (stored in the description variable).
 
 
 ### Adding a logo
