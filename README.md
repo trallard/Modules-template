@@ -81,8 +81,13 @@ collections:
 
 You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
 
-These are automatically added to the landing page in the form of a card as well as to the main navigation menu on the website. The urls and redirects to the files within the collections folders are generated automatically and added to the front page of each module/project.
+These are automatically added to the landing page in the form of a card as well as to the main navigation menu on the website.
+The urls and redirects to the files within the collections folders are generated
+automatically and added to the front page of each module/project.
+Additionally, each collection is added automatically to the sidebar menu.
 
+Any additional pages (e.g. about, code of conduct, profile, resources) has to created and saved in the `_pages` directory.
+Once this is done the pages will be automatically added to the sidebar menu.
 
 ### Theme colors
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
