@@ -21,17 +21,18 @@
       <div class='container'>
         <div class='row'>
           <div class='col-sm-9'>
-            <h1 class='display-1'> {{site.title}}</h1>
-            <p> {{site.description}}</p>
+            <h1 class='display-1'> {{site.title}} </h1>
+            <p> {{site.description}} </p>
           </div>
 
           <!-- Site logo -->
           <div class='col-sm-3 col-xs-3 col-lg-3'>
-           <img class='img-logo' src="{{ site.logo | prepend:absolute_url }}"  alt="main-logo"/></a>
+           <img class='img-logo' src="{{ site.logo | absolute_url }}"  alt="main-logo"/>
          </div>
       </div>
     </div>
   </div>
+
     <div class="container">
       <div class="row">
 
@@ -39,7 +40,6 @@
         <div class="col-sm-8">
           <main>
             <br>
-
             {{content}}
           </main>
         </div>
