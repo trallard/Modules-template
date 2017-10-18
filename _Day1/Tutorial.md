@@ -2,7 +2,6 @@
 layout: notebook
 title: "Tutorial"
 tags:
-permalink: "Tutorial.html"
 ---
 # BAD Day 1: Tutorial
 
