@@ -1,13 +1,12 @@
 
 [![Build Status](https://travis-ci.org/trallard/Modules-template.svg?branch=master)](https://travis-ci.org/trallard/Modules-template)
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:0 orderedList:0 -->
 
 - [Modules template](#modules-template)
 - [About the website](#about-the-website)
 	- [Configuration and setup](#configuration-and-setup)
 		- [Site settings](#site-settings)
-- [Site settings](#site-settings)
 		- [Generating the pages for the lecture modules or projects](#generating-the-pages-for-the-lecture-modules-or-projects)
 		- [Theme colors](#theme-colors)
 		- [Layouts](#layouts)
