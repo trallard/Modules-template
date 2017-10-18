@@ -24,6 +24,8 @@ This can be used as a scientific blog template or as a webpage to host/display p
 It provides validation of Jupyter notebooks as well as automatic rendering, support for Latex via MathJax, code highlighting, and  support for [reveal.js](https://github.com/hakimel/reveal.js/) slides.
 On top of the various Jekyll capabilities.
 
+The live demo of this template can be found at [http://bitsandchips.me/Modules-template/](http://bitsandchips.me/Modules-template/) 💻. 
+
 # About the website
 This website is hosted as a GitHub page (github-pages). In short, it is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push. The website will then be built and deployed using gh-pages.
 
@@ -39,8 +41,7 @@ Below you will find a description of the various files and directories within th
 - `js/*:` various JavaScript scripts used in this website
 - `pages/*`: pages markdown files
 - `posts/*`: containing folder for posts
-- `images/*`: images used across the website
-- `notebooks/*`: this contains both the original Jupyter notebooks and the converted versions for the website
+- `images/*`: images used across the website as well as output plots from the notebooks
 - `basic_style.scss`: this stylesheet contains the default colour scheme and fonts used in this site
 
 ## Configuration and setup
@@ -174,24 +175,27 @@ trigger an automatic recompilation!
 
 # Generating posts/pages from Jupyter notebooks
 
-The main content of this website is generated from [Jupyter notebooks](http://jupyter.org).  The notebooks are converted to .md files using [nbconvert](https://github.com/jupyter/nbconvert) and a custom generated python script and jinja template (jekyll.py and jekyll.tpl).  For more information on using nbconvert and custom generated templates visit https://github.com/jupyter/nbconvert
+A min content portion of this website is generated from [Jupyter notebooks](http://jupyter.org).  
+The notebooks are converted to .md files using [nbconvert](https://github.com/jupyter/nbconvert) and a custom generated python script and jinja2 template (jekyll.py and jekyll.tpl).  For more information on using nbconvert and custom generated templates visit https://github.com/jupyter/nbconvert
 
-All the Jupyter notebooks used to generate this site can be found in the [Notebooks directory](https://github.com/trallard/BAD_days/tree/gh-pages/notebooks).
+All the Jupyter notebooks used to generate this site can be found in this GitHub repository [Notebooks directory](https://github.com/trallard/BAD_days/tree/gh-pages/notebooks).
 
-The conversion from `*.ipynb` is done via the `jekyll.py` script. This can be used to convert all the notebooks within the notebooks directory (you can change the location of the notebooks directly on the script), or one at a time.
+The conversion from `*.ipynb` is done via the `nb_jekyll.py` script.
+This can be used to convert all the notebooks in all the collections or individually.
+You only need to place the Jupyter notebooks directly in whichever collection you want.
 
 The usage is as follows:
 
 * For one notebook at a time
 
 ~~~
-jupyter nbconvert --config jekyll.py <notebook>
+jupyter nbconvert --config scripts/nb_jekyll.py <notebook>
 ~~~
 
-* For all the notebooks contained within a given directory
+* For all the notebooks in the site:
 
 ~~~
-jupyter nbconvert --config jekyll.py
+jupyter nbconvert --config scripts/nb_jekyll.py
 ~~~
 
 The custom converter creates a `*.md` file by extending the default `markdown.tpl` template from nbconvert. This adds the required jekyll front matter and ensures consistency between the static version of the notebook and the website.
@@ -202,4 +206,5 @@ In order for the generated `*.md` files to be correctly rendered in Jekyll, some
 python replace.py
 ~~~
 
-If the notebooks have images (e.g. plots) these are saved as `.png` files within the notebook directory. The path can be modified directly within the script.
+If the notebooks have images (e.g. plots) these are saved as `.png` files in the `images` directory and the paths are updated automatically.
+The path can be modified directly within the script if you want these to be in a different location.
