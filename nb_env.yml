@@ -1,0 +1,14 @@
+name: notebooks
+dependencies:
+  - python=3.5
+  - numpy
+  - scipy
+  - jupyter
+  - ipywidgets
+  - requests
+  - pip
+  - matplotlib
+  - pandas
+  - pyyaml
+  - pip :
+    - nbval
