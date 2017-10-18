@@ -5,23 +5,26 @@ layout: page
 {{content}}
 
 
-<!--automatically finds and list the files in the collection-->
+<!-- Automatically finds and list the files in the collection-->
 <div class='list-group'>
 {% for node in site.collections%}
 {% for file in node.docs %}
 {% if file.collection == page.collection %}
 {% if file.layout != 'module' %}
+
 <!-- Note you need to prepend the site.baseurl always-->
-<a class='list-group-item' href="{{site.url}}{{site.baseurl}}{{file.url}}">{{file.title}}</a>
+<a class='list-group-item' href="{{ file.url | absolute_url }}">
+  {{file.title}}
+</a>
+
 {% endif %}
 {% endif %}
 {% endfor %}
 {% endfor %}
 </div>
 
-
 <!-- home button -->
 
 <a href="{{site.url}}{{site.baseurl}}/index.html" class="float">
-<i class="fa fa-home my-float"></i>
+  <i class="fa fa-home my-float"></i>
 </a>

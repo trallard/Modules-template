@@ -4,49 +4,56 @@
 {% include head.html %}
 
 <body>
-<!-- sidebar-->
+  <!-- sidebar-->
   {%include sidebar.html%}
 
-<!--main content needs to be in a wrap for
-when the sidebar is displayed-->
+  <!-- Main content needs to be in a wrap for
+  when the sidebar is displayed-->
   <div class='wrap'>
 
-<!-- navbar -->
-  {% include nav.html %}
-</div>
-
-
-<div class='wrap'>
-  <div class="edge-header orange lighten-2">
-    <div class='container'>
-    <h1 class='display-1'> {{site.title}}</h1>
-    <p> {{site.description}}</p>
-
+    <!-- navbar -->
+    {% include nav.html %}
   </div>
-  </div>
-  <div class="container">
-    <div class="row">
 
-<!--- Main content--->
-      <div class="col-sm-8">
-        <main>
-          <br>
+  <!-- Large colour display for the site description-->
+  <div class='wrap'>
+    <div class="edge-header primary-lighten">
+      <div class='container'>
+        <div class='row'>
+          <div class='col-sm-9'>
+            <h1 class='display-1'> {{site.title}} </h1>
+            <p> {{site.description}} </p>
+          </div>
 
-          {{content}}
-        </main>
+          <!-- Site logo -->
+          <div class='col-sm-3 col-xs-3 col-lg-3'>
+           <img class='img-logo' src="{{ site.logo | absolute_url }}"  alt="main-logo"/>
+         </div>
       </div>
-
-      <div class="col-sm-1">
-      </div>
-
     </div>
   </div>
 
-  {%include modules.html %}
-</div>
+    <div class="container">
+      <div class="row">
 
-<label for="sidebar-checkbox" class="sidebar-toggle"></label>
+        <!--- Main content--->
+        <div class="col-sm-8">
+          <main>
+            <br>
+            {{content}}
+          </main>
+        </div>
 
+        <div class="col-sm-1">
+        </div>
+
+      </div>
+    </div>
+
+    {%include modules.html %}
+  </div>
+
+  <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
 </body>
 

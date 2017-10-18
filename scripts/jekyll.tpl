@@ -1,13 +1,11 @@
 {% extends 'markdown.tpl' %}
 
-
 {# custom header for jekyll post #}
 {%- block header -%}
 ---
 layout: notebook
 title: "{{resources['metadata']['name']}}"
 tags:
-permalink: "{{resources['metadata']['name']}}.html"
 ---
 {%- endblock header -%}
 

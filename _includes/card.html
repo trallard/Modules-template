@@ -6,18 +6,24 @@
 
      <!--Card image-->
      <div class="view overlay hm-white-slight">
-       <a href="{{site.url}}{{site.baseurl}}{{file.url}}">
-       <img src="{{"/images/dna.jpg" | absolute_url }}" class="img-fluid" alt=""></a>
+
+       <a href="{{site.baseurl}}{{file.url}}">
+       <img src="{{"/images/dna.jpg" | absolute_url }}" class="img-fluid"
+       alt="img{{file.title}}-img"></a>
+
+       <!-- <img src="{{ file.featured | absolute_url }}" class="img-fluid"
+       alt="img{{file.title}}-img"></a> -->
 
      </div>
 
      <!--Card content-->
      <div class="card-block">
        <!--Title-->
-       <a href="{{site.url}}{{site.baseurl}}{{file.url}}"><h4>{{file.title}}</h4></a>
+       <a href="{{site.baseurl}}{{file.url}}">
+         <h4> {{file.title}} </h4>
+       </a>
        <!--Text-->
-       <p > Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-       <br>
+       <p > {{file.description}}</p>
      </div>
 
    </div>

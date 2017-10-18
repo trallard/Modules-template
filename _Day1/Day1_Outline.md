@@ -1,8 +1,9 @@
 ---
 layout: module
-permalink: /1-outline/
 title: Day 1 outline
-featured: ''
+category: module
+description: This is the description for the module
+featured: /images/dna2.jpg
 ---
 
 
