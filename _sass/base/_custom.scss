@@ -20,13 +20,13 @@ body{
 
 /*** Links ***/
 a {
-  color: $secondary-light;
+  color: lighten($secondary, 10%);
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
   a:hover, a:focus {
     text-decoration: underline;
-    color: $secondary-light;
+    color: $secondary-dark;
   }
 /***Headings ***/
 h1,
