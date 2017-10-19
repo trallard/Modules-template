@@ -4,15 +4,18 @@
 
    <div class="card">
 
-     <!--Card image-->
+     <!--Card image: chosen depending on the variables in the module-->
      <div class="view overlay hm-white-slight">
 
+{% if file.featured %}
+<img src="{{ file.featured | absolute_url }}" class="img-fluid"
+alt="img{{file.title}}-img"></a>
+{% else %}
        <a href="{{site.url}}{{site.baseurl}}{{file.url}}">
-       <img src="{{"/images/dna.jpg" | absolute_url }}" class="img-fluid"
+       <img src="{{ site.card_image | absolute_url }}" class="img-fluid"
        alt="img{{file.title}}-img"></a>
+{% endif %}
 
-       <!-- <img src="{{ file.featured | absolute_url }}" class="img-fluid"
-       alt="img{{file.title}}-img"></a> -->
 
      </div>
 
@@ -24,6 +27,7 @@
        </a>
        <!--Text-->
        <p > {{file.description}}</p>
+
      </div>
 
    </div>

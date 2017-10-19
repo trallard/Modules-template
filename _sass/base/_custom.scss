@@ -99,7 +99,9 @@ td{
   background-color: $gray-lighter;
 }
 
-
+.table-responsive{
+  font-size: 1em!important;
+}
 
 
 /** edge header ***/
@@ -146,7 +148,9 @@ ul {
   margin-top: 15px;
 }
 
-
+.img-fluid, .section img,
+.section .view, .card img {
+  max-height: 250px; }
 
 /*** Floating button ***/
 .float{

@@ -3,7 +3,7 @@ layout: module
 title: Day 1 outline
 category: module
 description: This is the description for the module
-featured: /images/dna2.jpg
+featured: ./images/dna2.jpg
 ---
 
 
