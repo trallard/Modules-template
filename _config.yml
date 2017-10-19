@@ -58,4 +58,4 @@ collections:
 
 # If your notebooks are in an Azure library add the url here,
 # otherwise comment by adding a #
-azu: "https://notebooks.azure.com/trallard/libraries/BAD-days"
+azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
