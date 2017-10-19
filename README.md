@@ -8,6 +8,7 @@
 	- [Configuration and setup](#configuration-and-setup)
 		- [Site settings](#site-settings)
 		- [Generating the pages for the lecture modules or projects](#generating-the-pages-for-the-lecture-modules-or-projects)
+		- [Launching in Microsoft Azure notebooks](#launching-in-microsoft-azure-notebooks)
 		- [Theme colors](#theme-colors)
 		- [Layouts](#layouts)
 - [How to use Jekyll to build this site](#how-to-use-jekyll-to-build-this-site)
@@ -24,7 +25,7 @@ This can be used as a scientific blog template or as a webpage to host/display p
 It provides validation of Jupyter notebooks as well as automatic rendering, support for Latex via MathJax, code highlighting, and  support for [reveal.js](https://github.com/hakimel/reveal.js/) slides.
 On top of the various Jekyll capabilities.
 
-The live demo of this template can be found at [http://bitsandchips.me/Modules-template/](http://bitsandchips.me/Modules-template/) 💻. 
+The live demo of this template can be found at [http://bitsandchips.me/Modules-template/](http://bitsandchips.me/Modules-template/) 💻.
 
 # About the website
 This website is hosted as a GitHub page (github-pages). In short, it is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push. The website will then be built and deployed using gh-pages.
@@ -88,6 +89,18 @@ Additionally, each collection is added automatically to the sidebar menu.
 
 Any additional pages (e.g. about, code of conduct, profile, resources) has to created and saved in the `_pages` directory.
 Once this is done the pages will be automatically added to the sidebar menu.
+
+### Launching in Microsoft Azure notebooks
+If you have your Jupyter notebooks in a [Microsoft Azure Notebooks library](https://notebooks.azure.com) you can add a 'launch in Azure notebooks'
+button to your notebooks.
+
+You will need to specify the url address of this library in the `_config.yml`;
+```
+azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
+```
+the button will be automatically added to all the rendered notebooks.
+If you do not have your notebooks in Azure notebooks only comment the line with a
+`#`.
 
 ### Theme colors
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
