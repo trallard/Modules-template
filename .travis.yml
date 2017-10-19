@@ -14,7 +14,7 @@ script: source scripts/cibuild
 # branch whitelist, only for GitHub Pages
 branches:
   only:
-  - master     # test the gh-pages branch
+  - master     # if you are serving from master, change this accordingly
 
 env:
   global:
