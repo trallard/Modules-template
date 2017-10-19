@@ -11,6 +11,7 @@
 		- [Launching in Microsoft Azure notebooks](#launching-in-microsoft-azure-notebooks)
 		- [Theme colors](#theme-colors)
 		- [Layouts](#layouts)
+		- [Adding a logo and card images](#adding-a-logo-and-card-images)
 - [How to use Jekyll to build this site](#how-to-use-jekyll-to-build-this-site)
 	- [Editing pages online with GitHub](#editing-pages-online-with-github)
 	- [Working locally](#working-locally)
@@ -82,12 +83,20 @@ collections:
 
 You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
 
-These are automatically added to the landing page in the form of a card as well as to the main navigation menu on the website.
-The urls and redirects to the files within the collections folders are generated
-automatically and added to the front page of each module/project.
-Additionally, each collection is added automatically to the sidebar menu.
+Once the folder is created you will have to create a `.md` file that will serve as the front page to the module / collection. The mandatory fields for the frontmatter are:
+```yaml
+layout: module
+title: Day 1 outline
+description: This is the description for the module
+```
 
-Any additional pages (e.g. about, code of conduct, profile, resources) has to created and saved in the `_pages` directory.
+Your modules will be automatically added to the landing page in the form of a card as well as to the main navigation menu on the website.
+
+You can then start populating these with other .md files or jupyter notebooks.
+The urls and redirects to the files within the collection folders are generated
+automatically and added to the front page of each module/project.
+
+Any additional pages (e.g. about, code of conduct, profile, resources) must be created and saved in the `_pages` directory.
 Once this is done the pages will be automatically added to the sidebar menu.
 
 ### Launching in Microsoft Azure notebooks
@@ -115,17 +124,27 @@ If you want to modify the color scheme or the fonts used you only need to modify
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
 Advanced layouts are included for the coding scientist providing a robust publication framework.
 
-Basic templates containing the required `.yml` front matter can be located in the `templates` directory.
-
 All of your content **must** have a Title and a layout. The rest of the variables are optional.
 
 In the case of pages generated using the module template, the title variable will be displayed the landing page as a short description of the lecture module/project (stored in the description variable).
 
 
-### Adding a logo
+### Adding a logo and card images
 If you need to add a logo to your website you can do it by saving the image to the 'images' folder and modify the name of the image in the `config.yml` file:
 ```yaml
 logo: "./images/logo-sheffield.png"
+```
+similarly, if you want all the landing page cards to display the same image change the path accordingly in the `_config.yml` file
+```yaml
+card_image: "./images/dna.jpg"
+```
+otherwise you will have to specify an image on the module file yaml frontmatter e.g.
+```yaml
+layout: module
+title: Day 1 outline
+category: module
+description: This is the description for the module
+featured: ./images/dna2.jpg
 ```
 
 # How to use Jekyll to build this site
