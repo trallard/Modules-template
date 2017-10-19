@@ -176,6 +176,14 @@ a.float:focus {
 	margin-top:16px;
 }
 
+.float-offset{
+  position: fixed;
+  bottom: 80px;
+  background-color: $primary-dark;
+  &:hover{
+    background-color: lighten($primary-dark, 5%);
+  }
+}
 
 .label-container{
 	position:fixed;
@@ -183,6 +191,11 @@ a.float:focus {
 	right:100px;
 	display:table;
 	visibility: hidden;
+}
+
+.label-offset{
+  position: fixed;
+  bottom: 82px;
 }
 
 .label-text{
