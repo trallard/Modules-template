@@ -12,8 +12,8 @@ install:
 before_script:
   - source scripts/get_miniconda.sh
   - conda env create -f scripts/nb_env.yml
-  - source activate nb_env.yml
-  - source deactivate nb_env.yml
+  - source activate notebooks
+  - source deactivate notebooks
 
 script: ./scripts/cibuild
 
