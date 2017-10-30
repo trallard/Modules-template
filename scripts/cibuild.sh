@@ -1,6 +1,6 @@
 #!/bin/bash
 # Using nbval with the notebooks
-py.test --nbval --lax *.ipynb
+py.test --nbval-lax *.ipynb
 echo "Testing notebooks \n \n "
 
 echo "+++++++++++++++ \n Parsing notebooks for publishing"

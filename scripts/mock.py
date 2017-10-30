@@ -23,8 +23,8 @@ def find_notebooks():
     """ Find all the notebooks in the repo, but excludes those 
     in the _site folder"""
     
-    basePath = Path(os.getcwd()).as_posix()
-    notebooksAll = [nb for nb in basePath.glob('**/*.ipynb')]
+    basePath = Path(os.getcwd())
+    notebooksAll = [nb for nb in glob.glob('**/*.ipynb')]
     exception = str(basePath) + '/_site/*/*'
     notebooks = [nb for nb in notebooksAll if not fnmatch.fnmatch(nb, exception)]
     return notebooks
