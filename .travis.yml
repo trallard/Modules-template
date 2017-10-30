@@ -13,9 +13,9 @@ install:
   - source activate notebooks
 
 # Testing and building
-script: ./scripts/cibuild
+script: bash scripts/cibuild.sh
 
-# Only CI on backend branch 
+# Only CI on backend branch
 branches:
   only:
   - backend   # test the notebooks branch
