@@ -23,7 +23,7 @@ def find_notebooks():
     """ Find all the notebooks in the repo, but excludes those 
     in the _site folder"""
     
-    basePath = Path(os.getcwd())
+    basePath = Path(os.getcwd()).as_posix()
     notebooksAll = [nb for nb in basePath.glob('**/*.ipynb')]
     exception = str(basePath) + '/_site/*/*'
     notebooks = [nb for nb in notebooksAll if not fnmatch.fnmatch(nb, exception)]
@@ -64,7 +64,6 @@ c.MarkdownExporter.template_file = 'jekyll'
 c.NbConvertApp.notebooks = notebooks
 
 # customise the images output directory
-
 c.NbConvertApp.output_files_dir = '../images/notebook_images/{notebook_name}'
 
 #c.Application.verbose_crash=True

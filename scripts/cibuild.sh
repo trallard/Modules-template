@@ -1,11 +1,11 @@
 #!/bin/bash
 # Using nbval with the notebooks
-py.test --nbval -lax *.ipynb
+py.test --nbval --lax *.ipynb
 echo "Testing notebooks \n \n "
 
 echo "+++++++++++++++ \n Parsing notebooks for publishing"
 
-jupyter nbconvert --config scripts/nb_jekyll.py
+jupyter nbconvert --config scripts/mock.py
 
 python scripts/nb_replace.py
 
