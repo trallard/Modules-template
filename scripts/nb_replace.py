@@ -16,16 +16,15 @@ from pathlib import Path
 
 #---------------------------------------
 def find_notebooks():
-    """ Find all the notebooks in the repoprevisouly converted to 
+    """ Find all the notebooks in the repo previsouly converted to 
     markdown"""
     
     basePath = Path(os.getcwd())
-    notebooksAll = [nb for nb in basePath.glob('**/*.ipynb')]
+    notebooksAll = [nb for nb in glob.glob('**/*.ipynb')]
     exception = str(basePath) + '/_site/*/*'
     notebooks = [nb for nb in notebooksAll if not fnmatch.fnmatch(nb, exception)]
     notebooks = [os.path.abspath(nb).replace('ipynb', 'md') for nb in notebooks]
     return notebooks
-
 
 
 def replace(file_path):

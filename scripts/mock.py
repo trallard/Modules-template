@@ -47,7 +47,7 @@ if not notebooks:
     print ("No notebook found in this repository \n")
 else:
     for nb in notebooks:
-        print("Notebook found: {} \n)".format(nb))
+        print(" ***** Notebook found: {} \n)".format(nb))
     
 """Converting  notebooks now: this uses nbconvert with
 a custom generated template"""

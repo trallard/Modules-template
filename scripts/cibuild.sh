@@ -1,9 +1,9 @@
 #!/bin/bash
 # Using nbval with the notebooks
-py.test --nbval-lax *.ipynb
-echo "Testing notebooks \n \n "
+echo "***** Testing notebooks"
+py.test --nbval-lax */*.ipynb
 
-echo "+++++++++++++++ \n Parsing notebooks for publishing"
+echo "***** Parsing notebooks for publishing"
 
 jupyter nbconvert --config scripts/mock.py
 
