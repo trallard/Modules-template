@@ -1,6 +1,8 @@
-name: notebooks 
+name: notebooks
 dependencies:
   - python=3.5
   - numpy
   - scipy
   - jupyter
+  - pip:
+    - nbval

@@ -2,22 +2,20 @@ language: python
 python:
   - "3.5"
 
+before install:
+  - sudo apt-get update
+
+# See http://conda.pydata.org/docs/travis.html
+# Set up anaconda
 install:
   - source scripts/get_miniconda.sh
   - conda env create -f scripts/conda_notebook.yml
   - source activate notebooks
-  - pip install nbval
-  - pip install GPy
 
-before_script:
-  - source scripts/get_miniconda.sh
-  - conda env create -f scripts/nb_env.yml
-  - source activate notebooks
-  - source deactivate notebooks
-
+# Testing and building
 script: ./scripts/cibuild
 
-# branch whitelist backend only now
+# Only CI on backend branch 
 branches:
   only:
   - backend   # test the notebooks branch
