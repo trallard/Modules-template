@@ -24,6 +24,12 @@ when the sidebar is displayed-->
       <div class='nb_top col-sm-8'>
         <h2> {{page.title}} </h2>
         <br>
+        {% if page.author %}
+        <author> {{page.author}} </author>
+        {% else %}
+        <author> {{site.author.name}}</author>
+        <br>
+        {% endif %}
         Last updated: <em> {{page.update_date}} </em>
         <br>
         Code version: <em>{{page.code_version}} </em>
