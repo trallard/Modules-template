@@ -100,13 +100,16 @@ Any additional pages (e.g. about, code of conduct, profile, resources) must be c
 Once this is done the pages will be automatically added to the sidebar menu.
 
 ### Launching in Microsoft Azure notebooks
-If you want to import your library to Microsoft Azure please modify the following link using your own repository in the `href`. Once done this, push your repository to GitHub.
+If you want to import your library to Microsoft Azure please modify the following badge using your own repository in the `href`. Once done this, push your repository to GitHub.
+
 <a href="https://notebooks.azure.com/import/gh/trallard/Modules_template"><img src="https://notebooks.azure.com/launch.png" /></a>
 
-You will then be able to click on the button and automatically import the notebooks to Microsoft Azure. Make sure to copy your library url for the following steps.
+You will then be able to click on the `launch azurenb` badge and automatically import the notebooks to [Microsoft Azure Notebooks](https://notebooks.azure.com). Make sure to copy your library url for the following steps.
 
-Once you have the notebooks in [Microsoft Azure Notebooks library](https://notebooks.azure.com) you can add a 'launch in Azure notebooks'
-button to your notebooks.
+Note that you will need to have a Microsoft Azure Notebooks account created before importing your notebooks from this GitHub repository.
+
+Once you have the notebooks in a Microsoft Azure Notebooks library you can add a 'launch in Azure notebooks'
+button to your notebooks within your static website.
 
 You will need to add the url address of this library in the `_config.yml` e.g:
 ```
