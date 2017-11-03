@@ -1,9 +1,4 @@
-language: python
-python:
-  - "3.6"
-
-before install:
-  - sudo apt-get update
+language: ruby
 
 rvm:
   - 2.4.1
