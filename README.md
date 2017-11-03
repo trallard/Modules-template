@@ -1,7 +1,7 @@
 
 [![Build Status](https://travis-ci.org/trallard/Modules-template.svg?branch=master)](https://travis-ci.org/trallard/Modules-template)
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:0 orderedList:0 -->
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Modules template](#modules-template)
 - [About the website](#about-the-website)
@@ -100,6 +100,10 @@ Any additional pages (e.g. about, code of conduct, profile, resources) must be c
 Once this is done the pages will be automatically added to the sidebar menu.
 
 ### Launching in Microsoft Azure notebooks
+If you want to import your library to Microsoft Azure please modify the following link using your own repository in the `href`. Once done this, push to GitHub.
+
+<a href="https://notebooks.azure.com/import/gh/trallard/Modules_template"><img src="https://notebooks.azure.com/launch.png" /></a>
+
 If you have your Jupyter notebooks in a [Microsoft Azure Notebooks library](https://notebooks.azure.com) you can add a 'launch in Azure notebooks'
 button to your notebooks.
 
