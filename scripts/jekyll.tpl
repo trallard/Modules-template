@@ -6,33 +6,37 @@
 layout: notebook
 title: "{{resources['metadata']['name']}}"
 tags:
+update_date:
+code_version: 1
+validation_pass:
 ---
+<br />
+
 {%- endblock header -%}
 
-{# change the color of the In block #}
-{% block in_prompt %}
-<br>
+
+{% block in_prompt -%}
+{%- if cell.execution_count is defined -%}
+{%- if resources.global_content_filter.include_input_prompt-%}
 <font color ='#00bcd4'> In [{{ cell.execution_count }}]: </font>
-{% endblock in_prompt %}
+{%- else -%}
+In&nbsp;[&nbsp;]:
+{%- endif -%}
+{%- endif -%}
+{%- endblock in_prompt %}
 
 
-{# code highlight, needs to be changed accordingly #}
-{% block input %}
-{{ '{% highlight R %}' }}
-{{ cell.source }}
-{{ '{% endhighlight %}' }}
-{% endblock input %}
-
+{# Images will be saved in the custom path #}
 {% block data_svg %}
-![svg]({{ output.metadata.filenames['image/svg+xml'] | jekyllpath }})
+<img src="{{ output.metadata.filenames['image/svg+xml'] | jekyllpath }}" alt="svg" />
 {% endblock data_svg %}
 
 {% block data_png %}
-![png]({{ output.metadata.filenames['image/png'] | jekyllpath }})
+<img src="{{ output.metadata.filenames['image/png'] | jekyllpath }}" alt="png"/>
 {% endblock data_png %}
 
 {% block data_jpg %}
-![jpeg]({{ output.metadata.filenames['image/jpeg'] | jekyllpath }})
+<img src="{{ output.metadata.filenames['image/jpeg'] | jekyllpath }}" alt="jpeg" />
 {% endblock data_jpg %}
 
 {# cells containing markdown text only #}
@@ -53,15 +57,17 @@ tags:
 {{ output.data['text/latex'] }}
 {% endblock data_latex %}
 
-
 {% block data_text scoped %}
 {{ output.data['text/plain'] | indent }}
 {% endblock data_text %}
 
-{% block data_html scoped %}
-{{ output.data['text/html'] }}
-{% endblock data_html %}
+{% block data_html scoped -%}
 
-{% block data_markdown scoped %}
-{{ output.data['text/markdown'] }}
-{% endblock data_markdown %}
+{{ output.data['text/html'] }}
+
+{%- endblock data_html %}
+
+{% block data_markdown scoped -%}
+{{ output.data['text/markdown'] | markdown2html }}
+
+{%- endblock data_markdown %}

@@ -1,9 +1,10 @@
 ---
 # Only the main SASS file needs front matter
 ---
-@charset "utf-8";
 
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic");
+
+/* Note the base sass are imported at the bottom */
+@charset "utf-8";
 
 @import "base/variables";
 @import "../basic_style";
@@ -7038,4 +7039,5 @@ a.list-group-item-danger.active:focus {
 @import "base/syntax",
         "base/custom-toc",
         "base/sidebar",
-        "base/custom";
+        "base/custom",
+        "base/notebook";
