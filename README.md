@@ -8,8 +8,10 @@
 	- [Configuration and setup](#configuration-and-setup)
 		- [Site settings](#site-settings)
 		- [Generating the pages for the lecture modules or projects](#generating-the-pages-for-the-lecture-modules-or-projects)
+		- [Launching in Microsoft Azure notebooks](#launching-in-microsoft-azure-notebooks)
 		- [Theme colors](#theme-colors)
 		- [Layouts](#layouts)
+		- [Adding a logo and card images](#adding-a-logo-and-card-images)
 - [How to use Jekyll to build this site](#how-to-use-jekyll-to-build-this-site)
 	- [Editing pages online with GitHub](#editing-pages-online-with-github)
 	- [Working locally](#working-locally)
@@ -23,6 +25,8 @@ This can be used as a scientific blog template or as a webpage to host/display p
 
 It provides validation of Jupyter notebooks as well as automatic rendering, support for Latex via MathJax, code highlighting, and  support for [reveal.js](https://github.com/hakimel/reveal.js/) slides.
 On top of the various Jekyll capabilities.
+
+The live demo of this template can be found at [http://bitsandchips.me/Modules-template/](http://bitsandchips.me/Modules-template/) 💻.
 
 # About the website
 This website is hosted as a GitHub page (github-pages). In short, it is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push. The website will then be built and deployed using gh-pages.
@@ -39,8 +43,7 @@ Below you will find a description of the various files and directories within th
 - `js/*:` various JavaScript scripts used in this website
 - `pages/*`: pages markdown files
 - `posts/*`: containing folder for posts
-- `images/*`: images used across the website
-- `notebooks/*`: this contains both the original Jupyter notebooks and the converted versions for the website
+- `images/*`: images used across the website as well as output plots from the notebooks
 - `basic_style.scss`: this stylesheet contains the default colour scheme and fonts used in this site
 
 ## Configuration and setup
@@ -80,13 +83,33 @@ collections:
 
 You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
 
-These are automatically added to the landing page in the form of a card as well as to the main navigation menu on the website.
-The urls and redirects to the files within the collections folders are generated
-automatically and added to the front page of each module/project.
-Additionally, each collection is added automatically to the sidebar menu.
+Once the folder is created you will have to create a `.md` file that will serve as the front page to the module / collection. The mandatory fields for the frontmatter are:
+```yaml
+layout: module
+title: Day 1 outline
+description: This is the description for the module
+```
 
-Any additional pages (e.g. about, code of conduct, profile, resources) has to created and saved in the `_pages` directory.
+Your modules will be automatically added to the landing page in the form of a card as well as to the main navigation menu on the website.
+
+You can then start populating these with other .md files or jupyter notebooks.
+The urls and redirects to the files within the collection folders are generated
+automatically and added to the front page of each module/project.
+
+Any additional pages (e.g. about, code of conduct, profile, resources) must be created and saved in the `_pages` directory.
 Once this is done the pages will be automatically added to the sidebar menu.
+
+### Launching in Microsoft Azure notebooks
+If you have your Jupyter notebooks in a [Microsoft Azure Notebooks library](https://notebooks.azure.com) you can add a 'launch in Azure notebooks'
+button to your notebooks.
+
+You will need to specify the url address of this library in the `_config.yml`;
+```
+azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
+```
+the button will be automatically added to all the rendered notebooks.
+If you do not have your notebooks in Azure notebooks only comment the line with a
+`#`.
 
 ### Theme colors
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
@@ -101,17 +124,27 @@ If you want to modify the color scheme or the fonts used you only need to modify
 This template includes basic layouts for posts, pages, and presentations intended for the casual user.
 Advanced layouts are included for the coding scientist providing a robust publication framework.
 
-Basic templates containing the required `.yml` front matter can be located in the `templates` directory.
-
 All of your content **must** have a Title and a layout. The rest of the variables are optional.
 
 In the case of pages generated using the module template, the title variable will be displayed the landing page as a short description of the lecture module/project (stored in the description variable).
 
 
-### Adding a logo
+### Adding a logo and card images
 If you need to add a logo to your website you can do it by saving the image to the 'images' folder and modify the name of the image in the `config.yml` file:
 ```yaml
 logo: "./images/logo-sheffield.png"
+```
+similarly, if you want all the landing page cards to display the same image change the path accordingly in the `_config.yml` file
+```yaml
+card_image: "./images/dna.jpg"
+```
+otherwise you will have to specify an image on the module file yaml frontmatter e.g.
+```yaml
+layout: module
+title: Day 1 outline
+category: module
+description: This is the description for the module
+featured: ./images/dna2.jpg
 ```
 
 # How to use Jekyll to build this site
@@ -174,24 +207,27 @@ trigger an automatic recompilation!
 
 # Generating posts/pages from Jupyter notebooks
 
-The main content of this website is generated from [Jupyter notebooks](http://jupyter.org).  The notebooks are converted to .md files using [nbconvert](https://github.com/jupyter/nbconvert) and a custom generated python script and jinja template (jekyll.py and jekyll.tpl).  For more information on using nbconvert and custom generated templates visit https://github.com/jupyter/nbconvert
+A min content portion of this website is generated from [Jupyter notebooks](http://jupyter.org).  
+The notebooks are converted to .md files using [nbconvert](https://github.com/jupyter/nbconvert) and a custom generated python script and jinja2 template (jekyll.py and jekyll.tpl).  For more information on using nbconvert and custom generated templates visit https://github.com/jupyter/nbconvert
 
-All the Jupyter notebooks used to generate this site can be found in the [Notebooks directory](https://github.com/trallard/BAD_days/tree/gh-pages/notebooks).
+All the Jupyter notebooks used to generate this site can be found in this GitHub repository [Notebooks directory](https://github.com/trallard/BAD_days/tree/gh-pages/notebooks).
 
-The conversion from `*.ipynb` is done via the `jekyll.py` script. This can be used to convert all the notebooks within the notebooks directory (you can change the location of the notebooks directly on the script), or one at a time.
+The conversion from `*.ipynb` is done via the `nb_jekyll.py` script.
+This can be used to convert all the notebooks in all the collections or individually.
+You only need to place the Jupyter notebooks directly in whichever collection you want.
 
 The usage is as follows:
 
 * For one notebook at a time
 
 ~~~
-jupyter nbconvert --config jekyll.py <notebook>
+jupyter nbconvert --config scripts/nb_jekyll.py <notebook>
 ~~~
 
-* For all the notebooks contained within a given directory
+* For all the notebooks in the site:
 
 ~~~
-jupyter nbconvert --config jekyll.py
+jupyter nbconvert --config scripts/nb_jekyll.py
 ~~~
 
 The custom converter creates a `*.md` file by extending the default `markdown.tpl` template from nbconvert. This adds the required jekyll front matter and ensures consistency between the static version of the notebook and the website.
@@ -202,4 +238,5 @@ In order for the generated `*.md` files to be correctly rendered in Jekyll, some
 python replace.py
 ~~~
 
-If the notebooks have images (e.g. plots) these are saved as `.png` files within the notebook directory. The path can be modified directly within the script.
+If the notebooks have images (e.g. plots) these are saved as `.png` files in the `images` directory and the paths are updated automatically.
+The path can be modified directly within the script if you want these to be in a different location.
