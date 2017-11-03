@@ -2,29 +2,29 @@
 layout: notebook
 title: "Tutorial"
 tags:
+
+update_date:
+code_version: 1
+validation_pass:
+
 ---
+<br />
 # BAD Day 1: Tutorial
 
 # 0. Source/install the needed packages
 
-
-<br>
 <font color ='#00bcd4'> In [1]: </font>
-
-{% highlight R %}
+```R
 # In case you need to install the packages
  install.packages("xlsx")
  install.packages("gdata")
  install.packages("ape")
-{% endhighlight %}
-
-<br>
+```
 <font color ='#00bcd4'> In [2]: </font>
-
-{% highlight R %}
+```R
 source("http://bioconductor.org/biocLite.R");
 biocLite("multtest");
-{% endhighlight %}
+```
 
 
 # 1. Exploratory data analysis
@@ -43,11 +43,8 @@ code for pre-processing is available in the file ../doc/golub.R.
 Golub et al. (1999). Molecular classification of cancer: class discovery and
 class prediction by gene expression monitoring, Science, Vol. 286:531-537.
 (http://www-genome.wi.mit.edu/MPR/).
-
-<br>
 <font color ='#00bcd4'> In [3]: </font>
-
-{% highlight R %}
+```R
 require(multtest);
 
 # Usage
@@ -56,7 +53,7 @@ data(golub);
 # If you need more information on the data set just
 # uncomment the line below
 # ?golub
-{% endhighlight %}
+```
 
 Data set values:
 - `golub`: matrix of gene expression levels for the 38 tumor mRNA samples, rows
@@ -67,31 +64,22 @@ leukemia (ALL) cases (code 0) and 11 acute myeloid leukemia (AML) cases (code
 - `golub.names`: a matrix containing the names of the 3051 genes for the
 expression matrix golub. The three columns correspond to the gene index, ID, and
 Name, respectively.
-
-<br>
 <font color ='#00bcd4'> In [4]: </font>
-
-{% highlight R %}
+```R
 # Checking the dimension of the data
 dim(golub)
-{% endhighlight %}
-
+```
 
 <ol class="list-inline">
 	<li>3051</li>
 	<li>38</li>
 </ol>
 
-
-
-<br>
 <font color ='#00bcd4'> In [5]: </font>
-
-{% highlight R %}
+```R
 # we will have a look at the first rows contained in the data set
 head(golub)
-{% endhighlight %}
-
+```
 
 <table class="table-responsive table-striped">
 <tbody>
@@ -105,19 +93,15 @@ head(golub)
 </table>
 
 
-
 The gene names are collected in the matrix `golub.gnames` of which the columns
 correspond to the gene index, ID, and Name, respectively.
-
-<br>
 <font color ='#00bcd4'> In [6]: </font>
-
-{% highlight R %}
+```R
 # Adding 3051 gene names
 row.names(golub) = golub.gnames[,3]
 
 head(golub)
-{% endhighlight %}
+```
 
 
 <table class="table-responsive table-striped">
@@ -131,16 +115,11 @@ head(golub)
 </tbody>
 </table>
 
-
-
-<br>
 <font color ='#00bcd4'> In [7]: </font>
-
-{% highlight R %}
+```R
 # Let's just have a look at the top 20 genes ID's contained in golub.gnames
 head(golub.gnames[,2], n = 20)
-{% endhighlight %}
-
+```
 
 <ol class="list-inline">
 	<li>'AFFX-HUMISGF3A/M97935_MA_at (endogenous control)'</li>
@@ -166,20 +145,15 @@ head(golub.gnames[,2], n = 20)
 </ol>
 
 
-
 Twenty-seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and
 eleven as acute myeloid leukemia (AML). The tumor class is given by the numeric
 vector golub.cl, where ALL is indicated by 0 and AML by 1.
-
-<br>
 <font color ='#00bcd4'> In [8]: </font>
-
-{% highlight R %}
+```R
 colnames(golub) = golub.cl
 
 head(golub)
-{% endhighlight %}
-
+```
 
 <table class="table-responsive table-striped">
 <thead><tr><th></th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">⋯</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th></tr></thead>
@@ -194,18 +168,14 @@ head(golub)
 </table>
 
 
-
 Note that sometimes it is better to construct a factor which indicates the tumor
 class of the patients. Such a factor could be used for instance to separate the
 tumor groups for plotting purposes.  The factor (`gol.fac`) can be contructed as
 follows.
-
-<br>
 <font color ='#00bcd4'> In [9]: </font>
-
-{% highlight R %}
+```R
 gol.fac <-  factor(golub.cl, levels = 0:1, labels = c("AML", "ALL"))
-{% endhighlight %}
+```
 
 The labels correspond to the two tumor classes. The evaluation of gol.fac=="ALL"
 returns
@@ -213,14 +183,10 @@ TRUE for the first twenty-seven values and FALSE for the remaining eleven,
 which is useful as a column index for selecting the expression values of the
 ALL patients. The expression values of gene CCND3 Cyclin D3 from the
 ALL patients can now be printed to the screen, as follows.
-
-<br>
 <font color ='#00bcd4'> In [10]: </font>
-
-{% highlight R %}
+```R
 golub[1042, gol.fac == "ALL"]
-{% endhighlight %}
-
+```
 
 <dl class="dl-horizontal">
 	<dt>1</dt>
@@ -248,7 +214,6 @@ golub[1042, gol.fac == "ALL"]
 </dl>
 
 
-
 ## Creating the exploratory plots
 
 ### 1.1\. Plotting the value of gene (CCND3) in all nRNA samples (M92287_at)
@@ -259,111 +224,86 @@ name `M92278_at`, which is known in biology as "CCND3 Cyclin D3".
 The expression values of this gene are collected in row 1042 of golub. To load
 the data and to obtain the relevant information from row 1042 of golub.gnames,
 use the following:
-
-<br>
 <font color ='#00bcd4'> In [11]: </font>
-
-{% highlight R %}
+```R
 mygene <- golub[1042, ]
-{% endhighlight %}
+```
 
 The data has now been stored in the `golub` matrix. We will now plot the
 expression values od the gene CCND3 Cyclin D3.
-
-<br>
 <font color ='#00bcd4'> In [12]: </font>
-
-{% highlight R %}
+```R
 plot(mygene)
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_21_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_21_0.png" alt="png"/>
 
 
 In the previous plot we just used the default plotting preferences within R base
 plotting.We can do some improvements so that the plot is easily understood.
-
-<br>
 <font color ='#00bcd4'> In [13]: </font>
-
-{% highlight R %}
+```R
 plot(mygene, pch = 15, col = 'slateblue', ylab = 'Expression value of gene: CCND3', 
     main = ' Gene expression values of CCND3 Cyclin D3')
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_23_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_23_0.png" alt="png"/>
 
 
 In this plot the vertical axis corresponds to the size of the expression values
 and the horizontal axis the index of the patients.
 
 ### 1.2\. Gene expression between patient 1 (ALL) and patient 38 (AML)
-
-<br>
 <font color ='#00bcd4'> In [14]: </font>
-
-{% highlight R %}
+```R
 plot(golub[,1], golub[,38])
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_26_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_26_0.png" alt="png"/>
 
 
 Adding diagonal lines to the plot and changing axes labels
 
-
-<br>
 <font color ='#00bcd4'> In [15]: </font>
-
-{% highlight R %}
+```R
 plot(golub[,1], golub[,38], xlab = 'Patient 1 (ALL)', ylab = 'Patient 38 (AML)') 
 abline(a = 0, b = 1, col = 'mediumpurple', lwd =3)
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_28_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_28_0.png" alt="png"/>
 
 
 ### 1.3\. Scatter plots to detect independence
 
-
-<br>
 <font color ='#00bcd4'> In [16]: </font>
-
-{% highlight R %}
+```R
 mysamplist <- golub[, c(1:15)]
 colnames(mysamplist) = c(1:15)
-{% endhighlight %}
-
-<br>
+```
 <font color ='#00bcd4'> In [17]: </font>
-
-{% highlight R %}
+```R
 plot(as.data.frame(mysamplist), pch='.')
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_31_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_31_0.png" alt="png"/>
 
 
 ### 1.4\. Bar plot of 4 cyclin genes expression values in 3 ALL and AML patients
 
 We will analyse the expression values of the `D13639_at, M92287_at, U11791_at,
 Z36714_AT` genes in three chosen AML and ALL patients
-
-<br>
 <font color ='#00bcd4'> In [18]: </font>
-
-{% highlight R %}
+```R
 mygenelist <- golub[c(85, 1042, 1212, 2240), c(1:3, 36:38)]
 
 # having a look at the data set chosen
 mygenelist
-{% endhighlight %}
-
+```
 
 <table class="table-responsive table-striped">
 <thead><tr><th></th><th scope="col">0</th><th scope="col">0</th><th scope="col">0</th><th scope="col">1</th><th scope="col">1</th><th scope="col">1</th></tr></thead>
@@ -375,37 +315,30 @@ mygenelist
 </tbody>
 </table>
 
-
-
-<br>
 <font color ='#00bcd4'> In [19]: </font>
-
-{% highlight R %}
+```R
 barplot(mygenelist)
 box()
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_34_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_34_0.png" alt="png"/>
 
 
 The plot is not very easy to read, so we will add some colours and a legend so
 that we know which gene each bar segment corresponds to.
 
-
-<br>
 <font color ='#00bcd4'> In [20]: </font>
-
-{% highlight R %}
+```R
 # custom colours 
 colours = c('lightblue2',   'slateblue', '#BD7BB8', '#2B377A')
 
 barplot(mygenelist, col = colours, legend = TRUE, border = 'white')
 box()
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_36_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_36_0.png" alt="png"/>
 
 
 In this case the patients are indicated on the `X` axis (0 and 1 respectively)
@@ -413,13 +346,10 @@ while the gene expression level is indicate on the `Y` axis.
 
 We can make some improvements to the plots.
 Let's have a look at the `barplot` arguments:
-
-<br>
 <font color ='#00bcd4'> In [21]: </font>
-
-{% highlight R %}
+```R
 ?barplot
-{% endhighlight %}
+```
 
 We are going to focus on only a few of the histgram arguments:
 - `beside`: `TRUE` for the bars to be displayed as justapoxed bars, `FALSE` for
@@ -428,19 +358,16 @@ stacked bars
 `TRUE` bars are displayed horizontally with the first at the bottom.
 - `ylim`, `xlim` :  limits for the y and x axes
 - `col`: colour choices
-
-<br>
 <font color ='#00bcd4'> In [22]: </font>
-
-{% highlight R %}
+```R
 barplot(mygenelist, horiz = TRUE, col = colours, legend = TRUE,
        ylab = 'Patient', border = 'white', 
         xlab = 'Gene expression level', main  = 'Cycline genes expression')
 box()
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_40_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_40_0.png" alt="png"/>
 
 
 In the plot above we presented the barplots horizontally and added some colours,
@@ -458,11 +385,8 @@ First we will compute the ALL and AML for all the patients. Once the means are
 computed they are combined into a single data frame.
 
 Finally, the means are plotted using the `barplot` function.
-
-<br>
 <font color ='#00bcd4'> In [23]: </font>
-
-{% highlight R %}
+```R
 # Calculating the mean of the chosen genes from patient 1 to 27 and 28 to 38
 ALLmean <- rowMeans(golub[c(85,1042,1212,2240),c(1:27)])
 AMLmean <- rowMeans(golub[c(85,1042,1212,2240),c(28:38)])
@@ -476,10 +400,10 @@ barx <- barplot(dataheight, beside=T, horiz=F, col= colours, ylim=c(-2,2.5),
                 ylab = 'Gene expression level', main = 'Cycline genes mean expression
 in AML and ALL patients')
 box()
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_43_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_43_0.png" alt="png"/>
 
 
 ### 1.6\. Adding error bars to the previous plot
@@ -501,11 +425,8 @@ from their mean value.
 Let's start calculating the Standard Deviation of the data.
 
 
-
-<br>
 <font color ='#00bcd4'> In [24]: </font>
-
-{% highlight R %}
+```R
 # Calculating the SD
 ALLsd <- apply(golub[c(85,1042,1212,2240),c(1:27)], 1, sd)
 nALL=length(c(1:27))
@@ -516,7 +437,7 @@ nAML=length(c(28:38))
 datasd <- cbind(ALLsd, AMLsd)
 
 
-{% endhighlight %}
+```
 
 Another measure used to quantify the deviation is the **standard error**, which
 qutifies the variability in the **_means_** of our groups instead of reporting
@@ -536,20 +457,14 @@ by the number of points that you’ve collected”.
 
 Since we have already computed the SD we can now compute the standard error
 (SE).
-
-<br>
 <font color ='#00bcd4'> In [25]: </font>
-
-{% highlight R %}
+```R
 datase <- cbind(ALLsd/sqrt(nALL), AMLsd/sqrt(nAML))
-{% endhighlight %}
+```
 
 Now we can create a plot of the mean data as well as the SE and SD.
-
-<br>
 <font color ='#00bcd4'> In [26]: </font>
-
-{% highlight R %}
+```R
 # creating a panel of 2 plots displayed in 1 row
 par(mfrow = c(1,2))
 
@@ -572,10 +487,10 @@ abline(a = 0 , b = 0, h = 0)
 arrows(barx, dataheight, barx, datasdend, angle=90, lwd = 2, length = 0.15,
        col = 'navyblue')
 box()
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_49_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_49_0.png" alt="png"/>
 
 
 Note that the error bars for the SE are smaller than those for the SD. This is
@@ -600,25 +515,19 @@ adhesion The accession number (X94991.1) of one of its variants can be found in
 a data base like NCBI (UniGene). The code below illustrates how to read the
 sequence ”X94991.1” of the species homo sapiens from GenBank, to construct a
 pie from a frequency table of the four nucleotides .
-
-<br>
 <font color ='#00bcd4'> In [27]: </font>
-
-{% highlight R %}
+```R
 library('ape')
-{% endhighlight %}
-
-<br>
+```
 <font color ='#00bcd4'> In [29]: </font>
-
-{% highlight R %}
+```R
 v = read.GenBank(c("X94991.1"),as.character = TRUE)
 
 pie(table(v$X94991.1), col = colours, border = 'white')
 
 # prints the data as a table 
 table(read.GenBank(c("X94991.1"),as.character=TRUE))
-{% endhighlight %}
+```
 
 
     
@@ -627,7 +536,7 @@ table(read.GenBank(c("X94991.1"),as.character=TRUE))
 
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_53_1.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_53_1.png" alt="png"/>
 
 
 ### 2.2 Stripcharts
@@ -638,21 +547,18 @@ it is useful in combination with a factor that distinguishes members from
 different experimental conditions or patients groups.
 
 Once again we use the CCND3 Cyclin D3 data to generate the plots.
-
-<br>
 <font color ='#00bcd4'> In [30]: </font>
-
-{% highlight R %}
+```R
 # data(golub, package = "multtest")
 gol.fac <- factor(golub.cl,levels=0:1, labels= c("ALL","AML"))
 
 stripchart(golub[1042,] ~ gol.fac, method = "jitter", 
            col = c('slateblue', 'darkgrey'), pch = 16)
 
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_55_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_55_0.png" alt="png"/>
 
 
 From the above figure, it can be observed that the CCND3 Cyclin D3 expression
@@ -669,11 +575,8 @@ a plot is called a histogram.
 We will now generate a histogram of the expression values of gene CCND3 Cyclin
 D3 as well as all the genes for the AML and ALL patients contained in the Golub
 dataset.
-
-<br>
 <font color ='#00bcd4'> In [31]: </font>
-
-{% highlight R %}
+```R
 par(mfrow=c(2,2))
 
 hist(golub[1042, gol.fac == "ALL"], 
@@ -695,10 +598,10 @@ hist(golub[, gol.fac == "ALL"],breaks = 10,
      col = 'slateblue', border = 'white',
     main = 'Golub, ALL', xlab = 'ALL')
 box()
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_58_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_58_0.png" alt="png"/>
 
 
 ### 2.3 Boxplots
@@ -712,18 +615,14 @@ Such a data display is known as a box-and-whisker plot.
 
 We will start by creating a vector with gene expression values sorted in
 ascending order (using the `sort` function).
-
-<br>
 <font color ='#00bcd4'> In [32]: </font>
-
-{% highlight R %}
+```R
 # Sort the values of one gene
 x <- sort(golub[1042, gol.fac=="ALL"], decreasing = FALSE)
 
 # printing the first five values
 x[1:5]
-{% endhighlight %}
-
+```
 
 <dl class="dl-horizontal">
 	<dt>0</dt>
@@ -739,23 +638,19 @@ x[1:5]
 </dl>
 
 
-
 A view on the distribution of the gene expression values of the `ALL` and `AML`
 patients on gene CCND3 Cyclin D3 can be obtained by  generating two separate
 boxplots adjacent to each other:
-
-<br>
 <font color ='#00bcd4'> In [41]: </font>
-
-{% highlight R %}
+```R
 # Even though we are creating two boxplots we only need one major graph
 par(mfrow=c(1,1))
 boxplot(golub[1042,] ~ gol.fac, col = c('lightblue2', 'mediumpurple'))
 
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_62_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_62_0.png" alt="png"/>
 
 
 It can be observed that the gene expression values for ALL are larger than those
@@ -764,46 +659,36 @@ equally wide, the data are quite symmetrically distributed around the median.
 
 We can create a histogram of the expression values of gene CCND3 Cyclin D3 of
 the acute lymphoblastic leukemia patients e.g.
-
-<br>
 <font color ='#00bcd4'> In [110]: </font>
-
-{% highlight R %}
+```R
 hist(golub[1042,], col= 'lightblue', border= 'black', breaks= 6, freq= F,
      main = 'Expression values of gene CCND3 Cyclin D3')
 lines(density(golub[1042,]), col= 'slateblue', lwd = 3)
 box()
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_64_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_64_0.png" alt="png"/>
 
 
 Now we can observe the distribution of all gene expressions values in all 38
 patients
-
-<br>
 <font color ='#00bcd4'> In [113]: </font>
-
-{% highlight R %}
+```R
 boxplot(golub, col= 'lightblue2', lwd = 1, border="black", pch=18)
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_66_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_66_0.png" alt="png"/>
 
 
 To compute the exact values for the quartiles we need a sequence running from 0
 to 1 with increments in steps of 0.25
-
-<br>
 <font color ='#00bcd4'> In [114]: </font>
-
-{% highlight R %}
+```R
 pvec <- seq(0, 1, 0.25)
 quantile(golub[1042, gol.fac=='ALL'], pvec)
-{% endhighlight %}
-
+```
 
 <dl class="dl-horizontal">
 	<dt>0%</dt>
@@ -817,7 +702,6 @@ quantile(golub[1042, gol.fac=='ALL'], pvec)
 	<dt>100%</dt>
 		<dd>2.7661</dd>
 </dl>
-
 
 
 Outliers are data points lying far apart from the pattern set by the majority of
@@ -844,17 +728,14 @@ normally distributed.
 
 To produce a Q-Q plot of the ALL gene expression values of CCND3 Cyclin D3 one
 may use the following.
-
-<br>
 <font color ='#00bcd4'> In [116]: </font>
-
-{% highlight R %}
+```R
 qqnorm(golub[1042, gol.fac == 'ALL'])
 qqline(golub[1042, gol.fac == 'ALL'], col = 'slateblue', lwd = 2)
-{% endhighlight %}
+```
 
 
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_72_0.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_72_0.png" alt="png"/>
 
 
 It can be seen that most of the data points are on or near the straight line,
@@ -864,24 +745,16 @@ drawn.
 
 
 ## 3. Loading tab-delimited data
-
-<br>
 <font color ='#00bcd4'> In [117]: </font>
-
-{% highlight R %}
+```R
 mydata<-read.delim("./NeuralStemCellData.tab.txt", row.names=1, header=T)
-{% endhighlight %}
-
-<br>
+```
 <font color ='#00bcd4'> In [118]: </font>
-
-{% highlight R %}
+```R
 class(mydata)
-{% endhighlight %}
-
+```
 
 'data.frame'
-
 
 ### Now try and do some exploratory analysis of your own on this data!
 
@@ -890,19 +763,14 @@ GvHD flow cytometry data
 
 Only exract the CD3 positive cells
 
-
-<br>
 <font color ='#00bcd4'> In [119]: </font>
-
-{% highlight R %}
+```R
 cor(mydata[,1],mydata[,2])
 plot(mydata[,1],mydata[,3])
-{% endhighlight %}
-
+```
 
 0.956021382271511
 
 
-
-![png]({{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_79_1.png)
+<img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_79_1.png" alt="png"/>
 
