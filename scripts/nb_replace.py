@@ -13,7 +13,6 @@ from tempfile import mkstemp
 from pathlib import Path
 
 
-
 #---------------------------------------
 def find_notebooks():
     """ Find all the notebooks in the repo previsouly converted to 
@@ -47,6 +46,8 @@ def replace(file_path):
     remove(file_path)
     #Move new file
     move(abs_path, file_path)
+    
+    print(f"Replaced {file_path}")
 
 
 # Replacement rules: needed to parse the html properly

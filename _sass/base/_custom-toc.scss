@@ -8,8 +8,10 @@
 
 
 nav[data-toggle='toc']{
-  margin-top: 5rem;
-  margin-left: 5rem;
+  margin-top: 2.0rem;
+  margin-left: 0.5rem;
+  position: relative;
+  margin-bottom: 2.0rem;
 }
 /* All levels of nav */
 nav[data-toggle='toc'] .nav > li > a {
@@ -24,8 +26,8 @@ nav[data-toggle='toc'] .nav > li > a:focus {
   padding-left: 2rem;
   color: $secondary;
   text-decoration: none;
-  background-color: transparent;
-  border-left: 1px solid $primary;
+  background-color: ligthen($gray, 10%);
+  border-left: 2px solid $primary;
   text-decoration: underline;
 }
 nav[data-toggle='toc'] .nav > .active > a,
@@ -34,7 +36,7 @@ nav[data-toggle='toc'] .nav > .active:focus > a {
   padding-left: 2rem;
   font-weight: bold;
   color: $secondary;
-  background-color: transparent;
+  background-color: ligthen($gray, 10%);
   border-left: 2.5px solid $primary;
 }
 

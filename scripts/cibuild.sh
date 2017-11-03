@@ -3,10 +3,12 @@
 echo "***** Testing notebooks"
 py.test --nbval-lax */*.ipynb
 
-echo "***** Parsing notebooks for publishing"
+echo "***** Converting notebooks to markdown"
 
 jupyter nbconvert --config scripts/mock.py
 
+
+echo "***** Final touches"
 python scripts/nb_replace.py
 
 clear
