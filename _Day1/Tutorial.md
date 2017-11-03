@@ -2,9 +2,11 @@
 layout: notebook
 title: "Tutorial"
 tags:
+
 update_date:
 code_version: 1
 validation_pass:
+
 ---
 <br />
 # BAD Day 1: Tutorial
@@ -100,6 +102,7 @@ row.names(golub) = golub.gnames[,3]
 
 head(golub)
 ```
+
 
 <table class="table-responsive table-striped">
 <tbody>
