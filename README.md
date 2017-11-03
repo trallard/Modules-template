@@ -102,7 +102,7 @@ Once this is done the pages will be automatically added to the sidebar menu.
 ### Launching in Microsoft Azure notebooks
 If you want to import your library to Microsoft Azure please modify the following badge using your own repository in the `href`. Once done this, push your repository to GitHub.
 
-<a href="https://notebooks.azure.com/import/gh/trallard/Modules_template"><img src="https://notebooks.azure.com/launch.png" /></a>
+<a href="https://notebooks.azure.com/import/gh/trallard/Modules_template"><img src="https://img.shields.io/badge/launch-azurenb-blue.svg" /></a>
 
 You will then be able to click on the `launch azurenb` badge and automatically import the notebooks to [Microsoft Azure Notebooks](https://notebooks.azure.com). Make sure to copy your library url for the following steps.
 
