@@ -1,14 +1,14 @@
 //## Custom color scheme inspired from Google material
 
 /* Used for display and accents */
-$primary: #ff9800;
-$primary-light: #ffc947;
-$primary-dark: #c66900;
+$primary: #778f9b;
+$primary-light: lighten($primary, 15%);
+$primary-dark: darken($primary, 15%);
 
 /* Used for titles, links and other text structures */
-$secondary: #2195f2;
-$secondary-light: #6ec5ff;
-$secondary-dark: #0068bf;
+$secondary: #3f51b5;
+$secondary-light: lighten($secondary, 15%);
+$secondary-dark: darken($secondary, 15%);
 $white: #fff;
 $black: #000;
 
