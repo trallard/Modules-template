@@ -1,16 +1,31 @@
 <!-- return to outline-->
-<a href = '{{site.url}}{{site.baseurl}}{{page.module}}' class="btn btn-purple">
+<a href = '{{site.url}}{{site.baseurl}}/{{page.collection}}' class="btn btn-purple">
   <i class="fa fa-magic left"></i>
-  {{page.collection}} outline </a>
+  {{page.collection}} outline
+</a>
 
-
-<!--download-->
-<a href="{{site.url}}{{site.baseurl}}/notebooks/{{page.nb}}" download="{{page.nb}}"
- class="float" >
-<i class="fa fa-download my-float"></i>
+  <!--download-->
+<a href="{{site.url}}{{site.baseurl}}/notebooks/{{page.nb}}"
+  download="{{page.nb}}" class="float" >
+  <i class="fa fa-download my-float"></i>
 </a>
 <div class="label-container">
-<div class="label-text">If download does not start: right-click and
-                  'Download linked file as'</div>
+  <div class="label-text">
+    If download does not start: right-click and
+    'Download linked file as'
+  </div>
 </div>
+<br>
+
+
+<!-- Azure notebooks -->
+{% if site.azure %}
+<a href="{{site.azure}}"
+target="_blank" class="float float-offset" >
+<i class="fa fa-cloud my-float"></i>
+</a>
+<div class="label-container label-offset">
+<div class="label-text">Launch in Microsoft Azure</div>
+</div>
+{% endif %}
 <br>

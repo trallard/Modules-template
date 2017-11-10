@@ -1,18 +1,14 @@
 ---
 # Only the main SASS file needs front matter
 ---
+
+
+/* Note the base sass are imported at the bottom */
 @charset "utf-8";
 
-@import url("https://fonts.googleapis.com/css?family=Lato:400,700,400italic");
-@import url('https://fonts.googleapis.com/css?family=Imprima|Kaffeesatz');
-@import url('https://fonts.googleapis.com/css?family=Cantata+One|Muli');
-
 @import "base/variables";
+@import "../basic_style";
 
-/* Custom fonts used */
-$base-font: 'Pridi', sans-serif;
-/*$title-font: 'Cantata One', Georgia, serif;*/
-$title-font: 'Kaffeesatz', sans-serif;
 
 /*!
  * bootswatch v3.3.7
@@ -7043,4 +7039,5 @@ a.list-group-item-danger.active:focus {
 @import "base/syntax",
         "base/custom-toc",
         "base/sidebar",
-        "base/custom";
+        "base/custom",
+        "base/notebook";

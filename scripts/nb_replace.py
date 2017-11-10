@@ -7,19 +7,22 @@ Created on Thu Jul  6 10:09:43 2017
 """
 
 from os import remove, close
-import re, glob, os
+import re, glob, os, fnmatch
 from shutil import move
 from tempfile import mkstemp
 from pathlib import Path
 
 
-
-def find_nb():
-    """ Finds the notebooks in all the directories"""
-    basePath = Path(os.getcwd())
-    PathList = list(basePath.glob('**/*.ipynb'))
-    notebooks = [os.path.abspath(i).replace("ipynb", "md") for i in PathList]
+#---------------------------------------
+def find_notebooks():
+    """ Find all the notebooks in the repo previsouly converted to 
+    markdown"""
     
+    basePath = Path(os.getcwd())
+    notebooksAll = [nb for nb in glob.glob('**/*.ipynb')]
+    exception = str(basePath) + '/_site/*/*'
+    notebooks = [nb for nb in notebooksAll if not fnmatch.fnmatch(nb, exception)]
+    notebooks = [os.path.abspath(nb).replace('ipynb', 'md') for nb in notebooks]
     return notebooks
 
 
@@ -43,6 +46,8 @@ def replace(file_path):
     remove(file_path)
     #Move new file
     move(abs_path, file_path)
+    
+    print(f"Replaced {file_path}")
 
 
 # Replacement rules: needed to parse the html properly
@@ -58,5 +63,5 @@ scope = {'scope=row', 'scope=col'}
 scopeobj = re.compile('|'.join(rscope.keys()))
 
 
-notebooks = find_nb()
+notebooks = find_notebooks()
 for nb in notebooks: replace(nb)

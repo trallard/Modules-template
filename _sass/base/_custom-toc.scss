@@ -4,9 +4,14 @@
  * Licensed under MIT (https://github.com/afeld/bootstrap-toc/blob/gh-pages/LICENSE.md) */
 
 /* modified from https://github.com/twbs/bootstrap/blob/94b4076dd2efba9af71f0b18d4ee4b163aa9e0dd/docs/assets/css/src/docs.css#L548-L601 */
+/*further modified for Modules -templates by Tania Allard */
+
+
 nav[data-toggle='toc']{
-  margin-top: 5rem;
-  margin-left: 5rem;
+  margin-top: 2.0rem;
+  margin-left: 0.5rem;
+  position: relative;
+  margin-bottom: 2.0rem;
 }
 /* All levels of nav */
 nav[data-toggle='toc'] .nav > li > a {
@@ -21,8 +26,8 @@ nav[data-toggle='toc'] .nav > li > a:focus {
   padding-left: 2rem;
   color: $secondary;
   text-decoration: none;
-  background-color: transparent;
-  border-left: 1px solid $primary;
+  background-color: ligthen($gray, 10%);
+  border-left: 2px solid $primary;
   text-decoration: underline;
 }
 nav[data-toggle='toc'] .nav > .active > a,
@@ -31,7 +36,7 @@ nav[data-toggle='toc'] .nav > .active:focus > a {
   padding-left: 2rem;
   font-weight: bold;
   color: $secondary;
-  background-color: transparent;
+  background-color: ligthen($gray, 10%);
   border-left: 2.5px solid $primary;
 }
 

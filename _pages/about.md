@@ -2,7 +2,8 @@
 layout: page
 permalink: /about/
 title: Getting started
-category: module
+category:
+featured:
 ---
 
 # Working with the material

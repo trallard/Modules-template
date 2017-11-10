@@ -1,3 +1,6 @@
+/* Custom configuration  for multiple components used
+in the site */
+
 body{
   font-family: $base-font;
   overflow-x: hidden;
@@ -10,16 +13,20 @@ body{
   margin-bottom: 0;
 }
 
+.navbar-brand{
+  font-family: $title-font;
+}
+
 
 /*** Links ***/
 a {
-  color: $secondary-light;
+  color: lighten($secondary, 10%);
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
   a:hover, a:focus {
     text-decoration: underline;
-    color: $secondary-light;
+    color: $secondary-dark;
   }
 /***Headings ***/
 h1,
@@ -69,6 +76,11 @@ img{
   height: auto;
 }
 
+.img-logo{
+  border-radius: 5px;
+  float: right;
+  padding: 30px 10px;
+}
 /*** Tables ***/
 table{
   width: 100%;
@@ -87,7 +99,9 @@ td{
   background-color: $gray-lighter;
 }
 
-
+.table-responsive{
+  font-size: 1em!important;
+}
 
 
 /** edge header ***/
@@ -111,6 +125,8 @@ ul {
         font-weight: 400;
         text-align: center;
         font-family: $title-font;
+        padding: 10px;
+        border-bottom: 2px solid $gray-lighter;
     }
     h3 {
         margin-bottom: 1rem;
@@ -121,6 +137,7 @@ ul {
     p {
         margin-bottom: 1rem;
         text-align: center;
+        padding: 20px;
     }
     .btn{
       margin-bottom: 5px;
@@ -131,7 +148,9 @@ ul {
   margin-top: 15px;
 }
 
-
+.img-fluid, .section img,
+.section .view, .card img {
+  max-height: 250px; }
 
 /*** Floating button ***/
 .float{
@@ -161,6 +180,14 @@ a.float:focus {
 	margin-top:16px;
 }
 
+.float-offset{
+  position: fixed;
+  bottom: 80px;
+  background-color: $primary-dark;
+  &:hover{
+    background-color: lighten($primary-dark, 5%);
+  }
+}
 
 .label-container{
 	position:fixed;
@@ -168,6 +195,11 @@ a.float:focus {
 	right:100px;
 	display:table;
 	visibility: hidden;
+}
+
+.label-offset{
+  position: fixed;
+  bottom: 82px;
 }
 
 .label-text{
@@ -188,4 +220,157 @@ a.float + div.label-container {
 a.float:hover + div.label-container{
   visibility: visible;
   opacity: 1;
+}
+
+
+/* 404 */
+$bgColor: #f7f7f7;
+$jaggedDistance: 32px;
+
+// boo
+$booSize: $jaggedDistance * 5;
+$booBg: $bgColor;
+$booShadow: darken($booBg, 5%);
+
+// face
+$booFaceSize: round($jaggedDistance / 1.3333);
+$booFaceColor: #9b9b9b;
+
+// ===========
+
+@keyframes floating {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	45% {
+		transform: translate3d(0, -10%, 0);
+	}
+  55% {
+		transform: translate3d(0, -10%, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@keyframes floatingShadow {
+	0% {
+		transform: scale(1);
+	}
+	45% {
+		transform: scale(.85);
+	}
+  55% {
+		transform: scale(.85);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+// ===========
+
+@mixin border-bottom-jagged($size, $color-outer) {
+  position: relative;
+  padding-bottom: $size;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -($size / 1.7);
+    bottom: -($jaggedDistance / 3.85);
+    width: calc(100% + #{$size});
+    height: $size;
+    background-repeat: repeat-x;
+    background-size: $size $size;
+    background-position: left bottom;
+    background-image: linear-gradient(-45deg, $color-outer ($size / 2), transparent 0),
+                      linear-gradient(45deg, $color-outer ($size / 2), transparent 0),
+                      linear-gradient(-45deg, $booFaceColor ($size / 1.7), transparent 0),
+                      linear-gradient(45deg, $booFaceColor ($size / 1.7), transparent 0);
+  }
+}
+
+// ===========
+
+.container-boo {
+  font-family: $base-font;
+  color: $booFaceColor;
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  font-size: $jaggedDistance / 2;
+
+  h1 {
+    font-size: $jaggedDistance;
+    margin-top: $jaggedDistance;
+  }
+}
+
+.boo-wrapper {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  paddig-top: $jaggedDistance * 2;
+  paddig-bottom: $jaggedDistance * 2;
+}
+
+.boo {
+  width: $booSize;
+  height: $booSize + ($booSize * .15);
+  background-color: $booBg;
+  margin-left: auto;
+  margin-right: auto;
+  border: (($jaggedDistance / 1.65)  - ($jaggedDistance /2)) solid $booFaceColor;
+  border-bottom: 0;
+  overflow: hidden;
+  border-radius: ($booSize / 2) ($booSize / 2) 0 0;
+  box-shadow: -($jaggedDistance / 2) 0 0 2px rgba($booShadow, .5) inset;
+  @include border-bottom-jagged($jaggedDistance, $bgColor);
+  animation: floating 3s ease-in-out infinite;
+
+  .face {
+    width: $booFaceSize;
+    height: $jaggedDistance / 10;
+    border-radius: 5px;
+    background-color: $booFaceColor;
+    position: absolute;
+    left: 50%;
+    bottom: $jaggedDistance + $booFaceSize;
+    transform: translateX(-50%);
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: $booFaceSize / 4;
+      height: $booFaceSize / 4;
+      background-color: $booFaceColor;
+      border-radius: 50%;
+      position: absolute;
+      bottom: $jaggedDistance + ($booFaceSize / 3);
+    }
+
+    &::before {
+      left: -$booFaceSize;
+    }
+
+    &::after {
+      right: -$booFaceSize;
+    }
+  }
+}
+
+.shadow {
+  width: $booSize - $jaggedDistance;
+  height: $jaggedDistance / 2;
+  background-color: rgba($booShadow, .75);
+  margin-top: $jaggedDistance * 1.25;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50%;
+  animation: floatingShadow 3s ease-in-out infinite;
 }

@@ -20,6 +20,22 @@ when the sidebar is displayed-->
   <div class="container">
     <div class="row">
 
+      <!-- info on the notebook version -->
+      <div class='nb_top col-sm-8'>
+        <h2> {{page.title}} </h2>
+        <br>
+        {% if page.author %}
+        <author> {{page.author}} </author>
+        {% else %}
+        <author> {{site.author.name}}</author>
+        <br>
+        {% endif %}
+        Last updated: <em> {{page.update_date}} </em>
+        <br>
+        Code version: <em>{{page.code_version}} </em>
+        <hr>
+      </div>
+
 <!--- Main content--->
       <div class="col-sm-8">
         <main>
@@ -27,10 +43,8 @@ when the sidebar is displayed-->
         </main>
       </div>
 
-      <div class="col-sm-1">
-      </div>
       <!-- TOC sidebar, which will move to the top on a small screen -->
-      <div class="col-sm-3 container-toc">
+      <div class="col-sm-4 toc_well">
         <nav id="toc" data-spy="affix" data-toggle="toc"></nav>
       </div>
     </div>
