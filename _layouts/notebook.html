@@ -25,9 +25,9 @@ when the sidebar is displayed-->
         <h2> {{page.title}} </h2>
         <br>
         {% if page.author %}
-        <author> {{page.author}} </author>
+        Author: <author> {{page.author}} </author>
         {% else %}
-        <author> {{site.author.name}}</author>
+        Author: <author> {{site.author.name}}</author>
         <br>
         {% endif %}
         Last updated: <em> {{page.update_date}} </em>
