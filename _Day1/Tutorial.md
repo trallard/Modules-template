@@ -5,7 +5,7 @@ tags:
 
 update_date:
 code_version: 1
-validation_pass:
+validation_pass: 'yes'
 
 ---
 <br />
@@ -244,7 +244,7 @@ In the previous plot we just used the default plotting preferences within R base
 plotting.We can do some improvements so that the plot is easily understood.
 <font color ='#00bcd4'> In [13]: </font>
 ```R
-plot(mygene, pch = 15, col = 'slateblue', ylab = 'Expression value of gene: CCND3', 
+plot(mygene, pch = 15, col = 'slateblue', ylab = 'Expression value of gene: CCND3',
     main = ' Gene expression values of CCND3 Cyclin D3')
 ```
 
@@ -269,7 +269,7 @@ Adding diagonal lines to the plot and changing axes labels
 
 <font color ='#00bcd4'> In [15]: </font>
 ```R
-plot(golub[,1], golub[,38], xlab = 'Patient 1 (ALL)', ylab = 'Patient 38 (AML)') 
+plot(golub[,1], golub[,38], xlab = 'Patient 1 (ALL)', ylab = 'Patient 38 (AML)')
 abline(a = 0, b = 1, col = 'mediumpurple', lwd =3)
 ```
 
@@ -330,7 +330,7 @@ that we know which gene each bar segment corresponds to.
 
 <font color ='#00bcd4'> In [20]: </font>
 ```R
-# custom colours 
+# custom colours
 colours = c('lightblue2',   'slateblue', '#BD7BB8', '#2B377A')
 
 barplot(mygenelist, col = colours, legend = TRUE, border = 'white')
@@ -361,7 +361,7 @@ stacked bars
 <font color ='#00bcd4'> In [22]: </font>
 ```R
 barplot(mygenelist, horiz = TRUE, col = colours, legend = TRUE,
-       ylab = 'Patient', border = 'white', 
+       ylab = 'Patient', border = 'white',
         xlab = 'Gene expression level', main  = 'Cycline genes expression')
 box()
 ```
@@ -394,7 +394,7 @@ AMLmean <- rowMeans(golub[c(85,1042,1212,2240),c(28:38)])
 # Combining the mean matrices previously calculated
 dataheight <- cbind(ALLmean, AMLmean)
 
-# Plotting 
+# Plotting
 barx <- barplot(dataheight, beside=T, horiz=F, col= colours, ylim=c(-2,2.5),
                 legend = TRUE,border = 'white' ,
                 ylab = 'Gene expression level', main = 'Cycline genes mean expression
@@ -474,7 +474,7 @@ datasdend[c(3,4),] = - datasdend[c(3,4),]
 barx <- barplot(dataheight, beside=T, horiz=F, col = colours, ylim=c(-2,2.5),
                main = 'Data +  SD', border = 'white')
 abline(a = 0 , b = 0, h = 0)
-arrows(barx, dataheight, barx, datasdend, angle=90, lwd = 2, length = 0.15, 
+arrows(barx, dataheight, barx, datasdend, angle=90, lwd = 2, length = 0.15,
        col = 'navyblue')
 box()
 
@@ -525,14 +525,14 @@ v = read.GenBank(c("X94991.1"),as.character = TRUE)
 
 pie(table(v$X94991.1), col = colours, border = 'white')
 
-# prints the data as a table 
+# prints the data as a table
 table(read.GenBank(c("X94991.1"),as.character=TRUE))
 ```
 
 
-    
-      a   c   g   t 
-    410 789 573 394 
+
+      a   c   g   t
+    410 789 573 394
 
 
 
@@ -552,7 +552,7 @@ Once again we use the CCND3 Cyclin D3 data to generate the plots.
 # data(golub, package = "multtest")
 gol.fac <- factor(golub.cl,levels=0:1, labels= c("ALL","AML"))
 
-stripchart(golub[1042,] ~ gol.fac, method = "jitter", 
+stripchart(golub[1042,] ~ gol.fac, method = "jitter",
            col = c('slateblue', 'darkgrey'), pch = 16)
 
 ```
@@ -579,17 +579,17 @@ dataset.
 ```R
 par(mfrow=c(2,2))
 
-hist(golub[1042, gol.fac == "ALL"], 
+hist(golub[1042, gol.fac == "ALL"],
      col = 'slateblue', border = 'white',
     main = 'Golub[1042], ALL', xlab = 'ALL')
 box()
 
-hist(golub,breaks = 10, 
+hist(golub,breaks = 10,
     col = 'slateblue', border = 'white',
     main =  'Golub')
 box()
 
-hist(golub[, gol.fac == "AML"],breaks = 10, 
+hist(golub[, gol.fac == "AML"],breaks = 10,
      col = 'slateblue', border = 'white',
     main = 'Golub, AML', xlab = 'AML')
 box()
@@ -773,4 +773,3 @@ plot(mydata[,1],mydata[,3])
 
 
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_79_1.png" alt="png"/>
-

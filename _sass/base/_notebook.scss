@@ -4,7 +4,7 @@
   padding: 10px;
   font-size: 1em;
   font-weight: normal;
-  color: #000;
+  background-color: transparent;
 }
 
 .nb_top author{
@@ -20,7 +20,21 @@
   box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .1);
   border-radius: .25em;
   border: 1px solid $gray-lighter;
-  position: fixed;
+  position: relative;
   top: 10%; /* Note that this will feep the TOC in place*/
   right: 1%;
   }
+
+
+.badge{
+  box-shadow: none;
+  position:relative;
+  background-color: transparent;
+  padding-top: 10px;
+  margin: 0;
+}
+
+.badge_img{
+  width: 120px;
+  float:left;
+}

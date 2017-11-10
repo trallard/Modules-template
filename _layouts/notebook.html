@@ -21,20 +21,30 @@ when the sidebar is displayed-->
     <div class="row">
 
       <!-- info on the notebook version -->
-      <div class='nb_top col-sm-8'>
-        <h2> {{page.title}} </h2>
-        <br>
-        {% if page.author %}
-        Author: <author> {{page.author}} </author>
-        {% else %}
-        Author: <author> {{site.author.name}}</author>
-        <br>
-        {% endif %}
-        Last updated: <em> {{page.update_date}} </em>
-        <br>
-        Code version: <em>{{page.code_version}} </em>
-        <hr>
-      </div>
+        <div class="nb_top col-sm-8">
+          <h2> {{page.title}} </h2>
+          <br>
+          {% if page.author %}
+          Author: <author> {{page.author}} </author>
+          {% else %}
+          Author: <author> {{site.author.name}}</author>
+          <br>
+          {% endif %}
+          Last updated: <em> {{page.update_date}} </em>
+          <br>
+          Code version: <em>{{page.code_version}} </em>
+          <br>
+          <div class="badge">
+            {% if page.validation_pass == 'yes' %}
+            <img src="https://img.shields.io/badge/notebook-validated-brightgreen.svg"
+            alt="pass" class="badge_img">
+            {% else %}
+            <img src="https://img.shields.io/badge/notebook-validation failed-red.svg"
+            alt="nopass">
+            {% endif %}
+          </div>
+          <hr>
+        </div>
 
       <!--- Main content--->
       <div class="col-sm-8">
