@@ -20,14 +20,15 @@ body{
 
 /*** Links ***/
 a {
-  color: lighten($secondary, 10%);
+  color: $secondary-light;
   text-decoration: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent; }
   a:hover, a:focus {
     text-decoration: underline;
-    color: $secondary-dark;
+    color: $secondary-light;
   }
+
 /***Headings ***/
 h1,
 h2,
@@ -40,7 +41,6 @@ h5{
 h1{
   color: $secondary-dark;
 }
-
 
 h2,
 h3,
@@ -90,6 +90,8 @@ table{
 
 tr{
   line-height: 1.75em;
+  color: $black;
+  font-size: 1.2em;
 }
 td{
   padding-left: 0.5em;
@@ -100,7 +102,7 @@ td{
 }
 
 .table-responsive{
-  font-size: 1em!important;
+  font-size: 1.2em!important;
 }
 
 
@@ -159,14 +161,14 @@ ul {
 	height:50px;
 	bottom:20px;
 	right:40px;
-	background-color: $primary;
+	background-color: $secondary;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
   font-size: 1.25em;
   &:hover{
-    background-color: lighten($primary, 5%);
+    background-color: lighten($secondary, 5%);
   }
 }
 
@@ -183,9 +185,9 @@ a.float:focus {
 .float-offset{
   position: fixed;
   bottom: 80px;
-  background-color: $primary-dark;
+  background-color: $secondary-dark;
   &:hover{
-    background-color: lighten($primary-dark, 5%);
+    background-color: lighten($secondary-dark, 5%);
   }
 }
 
@@ -203,8 +205,8 @@ a.float:focus {
 }
 
 .label-text{
-	color:#FFF;
-	background:rgba(51,51,51,0.5);
+	color: $black;
+	background:rgba(51,51,51,0.7);
 	display:table-cell;
 	vertical-align:middle;
 	padding:10px;
@@ -222,6 +224,15 @@ a.float:hover + div.label-container{
   opacity: 1;
 }
 
+/* Button */
+
+.btn-module {
+  background: $secondary;
+  text-transform: none!important;}
+  .btn-module:hover, .btn-module:focus {
+    background-color: ligthen($secondary, 5%)!important; }
+  .btn-blue-grey.active {
+    background-color: ligthen($secondary, 5%) !important; }
 
 /* 404 */
 $bgColor: #f7f7f7;

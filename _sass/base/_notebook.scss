@@ -1,3 +1,5 @@
+/* Style for the notebooks when rendered*/
+
 .nb_top{
   padding: 10px;
   font-size: 1em;
@@ -7,7 +9,7 @@
 
 .nb_top author{
   font-style: italic;
-  font-size: 1.2em;
+  font-size: 1em;
   padding-bottom: 10px;
   color: $gray-dark;
 }
@@ -19,6 +21,6 @@
   border-radius: .25em;
   border: 1px solid $gray-lighter;
   position: fixed;
-  top: 7%;
+  top: 10%; /* Note that this will feep the TOC in place*/
   right: 1%;
   }
