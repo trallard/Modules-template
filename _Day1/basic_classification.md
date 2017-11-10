@@ -4,7 +4,7 @@ title: "basic_classification"
 tags:
 update_date:
 code_version: 1
-validation_pass:
+validation_pass: ''
 ---
 <br /><font color ='#00bcd4'> In [1]: </font>
 ```python
@@ -124,8 +124,8 @@ and use our existing likelihood and kernel.
 <font color ='#00bcd4'> In [5]: </font>
 ```python
 m = GPy.core.GP(X=X,
-                Y=Y, 
-                kernel=k, 
+                Y=Y,
+                kernel=k,
                 inference_method=GPy.inference.latent_function_inference.expectation_propagation.EP(),
                 likelihood=lik)
 print m
@@ -187,7 +187,7 @@ for i in range(5):
     print 'iteration:', i,
     print m
     print ""
-        
+
 ```
 
 Now our parameters have been optimised to the values that give the largest
@@ -262,4 +262,3 @@ plt.legend()
 
 
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_20_2.svg" alt="svg" />
-
