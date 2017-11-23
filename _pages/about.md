@@ -2,6 +2,7 @@
 layout: page
 permalink: /about/
 title: Getting started
+description: This is the description for the about page 
 category:
 featured:
 ---

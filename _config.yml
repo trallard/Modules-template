@@ -4,7 +4,6 @@ description: Lorem ipsum dolor sit amet understanding yourself in the universe t
 baseurl: "/Modules-template"
 url: "http://trallard.github.io" # the base hostname & protocol for your site
 
-
 # Author's information
 author:
   name: Tania Allard
@@ -16,8 +15,8 @@ card_image: "./images/dna.jpg" #default card image to be shown
 
 # Build settings
 markdown: kramdown
-include: ['_pages']
 highlighter: rouge
+include: ['_pages']
 exclude:
   - .gitignore
   - README.md

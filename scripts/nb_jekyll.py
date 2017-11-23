@@ -25,6 +25,8 @@ basePath = Path(os.getcwd())
 PathList = list(basePath.glob('**/*.ipynb'))
 notebooks = [os.path.abspath(i) for i in PathList]
 
+print("Notebooks found")
+for i in notebooks:print(i)
 
 # nbconvert
 c = get_config()

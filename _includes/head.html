@@ -3,10 +3,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width initial-scale=1">
 
-  <title> {{site.title}} </title>
+  <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-
+  <!-- Favicon -->
   <link rel="shortcut icon" href="{{site.url}}{{site.baseurl}}/images/dna.png" >
 
   <!-- Style sheets -->
@@ -25,14 +25,18 @@
 
 
   <!-- The various JS scripts used in the website -->
+  <!-- JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- FA -->
   <script src="https://use.fontawesome.com/ff95ae1185.js"></script>
+  <!-- Boostrap core javaScript-->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
   crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
 
 <!-- add after bootstrap.min.js -->
+<!-- TOC -->
 <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.4.1/dist/bootstrap-toc.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
 <link src="{{ "/js/custom-scripts.js" | absolute_url }}">
