@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jun 30 13:57:33 2017
 
 @author: tania
 This code is used to generate Jekyll blogpost from Jupyter notebooks
 within a main Jekyll repository
 """
 
-import os
 from pathlib import Path
-import shutil
 import os, sys, glob
 
 try:
@@ -21,6 +18,7 @@ except ImportError:
 
 
 # Finding the directories that contain notebooks
+# note that this will return all of the notebooks in the repo
 basePath = Path(os.getcwd())
 PathList = list(basePath.glob('**/*.ipynb'))
 notebooks = [os.path.abspath(i) for i in PathList]
@@ -32,7 +30,7 @@ for i in notebooks:print(i)
 c = get_config()
 c.NbConvertApp.export_format = 'markdown'
 c.MarkdownExporter.template_path = ['./scripts'] # point this to the location of the jekyll template file
-c.MarkdownExporter.template_file = 'jekyll'
+c.MarkdownExporter.template_file = 'jekyll.tpl'
 
 # convert all notebooks found
 c.NbConvertApp.notebooks = notebooks
