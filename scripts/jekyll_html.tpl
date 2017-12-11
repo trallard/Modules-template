@@ -1,3 +1,4 @@
+{# a This template should be used along with the custom exporter #}
 {%- extends 'basic.tpl' -%}
 {% from 'mathjax.tpl' import mathjax %}
 
@@ -24,7 +25,7 @@
 
 {% block body %}
 <body>
-  <h1> Taniaa aa</h1>
+  <h1> Taniaa hacked this</h1>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 {{ super() }}
