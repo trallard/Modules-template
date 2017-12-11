@@ -8,7 +8,7 @@ within a main Jekyll repository
 """
 
 from pathlib import Path
-import os, sys, glob
+import os, glob, fnmatch
 
 try:
     from urllib.parse import quote  # Py 3
