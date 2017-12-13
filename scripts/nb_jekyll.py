@@ -6,7 +6,9 @@
 This code is used to generate Jekyll blogpost from Jupyter notebooks
 within a main Jekyll repository. This uses the library 'nbconvert-jekyll'.
 
-Since the templates are given in this package there is no need to specify a custom template.
+Since the templates are given in this package there is no need to specify a c
+ustom template, unless you need to modify the default output. If doing so you also
+need to provide a path for the templates.
 """
 
 # Import libraries
@@ -26,7 +28,8 @@ except ImportError:
 
 def find_notebooks():
     """ Find all the notebooks in the repo, but excludes those
-    in the _site folder"""
+    in the _site folder, this will be default if no specific
+    notebook was passed for conversion """
 
     basePath = Path(os.getcwd())
     notebooksAll = [nb for nb in glob.glob('**/*.ipynb')]
