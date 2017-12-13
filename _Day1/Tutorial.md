@@ -4,7 +4,7 @@ title: "Tutorial"
 tags:
 update_date:
 code_version: 1
-validation_pass:
+validation_pass: 'yes'
 ---
 <br />
 # BAD Day 1: Tutorial  
@@ -119,12 +119,12 @@ The downloaded binary packages are in
 
 # 1. Exploratory data analysis
 
-We will be usig the Gene Expression dataset from **Golub et al (1999)**. The gene expression data collected by Golub et al. (1999) are among the most classical in bioinformatics. A selection of the set is called `golub` which is contained in the `multtest` package loaded before. 
+We will be usig the Gene Expression dataset from **Golub et al (1999)**. The gene expression data collected by Golub et al. (1999) are among the most classical in bioinformatics. A selection of the set is called `golub` which is contained in the `multtest` package loaded before.
 
 
 The data consist of gene expression values of 3051 genes (rows) from 38 leukemia patients Pre-processing was done as described in Dudoit et al. (2002). The R code for pre-processing is available in the file ../doc/golub.R.
 
-**Source**: 
+**Source**:
 Golub et al. (1999). Molecular classification of cancer: class discovery and class prediction by gene expression monitoring, Science, Vol. 286:531-537. (http://www-genome.wi.mit.edu/MPR/).
 
 <div class="cell border-box-sizing code_cell rendered">
@@ -259,11 +259,11 @@ Data set values:
 
 
 
-<p>| -1.45769 | -1.39420 | -1.42779 | -1.40715 | -1.42668 | -1.21719 | -1.37386 | -1.36832 | -1.47649 | -1.21583 | ⋯        | -1.08902 | -1.29865 | -1.26183 | -1.44434 |  1.10147 | -1.34158 | -1.22961 | -0.75919 | 0.84905  | -0.66465 | 
-| -0.75161 | -1.26278 | -0.09052 | -0.99596 | -1.24245 | -0.69242 | -1.37386 | -0.50803 | -1.04533 | -0.81257 | ⋯        | -1.08902 | -1.05094 | -1.26183 | -1.25918 |  0.97813 | -0.79357 | -1.22961 | -0.71792 | 0.45127  | -0.45804 | 
-|  0.45695 | -0.09654 |  0.90325 | -0.07194 |  0.03232 |  0.09713 | -0.11978 |  0.23381 |  0.23987 |  0.44201 | ⋯        | -0.43377 | -0.10823 | -0.29385 |  0.05067 |  1.69430 | -0.12472 |  0.04609 |  0.24347 | 0.90774  |  0.46509 | 
-|  3.13533 |  0.21415 |  2.08754 |  2.23467 |  0.93811 |  2.24089 |  3.36576 |  1.97859 |  2.66468 | -1.21583 | ⋯        |  0.29598 | -1.29865 |  2.76869 |  2.08960 |  0.70003 |  0.13854 |  1.75908 |  0.06151 | 1.30297  |  0.58186 | 
-|  2.76569 | -1.27045 |  1.60433 |  1.53182 |  1.63728 |  1.85697 |  3.01847 |  1.12853 |  2.17016 | -1.21583 | ⋯        | -1.08902 | -1.29865 |  2.00518 |  1.17454 | -1.47218 | -1.34158 |  1.55086 | -1.18107 | 1.01596  |  0.15788 | 
+<p>| -1.45769 | -1.39420 | -1.42779 | -1.40715 | -1.42668 | -1.21719 | -1.37386 | -1.36832 | -1.47649 | -1.21583 | ⋯        | -1.08902 | -1.29865 | -1.26183 | -1.44434 |  1.10147 | -1.34158 | -1.22961 | -0.75919 | 0.84905  | -0.66465 |
+| -0.75161 | -1.26278 | -0.09052 | -0.99596 | -1.24245 | -0.69242 | -1.37386 | -0.50803 | -1.04533 | -0.81257 | ⋯        | -1.08902 | -1.05094 | -1.26183 | -1.25918 |  0.97813 | -0.79357 | -1.22961 | -0.71792 | 0.45127  | -0.45804 |
+|  0.45695 | -0.09654 |  0.90325 | -0.07194 |  0.03232 |  0.09713 | -0.11978 |  0.23381 |  0.23987 |  0.44201 | ⋯        | -0.43377 | -0.10823 | -0.29385 |  0.05067 |  1.69430 | -0.12472 |  0.04609 |  0.24347 | 0.90774  |  0.46509 |
+|  3.13533 |  0.21415 |  2.08754 |  2.23467 |  0.93811 |  2.24089 |  3.36576 |  1.97859 |  2.66468 | -1.21583 | ⋯        |  0.29598 | -1.29865 |  2.76869 |  2.08960 |  0.70003 |  0.13854 |  1.75908 |  0.06151 | 1.30297  |  0.58186 |
+|  2.76569 | -1.27045 |  1.60433 |  1.53182 |  1.63728 |  1.85697 |  3.01847 |  1.12853 |  2.17016 | -1.21583 | ⋯        | -1.08902 | -1.29865 |  2.00518 |  1.17454 | -1.47218 | -1.34158 |  1.55086 | -1.18107 | 1.01596  |  0.15788 |
 |  2.64342 |  1.01416 |  1.70477 |  1.63845 | -0.36075 |  1.73451 |  3.36576 |  0.96870 |  2.72368 | -1.21583 | ⋯        | -1.08902 | -1.29865 |  1.73780 |  0.89347 | -0.52883 | -1.22168 |  0.90832 | -1.39906 | 0.51266  |  1.36249 |</p>
 
 
@@ -300,11 +300,11 @@ The gene names are collected in the matrix `golub.gnames` of which the columns c
 
 
 
-<p>| AFFX-HUMISGF3A/M97935_MA_at | -1.45769 | -1.39420 | -1.42779 | -1.40715 | -1.42668 | -1.21719 | -1.37386 | -1.36832 | -1.47649 | -1.21583 | ⋯        | -1.08902 | -1.29865 | -1.26183 | -1.44434 |  1.10147 | -1.34158 | -1.22961 | -0.75919 | 0.84905  | -0.66465 | 
-| AFFX-HUMISGF3A/M97935_MB_at | -0.75161 | -1.26278 | -0.09052 | -0.99596 | -1.24245 | -0.69242 | -1.37386 | -0.50803 | -1.04533 | -0.81257 | ⋯        | -1.08902 | -1.05094 | -1.26183 | -1.25918 |  0.97813 | -0.79357 | -1.22961 | -0.71792 | 0.45127  | -0.45804 | 
-| AFFX-HUMISGF3A/M97935_3_at |  0.45695 | -0.09654 |  0.90325 | -0.07194 |  0.03232 |  0.09713 | -0.11978 |  0.23381 |  0.23987 |  0.44201 | ⋯        | -0.43377 | -0.10823 | -0.29385 |  0.05067 |  1.69430 | -0.12472 |  0.04609 |  0.24347 | 0.90774  |  0.46509 | 
-| AFFX-HUMRGE/M10098_5_at |  3.13533 |  0.21415 |  2.08754 |  2.23467 |  0.93811 |  2.24089 |  3.36576 |  1.97859 |  2.66468 | -1.21583 | ⋯        |  0.29598 | -1.29865 |  2.76869 |  2.08960 |  0.70003 |  0.13854 |  1.75908 |  0.06151 | 1.30297  |  0.58186 | 
-| AFFX-HUMRGE/M10098_M_at |  2.76569 | -1.27045 |  1.60433 |  1.53182 |  1.63728 |  1.85697 |  3.01847 |  1.12853 |  2.17016 | -1.21583 | ⋯        | -1.08902 | -1.29865 |  2.00518 |  1.17454 | -1.47218 | -1.34158 |  1.55086 | -1.18107 | 1.01596  |  0.15788 | 
+<p>| AFFX-HUMISGF3A/M97935_MA_at | -1.45769 | -1.39420 | -1.42779 | -1.40715 | -1.42668 | -1.21719 | -1.37386 | -1.36832 | -1.47649 | -1.21583 | ⋯        | -1.08902 | -1.29865 | -1.26183 | -1.44434 |  1.10147 | -1.34158 | -1.22961 | -0.75919 | 0.84905  | -0.66465 |
+| AFFX-HUMISGF3A/M97935_MB_at | -0.75161 | -1.26278 | -0.09052 | -0.99596 | -1.24245 | -0.69242 | -1.37386 | -0.50803 | -1.04533 | -0.81257 | ⋯        | -1.08902 | -1.05094 | -1.26183 | -1.25918 |  0.97813 | -0.79357 | -1.22961 | -0.71792 | 0.45127  | -0.45804 |
+| AFFX-HUMISGF3A/M97935_3_at |  0.45695 | -0.09654 |  0.90325 | -0.07194 |  0.03232 |  0.09713 | -0.11978 |  0.23381 |  0.23987 |  0.44201 | ⋯        | -0.43377 | -0.10823 | -0.29385 |  0.05067 |  1.69430 | -0.12472 |  0.04609 |  0.24347 | 0.90774  |  0.46509 |
+| AFFX-HUMRGE/M10098_5_at |  3.13533 |  0.21415 |  2.08754 |  2.23467 |  0.93811 |  2.24089 |  3.36576 |  1.97859 |  2.66468 | -1.21583 | ⋯        |  0.29598 | -1.29865 |  2.76869 |  2.08960 |  0.70003 |  0.13854 |  1.75908 |  0.06151 | 1.30297  |  0.58186 |
+| AFFX-HUMRGE/M10098_M_at |  2.76569 | -1.27045 |  1.60433 |  1.53182 |  1.63728 |  1.85697 |  3.01847 |  1.12853 |  2.17016 | -1.21583 | ⋯        | -1.08902 | -1.29865 |  2.00518 |  1.17454 | -1.47218 | -1.34158 |  1.55086 | -1.18107 | 1.01596  |  0.15788 |
 | AFFX-HUMRGE/M10098_3_at |  2.64342 |  1.01416 |  1.70477 |  1.63845 | -0.36075 |  1.73451 |  3.36576 |  0.96870 |  2.72368 | -1.21583 | ⋯        | -1.08902 | -1.29865 |  1.73780 |  0.89347 | -0.52883 | -1.22168 |  0.90832 | -1.39906 | 0.51266  |  1.36249 |</p>
 
 
@@ -367,7 +367,7 @@ The gene names are collected in the matrix `golub.gnames` of which the columns c
 </div>
 
 </div>
-Twenty-seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and eleven as acute myeloid leukemia (AML). The tumor class is given by the numeric vector golub.cl, where ALL is indicated by 0 and AML by 1. 
+Twenty-seven patients are diagnosed as acute lymphoblastic leukemia (ALL) and eleven as acute myeloid leukemia (AML). The tumor class is given by the numeric vector golub.cl, where ALL is indicated by 0 and AML by 1.
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -685,7 +685,7 @@ The data has now been stored in the `golub` matrix. We will now plot the express
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_21_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -701,7 +701,7 @@ In the previous plot we just used the default plotting preferences within R base
 <div class="prompt input_prompt"><font color ='#00bcd4'>In&nbsp;[13]: </font></div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>plot<span class="p">(</span>mygene<span class="p">,</span> pch <span class="o">=</span> <span class="m">15</span><span class="p">,</span> col <span class="o">=</span> <span class="s">&#39;slateblue&#39;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&#39;Expression value of gene: CCND3&#39;</span><span class="p">,</span> 
+<div class=" highlight hl-r"><pre><span></span>plot<span class="p">(</span>mygene<span class="p">,</span> pch <span class="o">=</span> <span class="m">15</span><span class="p">,</span> col <span class="o">=</span> <span class="s">&#39;slateblue&#39;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&#39;Expression value of gene: CCND3&#39;</span><span class="p">,</span>
     main <span class="o">=</span> <span class="s">&#39; Gene expression values of CCND3 Cyclin D3&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -722,7 +722,7 @@ In the previous plot we just used the default plotting preferences within R base
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_23_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -731,9 +731,9 @@ In the previous plot we just used the default plotting preferences within R base
 </div>
 
 </div>
-In this plot the vertical axis corresponds to the size of the expression values and the horizontal axis the index of the patients. 
+In this plot the vertical axis corresponds to the size of the expression values and the horizontal axis the index of the patients.
 
-### 1.2\. Gene expression between patient 1 (ALL) and patient 38 (AML) 
+### 1.2\. Gene expression between patient 1 (ALL) and patient 38 (AML)
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -760,7 +760,7 @@ In this plot the vertical axis corresponds to the size of the expression values 
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_26_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -777,7 +777,7 @@ Adding diagonal lines to the plot and changing axes labels
 <div class="prompt input_prompt"><font color ='#00bcd4'>In&nbsp;[15]: </font></div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>plot<span class="p">(</span>golub<span class="p">[,</span><span class="m">1</span><span class="p">],</span> golub<span class="p">[,</span><span class="m">38</span><span class="p">],</span> xlab <span class="o">=</span> <span class="s">&#39;Patient 1 (ALL)&#39;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&#39;Patient 38 (AML)&#39;</span><span class="p">)</span> 
+<div class=" highlight hl-r"><pre><span></span>plot<span class="p">(</span>golub<span class="p">[,</span><span class="m">1</span><span class="p">],</span> golub<span class="p">[,</span><span class="m">38</span><span class="p">],</span> xlab <span class="o">=</span> <span class="s">&#39;Patient 1 (ALL)&#39;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&#39;Patient 38 (AML)&#39;</span><span class="p">)</span>
 abline<span class="p">(</span>a <span class="o">=</span> <span class="m">0</span><span class="p">,</span> b <span class="o">=</span> <span class="m">1</span><span class="p">,</span> col <span class="o">=</span> <span class="s">&#39;mediumpurple&#39;</span><span class="p">,</span> lwd <span class="o">=</span><span class="m">3</span><span class="p">)</span>
 </pre></div>
 
@@ -798,7 +798,7 @@ abline<span class="p">(</span>a <span class="o">=</span> <span class="m">0</span
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_28_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -849,7 +849,7 @@ abline<span class="p">(</span>a <span class="o">=</span> <span class="m">0</span
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_31_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -971,7 +971,7 @@ box<span class="p">()</span>
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_34_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1012,7 +1012,7 @@ box<span class="p">()</span>
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_36_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1021,7 +1021,7 @@ box<span class="p">()</span>
 </div>
 
 </div>
-In this case the patients are indicated on the `X` axis (0 and 1 respectively) while the gene expression level is indicate on the `Y` axis. 
+In this case the patients are indicated on the `X` axis (0 and 1 respectively) while the gene expression level is indicate on the `Y` axis.
 
 We can make some improvements to the plots.
 Let's have a look at the `barplot` arguments:
@@ -1051,7 +1051,7 @@ We are going to focus on only a few of the histgram arguments:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>barplot<span class="p">(</span>mygenelist<span class="p">,</span> horiz <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> col <span class="o">=</span> colours<span class="p">,</span> legend <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-       ylab <span class="o">=</span> <span class="s">&#39;Patient&#39;</span><span class="p">,</span> border <span class="o">=</span> <span class="s">&#39;white&#39;</span><span class="p">,</span> 
+       ylab <span class="o">=</span> <span class="s">&#39;Patient&#39;</span><span class="p">,</span> border <span class="o">=</span> <span class="s">&#39;white&#39;</span><span class="p">,</span>
         xlab <span class="o">=</span> <span class="s">&#39;Gene expression level&#39;</span><span class="p">,</span> main  <span class="o">=</span> <span class="s">&#39;Cycline genes expression&#39;</span><span class="p">)</span>
 box<span class="p">()</span>
 </pre></div>
@@ -1073,7 +1073,7 @@ box<span class="p">()</span>
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_40_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1089,7 +1089,7 @@ You can also use the barplots to represent the mean and standard error which we 
 
 In the following we will compute the mean for the expression values of both the ALL and AML patients. We will be using the same 4 cycline genes used in the example above.
 
-First we will compute the ALL and AML for all the patients. Once the means are computed they are combined into a single data frame. 
+First we will compute the ALL and AML for all the patients. Once the means are computed they are combined into a single data frame.
 
 Finally, the means are plotted using the `barplot` function.
 
@@ -1130,7 +1130,7 @@ box<span class="p">()</span>
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_43_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1142,7 +1142,7 @@ box<span class="p">()</span>
 ### 1.6\. Adding error bars to the previous plot
 
 
-In the previous section we computed the mean expression level for 4 cycline genes between the AML and ALL patients. Sometimes it is useful to add error bars to the plots (as the one above) to convey the uncertainty in the data presented. 
+In the previous section we computed the mean expression level for 4 cycline genes between the AML and ALL patients. Sometimes it is useful to add error bars to the plots (as the one above) to convey the uncertainty in the data presented.
 
 For such a purpose we often use the **Standard Deviation**:
 
@@ -1150,7 +1150,7 @@ For such a purpose we often use the **Standard Deviation**:
 $$ \sigma = \sqrt{\frac{\sum_{i=1}^{n}\left(x_i -\mu \right)^2}{N}}$$
 
 
-which in turn tells us how much the values in a certain group tend to deviate from their mean value. 
+which in turn tells us how much the values in a certain group tend to deviate from their mean value.
 
 Let's start calculating the Standard Deviation of the data.
 
@@ -1182,7 +1182,7 @@ A relatively straigtforward way to compute this is by assuming if we were to rep
 
 $$ SE  = \frac{SD}{\sqrt{n}} $$
 
-which in layman terms can be read as  “take the general variability of the points around their group means (the standard deviation), and scale this number by the number of points that you’ve collected”. 
+which in layman terms can be read as  “take the general variability of the points around their group means (the standard deviation), and scale this number by the number of points that you’ve collected”.
 
 Since we have already computed the SD we can now compute the standard error (SE).
 
@@ -1215,7 +1215,7 @@ datasdend<span class="p">[</span><span class="kt">c</span><span class="p">(</spa
 barx <span class="o">&lt;-</span> barplot<span class="p">(</span>dataheight<span class="p">,</span> beside<span class="o">=</span><span class="bp">T</span><span class="p">,</span> horiz<span class="o">=</span><span class="bp">F</span><span class="p">,</span> col <span class="o">=</span> colours<span class="p">,</span> ylim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="m">2.5</span><span class="p">),</span>
                main <span class="o">=</span> <span class="s">&#39;Data +  SD&#39;</span><span class="p">,</span> border <span class="o">=</span> <span class="s">&#39;white&#39;</span><span class="p">)</span>
 abline<span class="p">(</span>a <span class="o">=</span> <span class="m">0</span> <span class="p">,</span> b <span class="o">=</span> <span class="m">0</span><span class="p">,</span> h <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
-arrows<span class="p">(</span>barx<span class="p">,</span> dataheight<span class="p">,</span> barx<span class="p">,</span> datasdend<span class="p">,</span> angle<span class="o">=</span><span class="m">90</span><span class="p">,</span> lwd <span class="o">=</span> <span class="m">2</span><span class="p">,</span> length <span class="o">=</span> <span class="m">0.15</span><span class="p">,</span> 
+arrows<span class="p">(</span>barx<span class="p">,</span> dataheight<span class="p">,</span> barx<span class="p">,</span> datasdend<span class="p">,</span> angle<span class="o">=</span><span class="m">90</span><span class="p">,</span> lwd <span class="o">=</span> <span class="m">2</span><span class="p">,</span> length <span class="o">=</span> <span class="m">0.15</span><span class="p">,</span>
        col <span class="o">=</span> <span class="s">&#39;navyblue&#39;</span><span class="p">)</span>
 box<span class="p">()</span>
 
@@ -1247,7 +1247,7 @@ box<span class="p">()</span>
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_49_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1256,14 +1256,14 @@ box<span class="p">()</span>
 </div>
 
 </div>
-Note that the error bars for the SE are smaller than those for the SD. This is no coincidence! 
+Note that the error bars for the SE are smaller than those for the SD. This is no coincidence!
 
 As we increase N (in the SE equation), we will decrease the error. Hence the standard error will **always** be smaller than the SD.
 
 ## 2. Data representation
-This section presents some essential manners to display and visualize  data. 
+This section presents some essential manners to display and visualize  data.
 
-### 2.1 Frequency table 
+### 2.1 Frequency table
 Discrete data occur when the values naturally fall into categories. A frequency table simply gives the number of occurrences within a category.
 
 A gene consists of a sequence of nucleotides (A; C; G; T)
@@ -1316,7 +1316,7 @@ pie<span class="p">(</span><span class="kp">table</span><span class="p">(</span>
 
 <div class="output_text output_subarea ">
 <pre>
-  a   c   g   t 
+  a   c   g   t
 410 789 573 394 </pre>
 </div>
 
@@ -1331,7 +1331,7 @@ pie<span class="p">(</span><span class="kp">table</span><span class="p">(</span>
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_53_1.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1357,7 +1357,7 @@ Once again we use the CCND3 Cyclin D3 data to generate the plots.
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># data(golub, package = &quot;multtest&quot;)</span>
 gol.fac <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>golub.cl<span class="p">,</span>levels<span class="o">=</span><span class="m">0</span><span class="o">:</span><span class="m">1</span><span class="p">,</span> labels<span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;ALL&quot;</span><span class="p">,</span><span class="s">&quot;AML&quot;</span><span class="p">))</span>
 
-stripchart<span class="p">(</span>golub<span class="p">[</span><span class="m">1042</span><span class="p">,]</span> <span class="o">~</span> gol.fac<span class="p">,</span> method <span class="o">=</span> <span class="s">&quot;jitter&quot;</span><span class="p">,</span> 
+stripchart<span class="p">(</span>golub<span class="p">[</span><span class="m">1042</span><span class="p">,]</span> <span class="o">~</span> gol.fac<span class="p">,</span> method <span class="o">=</span> <span class="s">&quot;jitter&quot;</span><span class="p">,</span>
            col <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;slateblue&#39;</span><span class="p">,</span> <span class="s">&#39;darkgrey&#39;</span><span class="p">),</span> pch <span class="o">=</span> <span class="m">16</span><span class="p">)</span>
 </pre></div>
 
@@ -1378,7 +1378,7 @@ stripchart<span class="p">(</span>golub<span class="p">[</span><span class="m">1
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_55_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1390,7 +1390,7 @@ stripchart<span class="p">(</span>golub<span class="p">[</span><span class="m">1
 From the above figure, it can be observed that the CCND3 Cyclin D3 expression values of the ALL patients tend to have larger expression values than those of the AML patient.
 
 
-### 2.3 Histograms 
+### 2.3 Histograms
 
 Another method to visualize data is by dividing the range of data values into
 a number of intervals and to plot the frequency per interval as a bar. Such
@@ -1405,17 +1405,17 @@ We will now generate a histogram of the expression values of gene CCND3 Cyclin D
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>par<span class="p">(</span>mfrow<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
 
-hist<span class="p">(</span>golub<span class="p">[</span><span class="m">1042</span><span class="p">,</span> gol.fac <span class="o">==</span> <span class="s">&quot;ALL&quot;</span><span class="p">],</span> 
+hist<span class="p">(</span>golub<span class="p">[</span><span class="m">1042</span><span class="p">,</span> gol.fac <span class="o">==</span> <span class="s">&quot;ALL&quot;</span><span class="p">],</span>
      col <span class="o">=</span> <span class="s">&#39;slateblue&#39;</span><span class="p">,</span> border <span class="o">=</span> <span class="s">&#39;white&#39;</span><span class="p">,</span>
     main <span class="o">=</span> <span class="s">&#39;Golub[1042], ALL&#39;</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&#39;ALL&#39;</span><span class="p">)</span>
 box<span class="p">()</span>
 
-hist<span class="p">(</span>golub<span class="p">,</span>breaks <span class="o">=</span> <span class="m">10</span><span class="p">,</span> 
+hist<span class="p">(</span>golub<span class="p">,</span>breaks <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
     col <span class="o">=</span> <span class="s">&#39;slateblue&#39;</span><span class="p">,</span> border <span class="o">=</span> <span class="s">&#39;white&#39;</span><span class="p">,</span>
     main <span class="o">=</span>  <span class="s">&#39;Golub&#39;</span><span class="p">)</span>
 box<span class="p">()</span>
 
-hist<span class="p">(</span>golub<span class="p">[,</span> gol.fac <span class="o">==</span> <span class="s">&quot;AML&quot;</span><span class="p">],</span>breaks <span class="o">=</span> <span class="m">10</span><span class="p">,</span> 
+hist<span class="p">(</span>golub<span class="p">[,</span> gol.fac <span class="o">==</span> <span class="s">&quot;AML&quot;</span><span class="p">],</span>breaks <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
      col <span class="o">=</span> <span class="s">&#39;slateblue&#39;</span><span class="p">,</span> border <span class="o">=</span> <span class="s">&#39;white&#39;</span><span class="p">,</span>
     main <span class="o">=</span> <span class="s">&#39;Golub, AML&#39;</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">&#39;AML&#39;</span><span class="p">)</span>
 box<span class="p">()</span>
@@ -1443,7 +1443,7 @@ box<span class="p">()</span>
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_58_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1456,11 +1456,11 @@ box<span class="p">()</span>
 
 A popular method to display data is by
 drawing a box around the 1st and the 3rd quartile (a bold line segment                                                     for the median), and the smaller line segments (whiskers) for the smallest and
-the largest data values. 
+the largest data values.
 
-Such a data display is known as a box-and-whisker plot. 
+Such a data display is known as a box-and-whisker plot.
 
-We will start by creating a vector with gene expression values sorted in ascending order (using the `sort` function). 
+We will start by creating a vector with gene expression values sorted in ascending order (using the `sort` function).
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -1531,7 +1531,7 @@ boxplot<span class="p">(</span>golub<span class="p">[</span><span class="m">1042
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_62_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1572,7 +1572,7 @@ box<span class="p">()</span>
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_64_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1608,7 +1608,7 @@ Now we can observe the distribution of all gene expressions values in all 38 pat
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_66_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1656,7 +1656,7 @@ quantile<span class="p">(</span>golub<span class="p">[</span><span class="m">104
 </div>
 
 </div>
-Outliers are data points lying far apart from the pattern set by the majority of the data values. The implementation in R of the boxplot draws such outliers as smalle circles. 
+Outliers are data points lying far apart from the pattern set by the majority of the data values. The implementation in R of the boxplot draws such outliers as smalle circles.
 
 A data point `x` is defined (graphically, not statistically) as an outlier point if $$x < 0.25 x -1.5\left(0.75 x -0.25 x\right) [x>0.25x >1.5(0.75x-0.25x)]$$
 
@@ -1700,7 +1700,7 @@ qqline<span class="p">(</span>golub<span class="p">[</span><span class="m">1042<
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_72_0.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1803,7 +1803,7 @@ plot<span class="p">(</span>mydata<span class="p">[,</span><span class="m">1</sp
 
 <div class="output_png output_subarea ">
 <img src="{{site.url}}{{site.baseurl}}/images/notebook_images/Tutorial/Tutorial_79_1.png"
->
+alt = "png">
 </div>
 
 </div>
@@ -1812,5 +1812,3 @@ plot<span class="p">(</span>mydata<span class="p">[,</span><span class="m">1</sp
 </div>
 
 </div>
- 
-
