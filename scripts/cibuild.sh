@@ -1,6 +1,8 @@
 #!/bin/bash
-# Using nbval with the notebooks
-echo "***** Testing notebooks"
+# We use nbval to validate the notebooks and generate the
+# corresponding badge for jekyll
+
+echo "***** Testing notebooks *****"
 py.test --nbval-lax */*.ipynb
 
 echo "***** Converting notebooks to markdown"
