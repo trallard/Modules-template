@@ -2,30 +2,14 @@ import os
 import fnmatch
 import glob
 from pathlib import Path
+import io
 
 
 from traitlets.config import Config
-
-import nbformat
-import nbconvert
 from nbconvert.preprocessors import ExtractOutputPreprocessor
 from nbconvert import HTMLExporter
 
 from bs4 import BeautifulSoup
-
-notebook = '/Users/tania/Documents/Git_Repos/Modules-template/_Day1/Tutorial.ipynb'
-my_notebook = nbformat.read(notebook, as_version=4)
-
-# Instantiate the exporter. We use the `basic` template for now; we'll get into more details
-# later about how to customize the exporter further.
-html_exporter = HTMLExporter()
-html_exporter.template_file = 'basic'
-
-# 3. Process the notebook we loaded earlier
-(body, resources) = html_exporter.from_notebook_node(my_notebook)
-
-print(body[:400] + '...')
-print(resources.keys())
 
 
 def find_notebooks():
@@ -93,15 +77,22 @@ def write_outputs(content, resources):
             file
                 results from the specified writer output of exporter
             """
-    notebook_name = resources['metadata']['name'] + resources.get('output_extension')
-    outdir = resources['metadata']['path']
-    outfile = os.path.join(outdir, notebook_name)
+    notebook_namefull = resources['metadata']['name'] + resources.get('output_extension')
+    outdir_nb = resources['metadata']['path']
+    notebook_name = resources['metadata']['name']
+    outfile = os.path.join(outdir_nb, notebook_name)
+    imgs_outdir = os.path.join(os.path.split(outdir)[0], '/images/notebook_images/', notebook_name)
 
     # write file
     with open(outfile, 'w') as fout:
         body = content.prettify(formatter='html')
         fout.write(body)
 
+    items = resources.get('outputs', {}).items()
+    for filename, data in items:
+        dest = os.path.join(imgs_outdir,filename)
+        path = os.path.dirname(dest)
+        print(dest)
 
 
 def convert_single_nb(notebook_filename):
