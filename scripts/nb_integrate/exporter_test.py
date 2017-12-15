@@ -28,7 +28,8 @@ def get_html_from_filepath(filepath):
     config = Config()
     exporter = HTMLExporter(config = config,
                             template_file = 'basic',
-                            preprocessors = [ExtractOutputPreprocessor])
+                            preprocessors = [ExtractOutputPreprocessor],
+                            filters = {'jekyllpath': jekyllpath})
     content, info = exporter.from_filename(filepath)
     content = parse_html(content)
     return content, info
