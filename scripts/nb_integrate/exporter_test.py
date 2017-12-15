@@ -1,9 +1,13 @@
 import os
-import nbconvert
-import nbformat
+import fnmatch
+import glob
+from pathlib import Path
+
 
 from traitlets.config import Config
 
+import nbformat
+import nbconvert
 from nbconvert.preprocessors import ExtractOutputPreprocessor
 from nbconvert import HTMLExporter
 
@@ -23,16 +27,41 @@ html_exporter.template_file = 'basic'
 print(body[:400] + '...')
 print(resources.keys())
 
-def get_html_from_filepath(filepath):
+
+def find_notebooks():
+    """ Find all the notebooks in the repo, but excludes those
+    in the _site folder, this will be default if no specific
+    notebook was passed for conversion """
+
+    basePath = Path(os.getcwd())
+    notebooksAll = [nb for nb in glob.glob('**/*.ipynb')]
+    exception = os.path.join(basePath , '/_site/*/*')
+    notebooks = [nb for nb in notebooksAll if not fnmatch.fnmatch(nb, exception)]
+    return notebooks
+
+def init_nb_resources(notebook_filename):
+    """Step 1: Initialize resources
+            This initializes the resources dictionary for a single notebook.
+            Returns
+            -------
+            notebook_out: the directory to save the output files in
+    """
+    resources = {}
+    basename = os.path.basename(notebook_filename)
+    notebook_name = basename[:basename.rfind('.')]
+    resources['unique_key'] = notebook_name
+    return resources
+
+def get_html_from_filepath(notebook_filename, resources):
     """Convert notebook to custom HTML"""
     config = Config()
     exporter = HTMLExporter(config = config,
                             template_file = 'basic',
                             preprocessors = [ExtractOutputPreprocessor],
                             filters = {'jekyllpath': jekyllpath})
-    content, info = exporter.from_filename(filepath)
+    content, resources = exporter.from_filename(notebook_filename, resources = resources)
     content = parse_html(content)
-    return content, info
+    return content, resources
 
 def parse_html(content):
     soup = BeautifulSoup(content, 'html.parser')
@@ -47,3 +76,47 @@ def jekyllpath(path):
 	"""
     base = os.path.split(path)[1]
     return path.replace("..", "{{site.url}}{{site.baseurl}}")
+
+
+def write_outputs(content, resources):
+    """Step 3: Write the notebook to file
+            This writes output from the exporter to file using the specified writer.
+            It returns the results from the writer.
+            Parameters
+            ----------
+            output :
+            resources : dict
+                resources for a single notebook including name, config directory
+                and directory to save output
+            Returns
+            -------
+            file
+                results from the specified writer output of exporter
+            """
+    notebook_name = resources['metadata']['name'] + resources.get('output_extension')
+    outdir = resources['metadata']['path']
+    outfile = os.path.join(outdir, notebook_name)
+
+    # write file
+    with open(outfile, 'w') as fout:
+        body = content.prettify(formatter='html')
+        fout.write(body)
+
+
+
+def convert_single_nb(notebook_filename):
+    """Convert a single notebook.
+            Performs the following steps:
+                1. Initialize notebook resources
+                2. Export the notebook to a particular format
+                3. Write the exported notebook to file
+            Parameters
+            ----------
+            notebook_filename : str
+            """
+    resources = init_nb_resources(notebook_filename)
+    content, resources = get_html_from_filepath(notebook_filename, resources)
+    write_outputs = write_nb(content, resources)
+# -----
+
+content, resources = get_html_from_filepath(notebook)
