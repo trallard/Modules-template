@@ -80,34 +80,38 @@ def write_outputs(content, resources):
     notebook_namefull = resources['metadata']['name'] + resources.get('output_extension')
     outdir_nb = resources['metadata']['path']
     notebook_name = resources['metadata']['name']
-    outfile = os.path.join(outdir_nb, notebook_name)
-    imgs_outdir = os.path.join(os.path.split(outdir)[0], '/images/notebook_images/', notebook_name)
+    outfile = os.path.join(outdir_nb, notebook_namefull)
+    imgs_outdir = os.path.join(os.path.split(outdir_nb)[0], 'images/notebook_images', notebook_name)
 
     # write file
-    with open(outfile, 'w') as fout:
+    with io.open(outfile, 'w') as fout:
         body = content.prettify(formatter='html')
         fout.write(body)
 
     items = resources.get('outputs', {}).items()
+    if not os.path.exists(imgs_outdir):
+        os.mkdir(imgs_outdir)
     for filename, data in items:
         dest = os.path.join(imgs_outdir,filename)
-        path = os.path.dirname(dest)
-        print(dest)
-
+        with io.open(dest, 'wb+') as f:
+            f.write(data)
 
 def convert_single_nb(notebook_filename):
     """Convert a single notebook.
             Performs the following steps:
                 1. Initialize notebook resources
                 2. Export the notebook to a particular format
-                3. Write the exported notebook to file
+                3. Write the exported notebook to file as well as complementary images
             Parameters
             ----------
             notebook_filename : str
             """
     resources = init_nb_resources(notebook_filename)
     content, resources = get_html_from_filepath(notebook_filename, resources)
-    write_outputs = write_nb(content, resources)
-# -----
+    write_outputs(content, resources)
 
-content, resources = get_html_from_filepath(notebook)
+
+
+# -----
+notebook = '/Users/tania/Documents/Git_Repos/Modules-template/_Day1/Tutorial.ipynb'
+convert_single_nb(notebook)
