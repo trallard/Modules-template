@@ -6,8 +6,8 @@ import io
 
 
 from traitlets.config import Config
-from nbconvert.preprocessors import ExtractOutputPreprocessor
-from nbconvert import HTMLExporter
+from nbconvert import MarkdownExporter
+from ipython_genutils.path import ensure_dir_exists
 
 from bs4 import BeautifulSoup
 
@@ -28,39 +28,64 @@ def init_nb_resources(notebook_filename):
             This initializes the resources dictionary for a single notebook.
             Returns
             -------
-            notebook_out: the directory to save the output files in
+            resources dictionary for a single notebook that MUST include:
+                - unique_key: notebook name
     """
     resources = {}
     basename = os.path.basename(notebook_filename)
     notebook_name = basename[:basename.rfind('.')]
     resources['unique_key'] = notebook_name
+    resources['output_files_dir'] = './images/notebook_images/{}'.format(notebook_name)
     return resources
 
-def get_html_from_filepath(notebook_filename, resources):
-    """Convert notebook to custom HTML"""
+def export_notebook(notebook_filename, resources):
+    """Step 2: Export the notebook
+        Exports the notebook to a particular format according to the specified
+        exporter. This function returns the output and (possibly modified)
+        resources from the exporter.
+        Parameters
+        ----------
+        notebook_filename : str
+            name of notebook file.
+        resources : dict
+        Returns
+        -------
+        output
+        dict
+            resources (possibly modified)
+        """
     config = Config()
-    exporter = HTMLExporter(config = config,
-                            template_file = 'basic',
-                            preprocessors = [ExtractOutputPreprocessor],
-                            filters = {'jekyllpath': jekyllpath})
+    exporter = MarkdownExporter(config = config,
+                                template_path = ['/Users/tania/Documents/Git_Repos/Modules-template/scripts/'],
+                                template_file = 'jekyll.tpl',
+                                filters = {'jekyllpath': jekyllpath})
     content, resources = exporter.from_filename(notebook_filename, resources = resources)
     content = parse_html(content)
     return content, resources
 
 def parse_html(content):
+    """ This step is include in Step 2: this will use beautiful soup to
+    modify certain tags of the returned content
+    Parameters
+    ----------
+    content : returned from the notebook export
+    Returns
+    ------
+    soup (parsed html content)
+    """
     soup = BeautifulSoup(content, 'html.parser')
-    soup.table['class'] = 'table-responsive table-striped'
+    if soup.table:
+        for tag in soup.find_all('table'):
+            tag['class'] = 'table-responsive table-striped'
     return soup
 
 
 def jekyllpath(path):
-    """
-	Take the filepath of an image output by the ExportOutputProcessor
-	and convert it into a URL we can use with Jekyll
-	"""
-    base = os.path.split(path)[1]
-    return path.replace("..", "{{site.url}}{{site.baseurl}}")
+    """ Take the filepath of an image output by the ExportOutputProcessor
+    and convert it into a URL we can use with Jekyll. This is passed to the exporter
+    as a filter. """
 
+    return path.replace("./", "{{site.url}}{{site.baseurl}}/")
 
 def write_outputs(content, resources):
     """Step 3: Write the notebook to file
@@ -77,24 +102,34 @@ def write_outputs(content, resources):
             file
                 results from the specified writer output of exporter
             """
+
+    # various paths and variables needed for the module
     notebook_namefull = resources['metadata']['name'] + resources.get('output_extension')
     outdir_nb = resources['metadata']['path']
-    notebook_name = resources['metadata']['name']
     outfile = os.path.join(outdir_nb, notebook_namefull)
-    imgs_outdir = os.path.join(os.path.split(outdir_nb)[0], 'images/notebook_images', notebook_name)
+    imgs_outdir = resources.get('output_files_dir')
+    ensure_dir_exists(imgs_outdir)
 
-    # write file
+    # write file in the appropriate format
     with io.open(outfile, 'w') as fout:
         body = content.prettify(formatter='html')
         fout.write(body)
 
+    # if the content has images then they are returned and saved
+    if resources['outputs']:
+        save_imgs(resources, imgs_outdir)
+
+def save_imgs(resources, imgs_outdir):
+    """ If the notebook had plots or figures, then they are saved in the appropriate
+    directory"""
     items = resources.get('outputs', {}).items()
     if not os.path.exists(imgs_outdir):
         os.mkdir(imgs_outdir)
     for filename, data in items:
-        dest = os.path.join(imgs_outdir,filename)
+        dest = filename
         with io.open(dest, 'wb+') as f:
             f.write(data)
+
 
 def convert_single_nb(notebook_filename):
     """Convert a single notebook.
@@ -107,11 +142,11 @@ def convert_single_nb(notebook_filename):
             notebook_filename : str
             """
     resources = init_nb_resources(notebook_filename)
-    content, resources = get_html_from_filepath(notebook_filename, resources)
+    content, resources =  export_notebook(notebook_filename, resources)
     write_outputs(content, resources)
 
 
 
-# -----
-notebook = '/Users/tania/Documents/Git_Repos/Modules-template/_Day1/Tutorial.ipynb'
-convert_single_nb(notebook)
+if __name__ == '__main__':
+    notebook = '/Users/tania/Documents/Git_Repos/Modules-template/_Day1/Tutorial.ipynb'
+    convert_single_nb(notebook)
