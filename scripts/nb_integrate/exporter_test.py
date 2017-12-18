@@ -4,7 +4,6 @@ import glob
 from pathlib import Path
 import io
 
-
 from traitlets.config import Config
 from nbconvert import MarkdownExporter
 from ipython_genutils.path import ensure_dir_exists
@@ -83,8 +82,9 @@ def parse_html(content):
 def jekyllpath(path):
     """ Take the filepath of an image output by the ExportOutputProcessor
     and convert it into a URL we can use with Jekyll. This is passed to the exporter
-    as a filter. """
-
+    as a filter to the exporter.
+    Note that this will be directly taken from the Jekyll _confic.yml file
+    """
     return path.replace("./", "{{site.url}}{{site.baseurl}}/")
 
 def write_outputs(content, resources):
@@ -129,7 +129,6 @@ def save_imgs(resources, imgs_outdir):
         dest = filename
         with io.open(dest, 'wb+') as f:
             f.write(data)
-
 
 def convert_single_nb(notebook_filename):
     """Convert a single notebook.
