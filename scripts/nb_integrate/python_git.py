@@ -15,3 +15,15 @@ for commit in head.log():
 # Find the last commit
 last_commit = repo[repo.head.target]
 commit_sha1 = last_commit.oid.hex[0:7]
+
+git show - -name - status - -oneline
+
+def check_commits():
+    if len(head.log) == 1:
+        notebooks = find_notebooks()
+    else:
+        notebooks = nb_git()
+    for nb in notebooks():
+        convert_single_nb(nb)
+
+

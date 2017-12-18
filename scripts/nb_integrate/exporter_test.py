@@ -141,7 +141,7 @@ def convert_single_nb(notebook_filename):
             notebook_filename : str
             """
     resources = init_nb_resources(notebook_filename)
-    content, resources =  export_notebook(notebook_filename, resources)
+    content, resources = export_notebook(notebook_filename, resources)
     write_outputs(content, resources)
 
 
