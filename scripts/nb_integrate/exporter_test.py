@@ -1,7 +1,4 @@
 import os
-import fnmatch
-import glob
-from pathlib import Path
 import io
 
 from traitlets.config import Config
@@ -9,18 +6,6 @@ from nbconvert import MarkdownExporter
 from ipython_genutils.path import ensure_dir_exists
 
 from bs4 import BeautifulSoup
-
-
-def find_notebooks():
-    """ Find all the notebooks in the repo, but excludes those
-    in the _site folder, this will be default if no specific
-    notebook was passed for conversion """
-
-    basePath = Path(os.getcwd())
-    notebooksAll = [nb for nb in glob.glob('**/*.ipynb')]
-    exception = os.path.join(basePath , '/_site/*/*')
-    notebooks = [nb for nb in notebooksAll if not fnmatch.fnmatch(nb, exception)]
-    return notebooks
 
 def init_nb_resources(notebook_filename):
     """Step 1: Initialize resources
@@ -146,6 +131,6 @@ def convert_single_nb(notebook_filename):
 
 
 
-if __name__ == '__main__':
-    notebook = '/Users/tania/Documents/Git_Repos/Modules-template/_Day1/Tutorial.ipynb'
-    convert_single_nb(notebook)
+#if __name__ == '__main__':
+   # notebook = '/Users/tania/Documents/Git_Repos/Modules-template/_Day1/Tutorial.ipynb'
+    #convert_single_nb(notebook)

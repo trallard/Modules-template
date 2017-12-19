@@ -1,29 +1,48 @@
 import pygit2
 import os
 
-# look for a git repository
+import fnmatch
+import glob
+from pathlib import Path
 
 here = os.path.dirname(__file__)
-repo_path = pygit2.discover_repository(here)
-repo = pygit2.Repository(repo_path)
+
+class nb_repo(object):
+    """ Class containing methods used to
+    identify the notebooks committed to the
+    repository and add the SHA to the Jinja template"""
+
+    def __init__(self, here):
+        try:
+            repo_path = pygit2.discover_repository(here)
+            repo = pygit2.Repository(repo_path)
+            self.repository = repo
+        except:
+            raise IOError ('This does not seem to be a repository')
 
 # The reference log
-head = repo.references.get('refs/heads/master')
-for commit in head.log():
+for commit in repo.head.log():
     print(commit.oid_new.hex, commit.message)
 
-# Find the last commit
-last_commit = repo[repo.head.target]
-commit_sha1 = last_commit.oid.hex[0:7]
-
-git show - -name - status - -oneline
-
-def check_commits():
-    if len(head.log) == 1:
-        notebooks = find_notebooks()
+def check_log():
+    """ Check the number of commits be"""
+    all_commits = [commit for commit in repo.head.log()]
+    if len(all_commits) <= 1:
+        print('Only one commit: converting all notebooks')
+        notebooks  = find_notebooks()
     else:
-        notebooks = nb_git()
-    for nb in notebooks():
-        convert_single_nb(nb)
+        print('Finding the last commit only')
+    return notebooks
 
 
+def find_notebooks():
+    """ Find all the notebooks in the repo, but excludes those
+    in the _site folder, this will be default if no specific
+    notebook was passed for conversion
+    """
+
+    basePath = Path(os.getcwd())
+    notebooksAll = [nb for nb in glob.glob('**/*.ipynb')]
+    exception = os.path.join(basePath , '/_site/*/*')
+    notebooks = [nb for nb in notebooksAll if not fnmatch.fnmatch(nb, exception)]
+    return notebooks
