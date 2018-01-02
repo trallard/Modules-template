@@ -28,6 +28,14 @@ On top of the various Jekyll capabilities.
 
 The live demo of this template can be found at [http://bitsandchips.me/Modules-template/](http://bitsandchips.me/Modules-template/) 💻.
 
+# Basic Setup
+1. Install [Jekyll](https://jekyllrb.com)
+2. Fork the [Modules Template theme](https://github.com/trallard/Modules-template)
+3. Clone the repo you just forked
+4. Edit your `_config.yml` to personalize your site (full instructions in [Configuration and setup](#configuration-and-setup))
+5. Add your posts in the appropriate folders
+6. Deploy to GitHub pages
+
 # About the website
 This website is hosted as a GitHub page (github-pages). In short, it is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push. The website will then be built and deployed using gh-pages.
 
