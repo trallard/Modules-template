@@ -228,8 +228,7 @@ a.float:hover + div.label-container{
 
 .btn-module {
   background: $secondary;
-  text-transform: none!important;
-  letter-spacing: 2px;}
+  text-transform: none!important;}
   .btn-module:hover, .btn-module:focus {
     background-color: ligthen($secondary, 5%)!important; }
   .btn-blue-grey.active {

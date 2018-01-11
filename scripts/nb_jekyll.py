@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Jun 30 13:57:33 2017
+@author: trallard
 
-@author: tania
 This code is used to generate Jekyll blogpost from Jupyter notebooks
-within a main Jekyll repository
+within a main Jekyll repository. This uses the library 'nbconvert-jekyll'.
+
+Since the templates are given in this package there is no need to specify a c
+ustom template, unless you need to modify the default output. If doing so you also
+need to provide a path for the templates.
 """
 
+# Import libraries
+import fnmatch
+import glob
 import os
 from pathlib import Path
-import shutil
-import os, sys, glob
+
 
 try:
     from urllib.parse import quote  # Py 3
@@ -19,29 +24,19 @@ except ImportError:
     from urllib2 import quote  # Py 2
 
 
+# ---------------------------------------
 
-# Finding the directories that contain notebooks
-basePath = Path(os.getcwd())
-PathList = list(basePath.glob('**/*.ipynb'))
-notebooks = [os.path.abspath(i) for i in PathList]
+def find_notebooks():
+    """ Find all the notebooks in the repo, but excludes those
+    in the _site folder, this will be default if no specific
+    notebook was passed for conversion """
 
-print("Notebooks found")
-for i in notebooks:print(i)
+    basePath = Path(os.getcwd())
+    notebooksAll = [nb for nb in glob.glob('**/*.ipynb')]
+    exception = str(basePath) + '/_site/*/*'
+    notebooks = [nb for nb in notebooksAll if not fnmatch.fnmatch(nb, exception)]
+    return notebooks
 
-# nbconvert
-c = get_config()
-c.NbConvertApp.export_format = 'markdown'
-c.MarkdownExporter.template_path = ['./scripts'] # point this to the location of the jekyll template file
-c.MarkdownExporter.template_file = 'jekyll'
-
-# convert all notebooks found
-c.NbConvertApp.notebooks = notebooks
-
-# customise the images output directory
-
-c.NbConvertApp.output_files_dir = '../images/notebook_images/{notebook_name}'
-
-#c.Application.verbose_crash=True
 
 # modify this function to point the  images to a custom path
 # the default for nbconvert is to create a directory {notebook_name}_files
@@ -54,4 +49,36 @@ def jekyllpath(path):
     base = os.path.split(path)[1]
     return path.replace("..", "{{site.url}}{{site.baseurl}}")
 
-c.MarkdownExporter.filters = {'jekyllpath': jekyllpath}
+
+# ---------------------------------------
+notebooks = find_notebooks()
+# check if the list is empty
+if not notebooks:
+    print("No notebook found in this repository \n")
+else:
+    for nb in notebooks:
+        print(" ***** Notebook found: {} \n)".format(nb))
+
+"""Converting  notebooks now: this uses nbconvert with
+a custom generated template"""
+
+c = get_config()
+c.NbConvertApp.export_format = 'md_jk'
+c.Exporter.preprocessors = ['nbconvert.preprocessors.ExtractOutputPreprocessor']
+
+
+scriptsPath = os.path.join(os.getcwd(), 'scripts')
+
+# Uncomment if you want to pass a custom template
+#c.MarkdownExporter.template_path = [scriptsPath]  # point this to the location of the jekyll template file
+#c.MarkdownExporter.template_file = 'jekyll_html'
+
+# convert all notebooks found
+c.NbConvertApp.notebooks = notebooks
+
+# customise the images output directory
+c.NbConvertApp.output_files_dir = '../images/notebook_images/{notebook_name}'
+
+# c.Application.verbose_crash = True
+
+c.JekyllExporter.filters = {'jekyllpath': jekyllpath}

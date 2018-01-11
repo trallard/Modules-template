@@ -31,25 +31,28 @@
       </div>
     </div>
   </div>
+  <!-- End description -->
 
+    <!-- Main content container -->
     <div class="container">
       <div class="row">
 
-        <!--- Main content--->
+        <!--- Page content--->
         <div class="col-sm-8">
           <main>
             <br>
             {{content}}
           </main>
         </div>
-
-        <div class="col-sm-1">
-        </div>
+        <!--- End Page content--->
 
       </div>
     </div>
+    <!-- End Main content container -->
 
+    <!-- Modules cards  -->
     {%include modules.html %}
+    <!-- End Modules cards  -->
   </div>
 
   <label for="sidebar-checkbox" class="sidebar-toggle"></label>
@@ -57,5 +60,7 @@
 
 </body>
 
+<!-- JS to load faster -->
+{%include foot.html %}
 
 </html>
