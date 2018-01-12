@@ -230,4 +230,8 @@ DEPENDENCIES
   wdm (>= 0.1.0)
 
 BUNDLED WITH
+<<<<<<< HEAD
+   1.15.4
+=======
    1.16.0
+>>>>>>> master
