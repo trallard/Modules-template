@@ -63,11 +63,10 @@ else:
 a custom generated template"""
 
 c = get_config()
-c.NbConvertApp.export_format = 'md_jk'
-c.Exporter.preprocessors = ['nbconvert.preprocessors.ExtractOutputPreprocessor']
-
-
+c.NbConvertApp.export_format = 'markdown'
 scriptsPath = os.path.join(os.getcwd(), 'scripts')
+c.MarkdownExporter.template_path = [scriptsPath] # point this to the location of the jekyll template file
+c.MarkdownExporter.template_file = 'jekyll'
 
 # Uncomment if you want to pass a custom template
 #c.MarkdownExporter.template_path = [scriptsPath]  # point this to the location of the jekyll template file
@@ -81,4 +80,16 @@ c.NbConvertApp.output_files_dir = '../images/notebook_images/{notebook_name}'
 
 # c.Application.verbose_crash = True
 
-c.JekyllExporter.filters = {'jekyllpath': jekyllpath}
+
+# modify this function to point the  images to a custom path
+# the default for nbconvert is to create a directory {notebook_name}_files
+# where the notebook is located
+def jekyllpath(path):
+    """
+	Take the filepath of an image output by the ExportOutputProcessor
+	and convert it into a URL we can use with Jekyll
+	"""
+    base = os.path.split(path)[1]
+    return path.replace("..", "{{site.url}}{{site.baseurl}}")
+
+c.MarkdownExporter.filters = {'jekyllpath': jekyllpath}
