@@ -32,7 +32,7 @@ exclude:
 permalink: pretty
 
 # Additional gems
-gems:
+plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
