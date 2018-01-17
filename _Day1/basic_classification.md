@@ -3,10 +3,10 @@ layout: notebook
 title: "basic_classification"
 tags:
 update_date: 17-01-2018
-code_version: 19e3e29
+code_version: 5d2474e
 author: Tania Allard
-validation_pass: no
-badge: "https://img.shields.io/badge/notebook-validation failed-red.svg"
+validation_pass: 'yes'
+badge: "https://img.shields.io/badge/notebook-validated-brightgreen.svg"
 ---
 <br/>
 <font color="#808080">
@@ -108,34 +108,24 @@ m = GPy.core.GP(X=X,
                 kernel=k, 
                 inference_method=GPy.inference.latent_function_inference.expectation_propagation.EP(),
                 likelihood=lik)
-print m
+print (m)
 ```
-
-
-      File "
-<ipython-input-5-813828e1cdb4>
- ", line 6
-        print m
-              ^
-    SyntaxError: Missing parentheses in call to 'print'. Did you mean print(m)?
-
-
 
 There's a simpler way to build GP classifiers, with some default options (RBF
 kernel, EP inference) like so:
- <font color="#808080">
-  In&nbsp;[6]:
- </font>
- ```python
+<font color="#808080">
+ In&nbsp;[6]:
+</font>
+```python
 m = GPy.models.GPClassification(X,Y)
 ```
 
 This model is initialized with incorrect lengthscale and variance, but let's
 check out how it's fared in inferring the latent fuction values:
- <font color="#808080">
-  In&nbsp;[7]:
- </font>
- ```python
+<font color="#808080">
+ In&nbsp;[7]:
+</font>
+```python
 m.plot()
 plt.plot(X, p, 'ro')
 plt.ylabel('$y, p(y=1)$');plt.xlabel('$x$')
@@ -144,9 +134,9 @@ m.plot_f()
 plt.plot(X, f, 'bo')
 plt.ylabel('$f(x)$');plt.xlabel('$x$');
 ```
- <img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_13_1.svg"/>
- <img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_13_3.svg"/>
- In the above plots, we can see the posterior over the latent probabilities (top)
+<img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_13_1.svg"/>
+<img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_13_3.svg"/>
+In the above plots, we can see the posterior over the latent probabilities (top)
 and latent continuous function values (bottom). We've already run EP to obtain
 the approximate posterior and marginal likelihood. The above plots suggest that
 the lengthscale of the kernel is incorrect for this problem, so we'll optimize
@@ -159,10 +149,10 @@ gradient descent methods. EP is a method for fitting a Gaussian to the
 posterior, $p(f|y)$, of the latent (hidden) function, given the data. Whilst the
 parameters are being optimized, the EP approximation (the parameters of the EP
 factors) is fixed.
- <font color="#808080">
-  In&nbsp;[10]:
- </font>
- ```python
+<font color="#808080">
+ In&nbsp;[8]:
+</font>
+```python
 print (m, '\n')
 for i in range(5):
     m.optimize('bfgs', max_iters=100) #first runs EP and then optimizes the kernel parameters
@@ -174,10 +164,10 @@ for i in range(5):
 
 Now our parameters have been optimised to the values that give the largest
 marginal likelihood, we can plot the results to see how they differ
- <font color="#808080">
-  In&nbsp;[11]:
- </font>
- ```python
+<font color="#808080">
+ In&nbsp;[9]:
+</font>
+```python
 m.plot()
 plt.plot(X, p, 'ro', label='Truth')
 plt.ylabel('$y, p(y=1)$');plt.xlabel('$x$')
@@ -187,9 +177,9 @@ plt.plot(X, f, 'bo', label='Truth')
 plt.ylabel('$f(x)$');plt.xlabel('$x$')
 plt.legend();
 ```
- <img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_17_1.svg"/>
- <img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_17_3.svg"/>
- The above plots are much more satisfactory: we have managed to infer the correct
+<img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_17_1.svg"/>
+<img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_17_3.svg"/>
+The above plots are much more satisfactory: we have managed to infer the correct
 form of the latent function. We note that it's also possible to run MCMC to
 obtain Bayesian marginalization of the kernel parameters instead of the (type-
 II) maximum likelihood approach here. We'll adress this in a forthcoming
@@ -207,10 +197,10 @@ notebooks.
 The newest version of GPy allows for densities to be plotted more directly. The
 outcome of this may surprise you, but it is actually what the density looks like
 for a Bernoulli likelihood.
- <font color="#808080">
-  In&nbsp;[12]:
- </font>
- ```python
+<font color="#808080">
+ In&nbsp;[10]:
+</font>
+```python
 m.plot(plot_density=True)
 plt.plot(X, p, 'ro', label='Truth')
 plt.ylabel('$y, p(y=1)$');plt.xlabel('$x$')
@@ -220,6 +210,5 @@ plt.plot(X, f, 'bo', label='Truth')
 plt.ylabel('$f(x)$');plt.xlabel('$x$')
 plt.legend();
 ```
- <img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_20_1.svg"/>
- <img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_20_3.svg"/>
-</ipython-input-5-813828e1cdb4>
+<img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_20_1.svg"/>
+<img alt="svg" src="{{site.url}}{{site.baseurl}}/images/notebook_images/basic_classification/basic_classification_20_3.svg"/>
