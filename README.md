@@ -6,11 +6,12 @@
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Modules template](#modules-template)
+- [Basic Setup](#basic-setup) ✨
 - [About the website](#about-the-website)
 	- [Configuration and setup](#configuration-and-setup)
-		- [Site settings](#site-settings)
-		- [Generating the pages for the lecture modules or projects](#generating-the-pages-for-the-lecture-modules-or-projects)
-		- [Launching in Microsoft Azure notebooks](#launching-in-microsoft-azure-notebooks)
+		- [Site settings](#site-settings) ✨
+		- [Generating the pages for the lecture modules or projects](#generating-the-pages-for-the-lecture-modules-or-projects) ✨
+		- [Launching in Microsoft Azure ✨ notebooks](#launching-in-microsoft-azure-notebooks)
 		- [Theme colors](#theme-colors)
 		- [Layouts](#layouts)
 		- [Adding a logo and card images](#adding-a-logo-and-card-images)
@@ -30,7 +31,9 @@ On top of the various Jekyll capabilities.
 
 The live demo of this template can be found at [http://bitsandchips.me/Modules-template/](http://bitsandchips.me/Modules-template/) 💻.
 
-# Basic Setup
+**We have identified the most important configuration settings in order to get your site up and running and added a ✨ next to them. **
+
+# Basic Setup ✨
 1. Install [Jekyll](https://jekyllrb.com)
 2. Fork the [Modules Template theme](https://github.com/trallard/Modules-template)
 3. Clone the repo you just forked
@@ -59,7 +62,7 @@ Below you will find a description of the various files and directories within th
 ## Configuration and setup
 The main configuration for the Jekyll website is declared in the `config.yml` file. Such a file contains the site specific variables, which are accessed at various points within the website.
 
-### Site settings
+### Site settings ✨
 
 ```yaml
 # Site settings
@@ -109,7 +112,7 @@ automatically and added to the front page of each module/project.
 Any additional pages (e.g. about, code of conduct, profile, resources) must be created and saved in the `_pages` directory.
 Once this is done the pages will be automatically added to the sidebar menu.
 
-### Launching in Microsoft Azure notebooks
+### Launching in Microsoft Azure notebooks ✨
 If you want to import your library to Microsoft Azure please modify the following badge using your own repository in the `href`. Once done this, push your repository to GitHub.
 
 <a href="https://notebooks.azure.com/import/gh/trallard/Modules_template"><img src="https://img.shields.io/badge/launch-azurenb-blue.svg" /></a>
