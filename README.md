@@ -7,7 +7,7 @@
 
 - [Modules template](#modules-template)
 - [Basic Setup](#basic-setup) ✨
-- [About the website](#about-the-website)
+- [About the template](#about-the-template)
 	- [Configuration and setup](#configuration-and-setup)
 		- [Site settings](#site-settings) ✨
 		- [Generating the pages for the lecture modules or projects](#generating-the-pages-for-the-lecture-modules-or-projects) ✨
@@ -18,7 +18,7 @@
 - [How to use Jekyll to build this site](#how-to-use-jekyll-to-build-this-site)
 	- [Editing pages online with GitHub](#editing-pages-online-with-github)
 	- [Working locally](#working-locally)
-- [Generating posts/pages from Jupyter notebooks](#generating-postspages-from-jupyter-notebooks)
+- [Generating posts/pages from Jupyter notebooks](#generating-postspages-from-jupyter-notebooks) ✨
 
 <!-- /TOC -->
 
@@ -34,17 +34,20 @@ The live demo of this template can be found at [http://bitsandchips.me/Modules-t
 **We have identified the most important configuration settings in order to get your site up and running and added a ✨ next to them. **
 
 # Basic Setup ✨
+Using this template should be relatively straightforward.  You will need to install Jekyll and **download** a copy of this repository to get started.
 1. Install [Jekyll](https://jekyllrb.com)
-2. Fork the [Modules Template theme](https://github.com/trallard/Modules-template)
-3. Clone the repo you just forked
+2. ⬇️ Download the latest version of **Modules-template** from [https://github.com/trallard/Modules-template/releases/](https://github.com/trallard/Modules-template/releases/)
+3. Unzip the contents
 4. Edit your `_config.yml` to personalize your site (full instructions in [Configuration and setup](#configuration-and-setup))
-5. Add your posts in the appropriate folders
+5. Replace the conents of the site (posts, notebooks) with your own 📃
 6. Deploy to GitHub pages
 
-# About the website
-This website is hosted as a GitHub page (github-pages). In short, it is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push. The website will then be built and deployed using gh-pages.
+# About the template
+This template will allow you to generate your static websites in Jekyll and serve in GitHub pages. In short, it will be built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com).
 
-This site uses the [Bootstrap framework](http://getbootstrap.com) along with [Material Design for Boostrap](https://mdbootstrap.com/material-design-for-bootstrap/).
+ To update a page, you will only need to modify the corresponding source and push. The website will then be built and deployed using gh-pages.
+
+This template uses the [Bootstrap framework](http://getbootstrap.com) along with [Material Design for Boostrap](https://mdbootstrap.com/material-design-for-bootstrap/).
 
 Below you will find a description of the various files and directories within this repository:
 - `_config.yml`: main configuration file, this **must** set accordingly for your own website/blog
@@ -59,7 +62,7 @@ Below you will find a description of the various files and directories within th
 - `images/*`: images used across the website as well as output plots from the notebooks
 - `basic_style.scss`: this stylesheet contains the default colour scheme and fonts used in this site
 
-## Configuration and setup
+## Configuration and setup ✨
 The main configuration for the Jekyll website is declared in the `config.yml` file. Such a file contains the site specific variables, which are accessed at various points within the website.
 
 ### Site settings ✨
@@ -82,7 +85,7 @@ The variable
 
 If you have trouble understanding what the `baseurl` and `url` variables are visit <https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/>.
 
-### Generating the pages for the lecture modules or projects
+### Generating the pages for the lecture modules or projects ✨
 
 Each of your lecture modules/projects should be declared as a collection in the `_config.yml` file so that Jekyll knows where to read:
 ~~~ yaml
@@ -132,7 +135,7 @@ the button will be automatically added to all the rendered notebooks.
 If you do not have your notebooks in Azure notebooks only comment the line with a
 `#`.
 
-### Theme colors
+### Theme colors- Or how do I change the colour scheme?
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
 
 If you want to modify the color scheme or the fonts used you only need to modify this file and they will be automatically updated as the site is built.
