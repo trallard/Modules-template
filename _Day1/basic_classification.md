@@ -3,9 +3,9 @@ layout: notebook
 title: "basic_classification"
 tags:
 update_date: 17-01-2018
-code_version: 793828d
+code_version: 19e3e29
 author: Tania Allard
-validation_pass: 'no'
+validation_pass: no
 badge: "https://img.shields.io/badge/notebook-validation failed-red.svg"
 ---
 <br/>
@@ -104,8 +104,8 @@ and use our existing likelihood and kernel.
 </font>
 ```python
 m = GPy.core.GP(X=X,
-                Y=Y,
-                kernel=k,
+                Y=Y, 
+                kernel=k, 
                 inference_method=GPy.inference.latent_function_inference.expectation_propagation.EP(),
                 likelihood=lik)
 print m
@@ -169,7 +169,7 @@ for i in range(5):
     print ('iteration:', i,)
     print (m)
     print ("")
-
+        
 ```
 
 Now our parameters have been optimised to the values that give the largest

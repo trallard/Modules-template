@@ -3,7 +3,7 @@ layout: notebook
 title: "Classify_demo"
 tags:
 update_date: 17-01-2018
-code_version: 793828d
+code_version: 19e3e29
 author: Tania Allard
 validation_pass: 'yes'
 badge: "https://img.shields.io/badge/notebook-validated-brightgreen.svg"
@@ -448,7 +448,7 @@ pd.crosstab(test['species'], preds, rownames=['actual'], colnames=['predicted'])
         text-align: right;
     }
  </style>
- <table border="1" class="table-responsive table-striped">
+ <table border="0" class="table-responsive table-striped">
   <thead>
    <tr style="text-align: right;">
     <th>
