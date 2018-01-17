@@ -37,14 +37,11 @@ when the sidebar is displayed-->
           <br>
           <div class="badge">
             {% if page.validation_pass == 'yes' %}
-            <img src="https://img.shields.io/badge/notebook-validated-brightgreen.svg"
-            alt="pass" class="badge_img">
+            <img src="https://img.shields.io/badge/notebook-validated-brightgreen.svg" alt="pass" class="badge_img">
             {% elsif page.validation_pass == 'no' %}
-            <img src="https://img.shields.io/badge/notebook-validation failed-red.svg"
-            alt="nopass">
+            <img src="https://img.shields.io/badge/notebook-validation failed-red.svg" alt="nopass">
             {% else %}
-            <img src="https://img.shields.io/badge/notebook%20validation-unknown-yellow.svg"
-            alt="unknown">
+            <img src="https://img.shields.io/badge/notebook%20validation-unknown-yellow.svg" alt="unknown">
             {% endif %}
           </div>
           <hr>
