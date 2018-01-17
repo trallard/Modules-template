@@ -3,7 +3,7 @@ layout: notebook
 title: "Classify_demo"
 tags:
 update_date: 17-01-2018
-code_version: 19e3e29
+code_version: 8144caf
 author: Tania Allard
 validation_pass: 'yes'
 badge: "https://img.shields.io/badge/notebook-validated-brightgreen.svg"
@@ -66,7 +66,7 @@ df.head()
         text-align: right;
     }
  </style>
- <table border="1" class="table-responsive table-striped">
+ <table border="0" class="table-responsive table-striped">
   <thead>
    <tr style="text-align: right;">
     <th>
@@ -214,7 +214,7 @@ df.head()
         text-align: right;
     }
  </style>
- <table border="1" class="table-responsive table-striped">
+ <table border="0" class="table-responsive table-striped">
   <thead>
    <tr style="text-align: right;">
     <th>
@@ -565,7 +565,7 @@ import matplotlib.pyplot as plt
 iris = load_iris()
 
 
-# converting to a pandas DF for ease of use
+# converting to a pandas DF for ease of use 
 x = pd.DataFrame(iris.data, columns=['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width'])
 y = pd.DataFrame(iris.target, columns=['Target'])
 ```
@@ -633,7 +633,7 @@ predictedY = np.choose(model.labels_, [1, 0, 2]).astype(np.int64)
 
 ax1.scatter(x['Petal Length'], x['Petal Width'], c=colors[y['Target']], s=20)
 ax1.set_title('Real classification')
-
+ 
 # Plot the classifications according to the model
 ax2.scatter(x['Petal Length'], x['Petal Width'], c=colors[predictedY], s=20)
 ax2.set_title("Model's classification");
