@@ -117,6 +117,8 @@ the button will be automatically added to all the rendered notebooks.
 If you do not have your notebooks in Azure notebooks only comment the line with a
 `#`.
 
+*IMPORTANT* at the moment the template only supports ONE Azure Notebooks library per website. 
+
 ### Theme colors- Or how do I change the colour scheme?
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
 
