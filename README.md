@@ -62,8 +62,9 @@ These are the basic configuration setups for the site, this **must** be set acco
 The title and description are used in the landing page as well as to generate canonical urls for the website.
 
 The variable
-`baseurl` is the name of your repository which is **/Module_template** by default. If you setup your instance using another method than forking like duplication/mirroring, or you changed the name of your repository, you will need to change this accordingly.
+`baseurl` is the name of your repository which is **/Modules_template** by default (as per this repository).
 
+Make sure to change this to match your own repository and website.
 
 If you have trouble understanding what the `baseurl` and `url` variables are visit <https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/>.
 
@@ -81,7 +82,9 @@ collections:
 
 You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
 
-Finally, to need to make sure there is a`.md` file that will serve as the front page to the module / collection. The mandatory fields for the front matter are (examples are provided in the template):
+Finally, you need to make sure there is a`.md` file that will serve as the front page to the module / collection.
+
+ The mandatory fields for the front matter are (examples are provided in the template inside the collections `_Day1`and `_Day2`):
 ```yaml
 layout: module
 title: Day 1 outline
@@ -93,6 +96,8 @@ Your modules will be automatically added to the landing page in the form of a ca
 You can then start populating these with other .md files or jupyter notebooks.
 The urls and redirects to the files within the collection folders are generated
 automatically and added to the front page of each module/project.
+
+![](./images/Module.PNG)
 
 Any additional pages (e.g. about, code of conduct, profile, resources) must be created and saved in the `_pages` directory.
 Once this is done the pages will be automatically added to the sidebar menu.
@@ -109,15 +114,18 @@ You will then be able to click on the `launch azurenb` badge and automatically i
 Once you have the notebooks in a Microsoft Azure Notebooks library you can add a 'launch in Azure notebooks'
 button to your notebooks within your static website.
 
+![](./images/Azure.PNG)
+
 You will need to add the url address of this library in the `_config.yml` e.g:
 ```
 azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
 ```
-the button will be automatically added to all the rendered notebooks.
+The button will be automatically added to all the rendered notebooks.
 If you do not have your notebooks in Azure notebooks only comment the line with a
 `#`.
 
-*IMPORTANT* at the moment the template only supports ONE Azure Notebooks library per website. 
+
+**IMPORTANT:** at the moment the template only supports ONE Azure Notebooks library per website.
 
 ### Theme colors- Or how do I change the colour scheme?
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
@@ -159,8 +167,10 @@ featured: ./images/dna2.jpg
 You can convert your notebooks locally into a Jekyll compliant post using the [nbjekyll](https://github.com/trallard/nbjekyll) package.
 
 ## Pre-requisites
-- Python > 3.5
+- Python > 3.4
+- pytest
 - nbjekyll (install using `pip install nbjekyll`)
+- pygit2 (if you use conda the easiest way to get this installed is by doing `conda install -c conda-forge pygit2`)
 
 ## How do I do it?
 1. Add your Jupyter notebook to the corresponding collection (e.g. `_Day1`)
