@@ -20,13 +20,9 @@ include: ['_pages']
 exclude:
   - .gitignore
   - README.md
-  - nb_jekyll.py
-  - jekyll.tpl
-  - nb_replace.py
   - vendor
   - .travis.yml
   - Gemfile*
-  - reveal.js
 
 # To ensure the links work properly
 permalink: pretty
