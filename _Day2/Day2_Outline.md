@@ -3,6 +3,7 @@ layout: module
 title: Day 2 outline
 category: module
 description: This is the description for the module
+featured:
 ---
 
 

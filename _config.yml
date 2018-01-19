@@ -32,10 +32,11 @@ exclude:
 permalink: pretty
 
 # Additional gems
-gems:
+plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
+  - jekyll-titles-from-headings
 
 # SASS directory
 sass:
