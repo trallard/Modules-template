@@ -6,5 +6,4 @@ dependencies:
   - jupyter
   - pip:
     - nbval
-    - pygit2
     - nbjekyll

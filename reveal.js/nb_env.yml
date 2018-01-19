@@ -1,6 +1,0 @@
-name: notebooks
-dependencies:
-  - python=3.5
-  - pip
-  - pip :
-    - nbval
