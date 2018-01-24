@@ -1,23 +1,27 @@
 
 [![Build Status](https://travis-ci.org/trallard/Modules-template.svg?branch=master)](https://travis-ci.org/trallard/Modules-template)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:0 orderedList:0 -->
 
 - [Modules template](#modules-template)
-- [About the website](#about-the-website)
-	- [Configuration and setup](#configuration-and-setup)
-		- [Site settings](#site-settings)
-		- [Generating the pages for the lecture modules or projects](#generating-the-pages-for-the-lecture-modules-or-projects)
-		- [Launching in Microsoft Azure notebooks](#launching-in-microsoft-azure-notebooks)
-		- [Theme colors](#theme-colors)
+- [Basic Setup ✨](#basic-setup-)
+	- [Configuration and setup ✨](#configuration-and-setup-)
+		- [Site settings ✨](#site-settings-)
+		- [Generating the pages for the lecture modules or projects ✨](#generating-the-pages-for-the-lecture-modules-or-projects-)
+		- [Launching in Microsoft Azure notebooks ✨](#launching-in-microsoft-azure-notebooks-)
+		- [Theme colors- Or how do I change the colour scheme?](#theme-colors-or-how-do-i-change-the-colour-scheme)
 		- [Layouts](#layouts)
-		- [Adding a logo and card images](#adding-a-logo-and-card-images)
-- [How to use Jekyll to build this site](#how-to-use-jekyll-to-build-this-site)
+		- [Adding a logo and card images✨](#adding-a-logo-and-card-images)
+- [Converting Jupyter notebooks to Jekyll posts ✨](#converting-jupyter-notebooks-to-jekyll-posts-)
+	- [Pre-requisites](#pre-requisites)
+	- [How do I do it?](#how-do-i-do-it)
+	- [Do I need to commit before converting?](#do-i-need-to-commit-before-converting)
+- [How to use Jekyll to build this site?](#how-to-use-jekyll-to-build-this-site)
 	- [Editing pages online with GitHub](#editing-pages-online-with-github)
 	- [Working locally](#working-locally)
-- [Generating posts/pages from Jupyter notebooks](#generating-postspages-from-jupyter-notebooks)
+- [Getting your website up and running ✨](#getting-your-website-up-and-running-)
+	- [Where's my website?](#wheres-my-website)
 
 <!-- /TOC -->
 
@@ -25,41 +29,25 @@
 This Jekyll template is intended to be used to by academics and researchers wanting to generate a _literate programming_ and _hassle free_ static website.
 This can be used as a scientific blog template or as a webpage to host/display projects information, scientific outputs or as a site for academic modules.
 
-It provides validation of Jupyter notebooks as well as automatic rendering, support for Latex via MathJax, code highlighting, and  support for [reveal.js](https://github.com/hakimel/reveal.js/) slides.
-On top of the various Jekyll capabilities.
-
 The live demo of this template can be found at [http://bitsandchips.me/Modules-template/](http://bitsandchips.me/Modules-template/) 💻.
 
-# Basic Setup
+**We have identified the most important configuration settings in order to get your site up and running and added a ✨ next to them.**
+
+# Basic Setup ✨
+Using this template should be relatively straightforward.  You will need to install Jekyll and **download** a copy of this repository to get started. Follow the next steps and you'll be up an running soon!
+
 1. Install [Jekyll](https://jekyllrb.com)
-2. Fork the [Modules Template theme](https://github.com/trallard/Modules-template)
-3. Clone the repo you just forked
+2. ⬇️ Download the latest version of **Modules-template** from [https://github.com/trallard/Modules-template/releases/](https://github.com/trallard/Modules-template/releases/)
+3. Unzip the contents
 4. Edit your `_config.yml` to personalize your site (full instructions in [Configuration and setup](#configuration-and-setup))
-5. Add your posts in the appropriate folders
-6. Deploy to GitHub pages
+5. Replace the contents of the site (posts, notebooks) with your own contents 📃
+6. Push to GitHub
+7. See your website live!
 
-# About the website
-This website is hosted as a GitHub page (github-pages). In short, it is built statically from Markdown source files and/or Jupyter notebooks using [Jekyll](http://jekyllrb.com). To update a page, just modify the corresponding source and push. The website will then be built and deployed using gh-pages.
-
-This site uses the [Bootstrap framework](http://getbootstrap.com) along with [Material Design for Boostrap](https://mdbootstrap.com/material-design-for-bootstrap/).
-
-Below you will find a description of the various files and directories within this repository:
-- `_config.yml`: main configuration file, this **must** set accordingly for your own website/blog
-- `Gemfile`: list of the various gems used in the website
-- `index.md`: landing page content
-- `_includes/*`: diverse components of the website, reusable html components
-- `_layouts/*`: local style files
-- `_sass/*`: css/sass style sheets
-- `js/*:` various JavaScript scripts used in this website
-- `pages/*`: pages markdown files
-- `posts/*`: containing folder for posts
-- `images/*`: images used across the website as well as output plots from the notebooks
-- `basic_style.scss`: this stylesheet contains the default colour scheme and fonts used in this site
-
-## Configuration and setup
+## Configuration and setup ✨
 The main configuration for the Jekyll website is declared in the `config.yml` file. Such a file contains the site specific variables, which are accessed at various points within the website.
 
-### Site settings
+### Site settings ✨
 
 ```yaml
 # Site settings
@@ -74,12 +62,13 @@ These are the basic configuration setups for the site, this **must** be set acco
 The title and description are used in the landing page as well as to generate canonical urls for the website.
 
 The variable
-`baseurl` is the name of your repository which is **/Module_template** by default. If you setup your instance using another method than forking like duplication/mirroring, or you changed the name of your repository, you will need to change this accordingly.
+`baseurl` is the name of your repository which is **/Modules_template** by default (as per this repository).
 
+Make sure to change this to match your own repository and website.
 
 If you have trouble understanding what the `baseurl` and `url` variables are visit <https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/>.
 
-### Generating the pages for the lecture modules or projects
+### Generating the pages for the lecture modules or projects ✨
 
 Each of your lecture modules/projects should be declared as a collection in the `_config.yml` file so that Jekyll knows where to read:
 ~~~ yaml
@@ -93,7 +82,9 @@ collections:
 
 You will then need to generate a folder for each module (using the exact same name you used in the configuration file) adding an underscore to the folder's name e.g. `_module1`
 
-Once the folder is created you will have to create a `.md` file that will serve as the front page to the module / collection. The mandatory fields for the frontmatter are:
+Finally, you need to make sure there is a`.md` file that will serve as the front page to the module / collection.
+
+ The mandatory fields for the front matter are (examples are provided in the template inside the collections `_Day1`and `_Day2`):
 ```yaml
 layout: module
 title: Day 1 outline
@@ -106,30 +97,37 @@ You can then start populating these with other .md files or jupyter notebooks.
 The urls and redirects to the files within the collection folders are generated
 automatically and added to the front page of each module/project.
 
+![](./images/Module.PNG)
+
 Any additional pages (e.g. about, code of conduct, profile, resources) must be created and saved in the `_pages` directory.
 Once this is done the pages will be automatically added to the sidebar menu.
 
-### Launching in Microsoft Azure notebooks
-If you want to import your library to Microsoft Azure please modify the following badge using your own repository in the `href`. Once done this, push your repository to GitHub.
+### Launching in Microsoft Azure notebooks ✨
+If you want to import your repository Jupyter notebooks to Microsoft Azure please modify the following badge using your own repository in the `href`. Once done this, push your repository to GitHub.
 
 <a href="https://notebooks.azure.com/import/gh/trallard/Modules_template"><img src="https://img.shields.io/badge/launch-azurenb-blue.svg" /></a>
 
 You will then be able to click on the `launch azurenb` badge and automatically import the notebooks to [Microsoft Azure Notebooks](https://notebooks.azure.com). Make sure to copy your library url for the following steps.
 
-Note that you will need to have a Microsoft Azure Notebooks account created before importing your notebooks from this GitHub repository.
+**Note that you will need to have a Microsoft Azure Notebooks account created before importing your notebooks from this GitHub repository.**
 
 Once you have the notebooks in a Microsoft Azure Notebooks library you can add a 'launch in Azure notebooks'
 button to your notebooks within your static website.
+
+![](./images/Azure.PNG)
 
 You will need to add the url address of this library in the `_config.yml` e.g:
 ```
 azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
 ```
-the button will be automatically added to all the rendered notebooks.
+The button will be automatically added to all the rendered notebooks.
 If you do not have your notebooks in Azure notebooks only comment the line with a
 `#`.
 
-### Theme colors
+
+**IMPORTANT:** at the moment the template only supports ONE Azure Notebooks library per website.
+
+### Theme colors- Or how do I change the colour scheme?
 The color scheme follows [Google's material design](https://material.io/guidelines/style/color.html#color-color-palette) style and is specified in terms of a primary and a secondary color, which can be modified in the `basic_style.scss` file in the root directory.
 
 If you want to modify the color scheme or the fonts used you only need to modify this file and they will be automatically updated as the site is built.
@@ -147,7 +145,7 @@ All of your content **must** have a Title and a layout. The rest of the variable
 In the case of pages generated using the module template, the title variable will be displayed the landing page as a short description of the lecture module/project (stored in the description variable).
 
 
-### Adding a logo and card images
+### Adding a logo and card images✨
 If you need to add a logo to your website you can do it by saving the image to the 'images' folder and modify the name of the image in the `config.yml` file:
 ```yaml
 logo: "./images/logo-sheffield.png"
@@ -165,7 +163,45 @@ description: This is the description for the module
 featured: ./images/dna2.jpg
 ```
 
-# How to use Jekyll to build this site
+# Converting Jupyter notebooks to Jekyll posts ✨
+You can convert your notebooks locally into a Jekyll compliant post using the [nbjekyll](https://github.com/trallard/nbjekyll) package.
+
+## Pre-requisites
+- Python > 3.4
+- pytest
+- nbjekyll (install using `pip install nbjekyll`)
+- pygit2 (if you use conda the easiest way to get this installed is by doing `conda install -c conda-forge pygit2`)
+
+## How do I do it?
+1. Add your Jupyter notebook to the corresponding collection (e.g. `_Day1`)
+2. Commit the notebook to Git
+```bash
+git add Tutorial.ipynb
+git commit -m Add Tutorial
+```
+3. From the command line use nbjekyll to convert your notebooks
+```bash
+python -m nbjekyll.convert_nbs
+```
+
+If everything goes ok you should see a new `.md` file with the same title of your notebook and the output images in `./images/notebook_images/`.
+
+Your newly converted notebooks will look something like this:
+
+![](./images/notebook.PNG)
+
+## Do I need to commit before converting?
+
+**Yes**.
+
+As you can see in the image above, the rendered notebook shows the following information;
+- The code version (sha1 for the latest version, or Git commit)
+- When it was last updated and by whom
+- Badge indicating validation: this is done using *nbval* and tells you if your notebook is broken or can be used
+
+If your notebooks are not committed to your version control system nbjekyll will not be able to convert and add the super nice and informative heading!
+
+# How to use Jekyll to build this site?
 
 ## Editing pages online with GitHub
 
@@ -223,38 +259,20 @@ Your site will be generated in a `_site` sub-directory, and served
 live at <http://localhost:4000/>. Any changes to the sources will
 trigger an automatic recompilation!
 
-# Generating posts/pages from Jupyter notebooks
+# Getting your website up and running ✨
 
-A min content portion of this website is generated from [Jupyter notebooks](http://jupyter.org).  
-The notebooks are converted to .md files using [nbconvert](https://github.com/jupyter/nbconvert) and a custom generated python script and jinja2 template (jekyll.py and jekyll.tpl).  For more information on using nbconvert and custom generated templates visit https://github.com/jupyter/nbconvert
+Once you are happy with your website content locally you can push it directly to GitHub.
 
-All the Jupyter notebooks used to generate this site can be found in this GitHub repository [Notebooks directory](https://github.com/trallard/BAD_days/tree/gh-pages/notebooks).
+You will then have to go to your GitHub repository settings at https://github.com/<your repo> and click on the settings tab:
 
-The conversion from `*.ipynb` is done via the `nb_jekyll.py` script.
-This can be used to convert all the notebooks in all the collections or individually.
-You only need to place the Jupyter notebooks directly in whichever collection you want.
+![](./images/settings.PNG)
+Scroll down to the GitHub pages section and select as source the branch you'd want to deploy your site from.
 
-The usage is as follows:
+Normally you'd want to use `master` if this is your only site or a personal site. Otherwise you should be using the `gh-pages` branch (e.g. if you have multiple sites for different projects). (You might need to create a gh-pages branch before if you'd not done it already).
 
-* For one notebook at a time
+![](./images/gh-pages.PNG)
 
-~~~
-jupyter nbconvert --config scripts/nb_jekyll.py <notebook>
-~~~
+Click Save.
 
-* For all the notebooks in the site:
-
-~~~
-jupyter nbconvert --config scripts/nb_jekyll.py
-~~~
-
-The custom converter creates a `*.md` file by extending the default `markdown.tpl` template from nbconvert. This adds the required jekyll front matter and ensures consistency between the static version of the notebook and the website.
-
-In order for the generated `*.md` files to be correctly rendered in Jekyll, some scoped text needs to be parsed this is done using the `replace.py` script.
-
-~~~
-python replace.py
-~~~
-
-If the notebooks have images (e.g. plots) these are saved as `.png` files in the `images` directory and the paths are updated automatically.
-The path can be modified directly within the script if you want these to be in a different location.
+## Where's my website?
+You should have gotten a legend indicating the URL to which your site has been published when you activated GitHub pages (see above). You can now follow this link to hyour brand new site.
