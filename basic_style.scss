@@ -2,16 +2,13 @@
 
 /* Used for display and accents */
 $primary: #778f9b;
-$primary-light: lighten($primary, 15%);
-$primary-dark: darken($primary, 15%);
 
 /* Used for titles, links and other text structures */
 $secondary: #3f51b5;
-$secondary-light: lighten($secondary, 10%);
-$secondary-dark: darken($secondary, 10%);
-$white: #fff;
-$black: #000;
 
+/* Banner font color: white or black
+if you want you can also specify a custom colour */
+$banner-col: $black;
 
 //## Custom fonts
 @import url('https://fonts.googleapis.com/css?family=Imprima|Meera+Inimai|Kaffeesatz');
@@ -23,9 +20,13 @@ $base-font: 'Meera Inimai', sans-serif;
 /*$title-font: 'Cantata One', Georgia, serif;*/
 $title-font: 'Kaffeesatz', sans-serif;
 
-/* Banner font color: white or black
-if you want you can also specify a custom colour */
-$banner-col: $black;
 
-/* DO NOT change */
+/* DO NOT modify below this line */
 .primary-lighten{ background-color: lighten($primary, 15%)}
+
+$primary-light: lighten($primary, 15%);
+$primary-dark: darken($primary, 15%);
+$secondary-light: lighten($secondary, 10%);
+$secondary-dark: darken($secondary, 10%);
+$white: #fff;
+$black: #000;

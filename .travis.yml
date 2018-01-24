@@ -12,7 +12,7 @@ script: source scripts/site_check.sh
 # Only CI on backend branch
 branches:
   only:
-  - master     # if you are serving from master, change this accordingly
+  - gh-pages   # as we are serving from gh-pages for the demo
 
 env:
   global:

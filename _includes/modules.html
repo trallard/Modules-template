@@ -16,6 +16,7 @@
             <img src="{{ file.featured | absolute_url }}" class="img-fluid"
             alt="img{{file.title}}-img"></a>
             {% else %}
+                   <a href="{{site.url}}{{site.baseurl}}{{file.url}}">
                    <img src="{{ site.card_image | absolute_url }}" class="img-fluid"
                    alt="img{{file.title}}-img">
             {% endif %}
