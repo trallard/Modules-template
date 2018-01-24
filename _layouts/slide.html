@@ -1,80 +1,92 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
 
-	<head>
-		<meta charset="utf-8">
+    <title>
+      {% if page.title %}
+        {{ page.title }} | {{ site.title }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </title>
 
-		<title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <!-- Description -->
+    {% if page.description %}
+      <meta name="description" content="{{ page.description }}" />
+    {% else %}
+      <meta name="description" content="{{ site.description }}">
+    {% endif %}
 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="{{ "/reveal.js/css/reveal.css" | prepend: site.baseurl }}"/>
+    {%if page.theme %}
+      <link rel="stylesheet" href="{{ "/reveal.js/css/theme/" | prepend: site.baseurl | append: page.theme | append: '.css' }}" id="theme"/>
+    {% else %}
+      <link rel="stylesheet" href="{{ "/reveal.js/css/theme/black.css" | prepend: site.baseurl }}" id="theme"/>
+    {% endif %}
 
-		<link rel="stylesheet" href="{{"/css/reveal.min.css" | absolute_url}}">
-		<link rel="stylesheet" href="{{"/css/theme/default.css" | absolute_url | replace: 'default',page.theme}}" id="theme"> <!-- This is where THEME -->
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="{{ "/reveal.js/lib/css/zenburn.css" | prepend: site.baseurl }}"/>
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="{{"/reveal.js/lib/css/zenburn.css" | absolute_url }}">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '{{ "/reveal.js/css/print/pdf.css" | prepend: site.baseurl }}' : '{{ "/reveal.js/css/print/paper.css" | prepend: site.baseurl }}';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = '{{"/reveal.js/css/print/pdf.css" | absolute_url}}';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+    <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | prepend: site.baseurl }}" />
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
-		<!-- Pygments Github CSS -->
-		<link rel="stylesheet" href="{{ "/reveal.js/css/syntax.css" | absolute_url }}">
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
+  <body>
 
-	</head>
+    <div class="reveal">
+      <div class="slides">
+        {{ content }}
+      </div>
+    </div>
 
-	<body>
-		<div class="reveal">
-			<div class="slides">
-{{ content }}
-			</div>
-		</div>
+    <script src="{{ "/reveal.js/lib/js/head.min.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/reveal.js/js/reveal.js" | prepend: site.baseurl }}"></script>
+    <script>
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        {%if page.transition %}
+          transition: '{{page.transition}}',
+        {% else %}
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+        {% endif %}
 
-		<script src="{{"/reveal.js/lib/js/head.min.js " | absolute_url }}"> </script>
-		<script src="{{"/reveal.js/js/reveal.min.js " | absoltue_url }}"></script>
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '{{ "/reveal.js/lib/js/classList.js" | prepend: site.baseurl }}', condition: function() { return !document.body.classList; } },
+          { src: '{{ "/reveal.js/plugin/markdown/marked.js" | prepend: site.baseurl }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{ "/reveal.js/plugin/markdown/markdown.js" | prepend: site.baseurl }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{ "/reveal.js/plugin/highlight/highlight.js" | prepend: site.baseurl }}', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '{{ "/reveal.js/plugin/zoom-js/zoom.js" | prepend: site.baseurl }}', async: true },
+          { src: '{{ "/reveal.js/plugin/notes/notes.js" | prepend: site.baseurl }}', async: true }
+        ]
+      });
 
-		<script>
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: '{{ page.trans }}', // default/cube/page/concave/zoom/linear/fade/none
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: '{{"/reveal.js/lib/js/classList.js" | absolute_url }}', condition: function() { return !document.body.classList; } },
-					{ src: '{{"/reveal.js/plugin/markdown/marked.js" | absolute_url }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '{{"/reveal.js/plugin/markdown/markdown.js" | absolute_url }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '{{"/reveal.js/plugin/highlight/highlight.js" | absolute_url }}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '{{"/reveal.js/plugin/zoom-js/zoom.js" | absolute_url }}', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: '{{"/reveal.js/plugin/notes/notes.js" | absolute_url }}', async: true, condition: function() { return !!document.body.classList; } },
-        	{ src: '{{"/reveal.js/plugin/math/math.js" | absolute_url }}', async: true }
-				]
-			});
-		</script>
-	</body>
+    </script>
 
-
+  </body>
 </html>
