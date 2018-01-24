@@ -1,9 +1,0 @@
-name: notebooks
-dependencies:
-  - python=3.6
-  - numpy
-  - scipy
-  - jupyter
-  - pip:
-    - nbval
-    - nbjekyll
