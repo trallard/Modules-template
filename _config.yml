@@ -34,7 +34,7 @@ azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
 markdown: kramdown
 highlighter: rouge
 include: ['_pages']
-exclude: ['.gitignore', 'RREADME.md', 'vendor', '.travis.yml', 'Gemfile']
+exclude: ['.gitignore', 'README.md', 'vendor', '.travis.yml', 'Gemfile']
 
 # To ensure the links work properly
 permalink: /:categories/:title/
