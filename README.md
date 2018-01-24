@@ -23,4 +23,4 @@ By using this template you will have a website that is well designed, easy to ma
 # [Getting started with Modules template](http://bitsandchips.me/Modules-template-docs)
 
 📃 The complete documentation to get started with Modules template as well as for the advanced features of Modules template can be found at [
-http://bitsandchips.me/Module-template-docs](http://bitsandchips.me/Module-template-docs)
+http://bitsandchips.me/Modules-template-docs](http://bitsandchips.me/Modules-template-docs)
