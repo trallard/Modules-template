@@ -7,6 +7,8 @@ transition: convex
 tags: [presentation]
 category: presentation
 ---
+{%include base.html %}
+
 <section data-markdown>
 
 # Reveal.js and Modules-template

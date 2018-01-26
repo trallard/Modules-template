@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-
     <title>
       {% if page.title %}
         {{ page.title }} | {{ site.title }}
@@ -24,9 +23,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
     maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-    <link rel="stylesheet" href="{{ "/reveal.js/css/reveal.css" | absolute_url }}"/>
+    <!-- Reveal js stylesheet -->
+    <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/reveal.js/css/reveal.css"/>
+
+    <!-- Reveal js theme -->
     {%if page.theme %}
-     <link rel="stylesheet" href="{{ "/reveal.js/css/theme/" | prepend: site.baseurl | append: page.theme | append: '.css' }}" id="theme"/>
+     <link rel="stylesheet" href="{{ "/reveal.js/css/theme/" | prepend: site.baseurl | prepend: site.url|  append: page.theme | append: '.css' }}" id="theme"/>
     {% else %}
       <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/reveal.js/css/theme/black.css" id="theme"/>
     {% endif %}
@@ -39,7 +41,7 @@
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '{{ "/reveal.js/css/print/pdf.css" | prepend: absolute_url }}' : '{{ "/reveal.js/css/print/paper.css" | prepend: absolute_url }}';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '{{ "/reveal.js/css/print/pdf.css" | prepend: site.baseurl | prepend: site.url }}' : '{{ "/reveal.js/css/print/paper.css" | prepend: site.baseurl | prepend: site.url }}';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 

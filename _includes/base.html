@@ -1,0 +1,8 @@
+<!-- This snippet below automatically determines the relative base and stores it in the variable base.
+Place it in your partials path, and include the partial in your layouts. -->
+{% assign base = '' %}
+{% assign depth = post.url | split: '/' | size | minus: 2 %}
+{% if    depth <= 1 %}{% assign base = '.' %}
+{% elsif depth == 2 %}{% assign base = '..' %}
+{% elsif depth == 3 %}{% assign base = '../..' %}
+{% elsif depth == 4 %}{% assign base = '../../..' %}{% endif %}
