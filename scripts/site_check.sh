@@ -2,4 +2,4 @@
 set -e # halt script on error
 
 bundle exec jekyll build  # builds the site
-bundle exec htmlproofer ./_site --disable-external --check-favicon --only_4xx --ignore-file "/presentation/"# checks that there are no broken links 
+bundle exec htmlproofer --disable-external --only_4xx --file-ignore "/reveal.js/" ./_site # checks that there are no broken links

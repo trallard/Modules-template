@@ -1,9 +1,8 @@
 ---
 layout: module
-permalink: /1-outline/
-
+permalink:
 title: Day 1 outline
-subtitle: 
+subtitle:
 tags:
 featured:
 ---

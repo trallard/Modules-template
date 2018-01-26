@@ -4,11 +4,10 @@
   <div class="row">
 
    <!--Card-->
-    <div class="col-sm-6">
+    <div class="col-sm-6 col-lg-4">
 
       <div class="card">
 
-        <!--Card image-->
         <!--Card image-->
         <div class="view overlay hm-white-slight">
           <a href="{{ "/about" | absolute_url }}" >
@@ -16,11 +15,10 @@
             <img src="{{ file.featured | absolute_url }}" class="img-fluid"
             alt="img{{file.title}}-img"></a>
             {% else %}
-                   <a href="{{site.url}}{{site.baseurl}}{{file.url}}">
                    <img src="{{ site.card_image | absolute_url }}" class="img-fluid"
                    alt="img{{file.title}}-img">
             {% endif %}
-              </a>
+         </a>
         </div>
 
         <!--Card content-->
@@ -31,8 +29,8 @@
           </a>
 
           <!--Text-->
-          <p> Description of the getting started sectiong goes here!
-          Edit on modules.html</p>
+          <p> Information on the course, evaluation,
+          and suggested literature. <strong>Please read</strong> </p>
           </div>
 
       </div>
