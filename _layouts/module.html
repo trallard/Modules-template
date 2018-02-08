@@ -6,23 +6,26 @@ layout: page
 {{content}}
 
 <!-- Automatically finds and list the files in the collection-->
-<div class='list-group'>
-{% for node in site.collections%}
-{% for file in node.docs %}
-{% if file.collection == page.collection %}
-{% if file.layout != 'module' %}
+<div class="row">
+  <div class="col-sm-6 col-lg-6">
+    <div class='list-group'>
+      {% for node in site.collections%}
+      {% for file in node.docs %}
+      {% if file.collection == page.collection %}
+      {% if file.layout != 'module' %}
 
-<!-- Note you need to prepend the site.baseurl always-->
-<a class='list-group-item' href="{{ file.url | absolute_url }}">
-  {{file.title}}
-</a>
+      <!-- Note you need to prepend the site.baseurl always-->
+      <a class='list-group-item' href="{{ file.url | absolute_url }}">
+        {{file.title}}
+      </a>
 
-{% endif %}
-{% endif %}
-{% endfor %}
-{% endfor %}
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
 </div>
-
 <!-- home button -->
 <a href="{{site.url}}{{site.baseurl}}/index.html" class="float">
   <i class="fa fa-home my-float"></i>
