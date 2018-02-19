@@ -13,17 +13,21 @@ logo: "./images/logo-sheffield.png"
 card_image: "./images/dna.jpg" #default card image to be shown
 
 # Collections: note each of this corresponds to a module
+# if you're using Azure notebooks add the link to your library
+# as shown below. Note that you can have multiple libraries
 collections:
   Day1:
+    azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
     output: true
   Day2:
+    azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
     output: true
 
 
 
-# If your notebooks are in an Azure library add the url here,
+# If your notebooks are in an Azure library set this to true
 # otherwise comment by adding a #
-azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
+azure: true
 
 
 # -------------------------------
