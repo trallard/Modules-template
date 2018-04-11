@@ -11,3 +11,7 @@ _site/*
 \.DS_Store
 
 scripts/__pycache__/
+
+_Day1/\.ipynb_checkpoints/
+
+_Day2/\.ipynb_checkpoints/
