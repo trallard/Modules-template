@@ -7,8 +7,9 @@
   <div class="sidebar-item">
     <p>{{ site.description }}</p>
 
-    <p> Developed by the <a href='http://rse.shef.ac.uk'> RSE team
-      </a> at the University of Sheffield.
+    <p> Module led by
+      <a href='http://staffwww.dcs.shef.ac.uk/people/E.Vasilaki/'>Prof. Eleni Vasilaki
+      </a> at the Department of Computer Science, The University of Sheffield.
       <br>
     </p>
   </div>
@@ -25,7 +26,7 @@
     {% assign pages_list = site.pages | sort:"url" %}
     {% for node in pages_list %}
       {% if node.title != null %}
-        {% if node.layout == "page" %}
+        {% if node.layout == "page" or "slides_index" %}
         <!-- Note you need to prepend the site.baseurl always-->
           <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}"
           href="{{site.url}}{{site.baseurl}}{{ node.url }}">
@@ -53,8 +54,12 @@
 
   <div class="sidebar-item">
     <p>
-      Maintained by {{site.author.name}}
+      Maintained by <a href='http://rse.shef.ac.uk'> {{site.author.name}} </a>.
       <br>
+      This website uses the <a href="https://github.com/trallard/Modules-template">
+      Jekyll Modules template <i class="fa fa-github" aria-hidden="true"></i>.</a>
+      The documentation can be found <a href="http://bitsandchips.me/Modules-template-docs/">
+      here. </a> <br>
       The University of Sheffield &copy; {{ site.time | date: '%Y' }}. CC-BY
     </p>
   </div>
