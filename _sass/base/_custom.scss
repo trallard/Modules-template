@@ -15,8 +15,20 @@ body{
 
 .navbar-brand{
   font-family: $title-font;
+  color: $banner-col!important;
 }
 
+/*** Large display ***/
+
+.display-1{
+  color: $banner-col!important;
+  font-size: 6rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.banner-text {
+  color: $banner-col!important; }
 
 /*** Links ***/
 a {

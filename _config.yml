@@ -1,5 +1,5 @@
 # Site settings
-title: Module template
+title: Modules template
 description: Lorem ipsum dolor sit amet understanding yourself in the universe tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 baseurl: "/Modules-template"
 url: "http://trallard.github.io" # the base hostname & protocol for your site
@@ -12,28 +12,39 @@ author:
 logo: "./images/logo-sheffield.png"
 card_image: "./images/dna.jpg" #default card image to be shown
 
+# Collections: note each of this corresponds to a module
+# if you're using Azure notebooks add the link to your library
+# as shown below. Note that you can have multiple libraries
+collections:
+  Day1:
+    azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
+    output: true
+  Day2:
+    azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"
+    output: true
+
+
+
+# If your notebooks are in an Azure library set this to true
+# otherwise comment by adding a #
+azure: true
+
+
+# -------------------------------
+# DO NOT EDIT BEYOND THIS Point
+# -------------------------------
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 include: ['_pages']
-exclude:
-  - .gitignore
-  - README.md
-  - nb_jekyll.py
-  - jekyll.tpl
-  - nb_replace.py
-  - vendor
-  - .travis.yml
-  - Gemfile*
-  - reveal.js
+exclude: ['.gitignore', 'README.md', 'vendor', '.travis.yml', 'Gemfile']
 
 # To ensure the links work properly
-permalink: pretty
+permalink: /:categories/:title/
 
-# Additional gems
+# Additional gems (now plugins)
 plugins:
-  - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
   - jekyll-titles-from-headings
@@ -47,15 +58,3 @@ sass:
 source: .
 destination: ./_site
 data_dir: ./_data
-
-# Collections: note each of this corresponds to a module
-collections:
-  Day1:
-    output: true
-  Day2:
-    output: true
-
-
-# If your notebooks are in an Azure library add the url here,
-# otherwise comment by adding a #
-azure: "https://notebooks.azure.com/trallard/libraries/BAD-days"

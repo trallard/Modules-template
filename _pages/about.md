@@ -2,18 +2,40 @@
 layout: page
 permalink: /about/
 title: Getting started
-description: This is the description for the about page 
+description: This is the description for the about page
 category:
 featured:
 ---
 
-# Working with the material
-The simplest way to enjoy these materials is to view each lesson online here. In such a case, you could follow along and write your own version of the programs to run with your local R installation.
+# About the course
 
-You can also **download/fork** the whole collections of Notebooks from the [GitHub repository](https://github.com/trallard/BAD_days). That way you can use your local copy of the materials and follow along the course and make your own modifications/extensions.
+Attendance to the lectures and laboratories of this module is **compulsory**.
 
-## About the course
+### Prerequisites
 
-The core of this tutorial is built around the [Jupyter Notebooks](https://jupyter.org), an interactive computational environment run in a web browser.
+In addition to excellent programming skills, Matrix Algebra and very good knowledge of Calculus (derivatives) is required for this course. Python or Matlab will be used for the laboratory exercises.
 
-In this particular case we will be using the R programming language for the data exploration/analysis.
+### Evaluation
+
+The course is evaluated by a formal exam (65%) and lab-based assignments/reports (35%), i.e. 15% report on unsupervised learning, 20% report on reinforcement learning.
+
+### Bibliography
+
+The reading material for this course includes a selection from the books:
+- **"Introduction to the Theory of Neural Computation"** by Hertz, Krogh & Palmer
+- **"Spiking Neuron Models"** by Gerstner & Kistler
+- **"Theoretical Neuroscience"** by Dayan & Abbot and "Reinforcement Learning: An Introduction" by Sutton & Barto.
+
+---
+
+## About the course materials
+
+Yet to come
+
+
+### Working with the notebooks
+
+1. Python: Using Microsoft Azure
+2. MATLAB
+
+### Installing Python and MATLAB on your personal computer

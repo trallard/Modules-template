@@ -20,9 +20,14 @@ class="btn btn-module">
 <br>
 <!-- End download-->
 
+
 <!-- Azure notebooks -->
 {% if site.azure %}
-<a href="{{site.azure}}"
+
+{% assign collectionName = page.collection %}
+{% assign d = site.collections | where:'label',collectionName | first %}
+
+<a href="{{ d.azure }}"
 target="_blank" class="float float-offset" >
 <i class="fa fa-cloud my-float"></i>
 </a>
@@ -32,4 +37,4 @@ target="_blank" class="float float-offset" >
 {% endif %}
 
 <!-- End Azure notebooks -->
-<br>
+<br />
