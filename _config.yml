@@ -2,7 +2,7 @@
 title: Module template
 description: Lorem ipsum dolor sit amet understanding yourself in the universe tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 baseurl: "/Modules-template"
-url: "http://trallard.github.io" # the base hostname & protocol for your site
+url: "https://trallard.github.io" # the base hostname & protocol for your site
 
 # Author's information
 author:
@@ -28,7 +28,7 @@ exclude:
 permalink: pretty
 
 # Additional gems
-plugins:
+plugins_dir:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
