@@ -44,7 +44,7 @@ exclude: ['.gitignore', 'README.md', 'vendor', '.travis.yml', 'Gemfile']
 permalink: /:categories/:title/
 
 # Additional gems (now plugins)
-plugins:
+plugins_dir:
   - jekyll-sitemap
   - jemoji
   - jekyll-titles-from-headings
