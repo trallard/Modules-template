@@ -24,3 +24,8 @@ By using this template you will have a website that is well designed, easy to ma
 
 📃 The complete documentation to get started with Modules template as well as for the advanced features of Modules template can be found at [
 http://bitsandchips.me/Modules-template-docs](http://bitsandchips.me/Modules-template-docs)
+
+### Examples of courses using the template can be found on the following links:
+- [COM3240 Adaptive Intelligence](http://bitsandchips.me/COM3240_Adaptive_Intelligence/)
+- [BioInformatics Awareness Days](https://bitsandchips.me/BAD_days/)
+
