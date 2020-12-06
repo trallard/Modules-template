@@ -1,7 +1,7 @@
 
 [![Build Status](https://travis-ci.org/trallard/Modules-template.svg?branch=master)](https://travis-ci.org/trallard/Modules-template)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-<a href="https://notebooks.azure.com/import/gh/trallard/Modules_template"><img src="https://img.shields.io/badge/launch-azurenb-blue.svg" /></a>
+<a href="https://notebooks.azure.com/import/gh/trallard/Modules_template?WT.mc_id=academic-0000-taallard"><img src="https://img.shields.io/badge/launch-azurenb-blue.svg" /></a>
 
 
 # Modules template
